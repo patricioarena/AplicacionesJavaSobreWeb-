@@ -5,6 +5,7 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -41,7 +42,7 @@ public class UserController {
 
         var collection = database.getCollection("usuarios");
 
-        Document aDoc = new Document().append("hola2", "mundo2");
+        Document aDoc = new Document().append("hola3", "mundo3");
         collection.insertOne(aDoc);
 
 
