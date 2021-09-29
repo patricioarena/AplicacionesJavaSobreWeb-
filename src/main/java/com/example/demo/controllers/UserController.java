@@ -1,33 +1,31 @@
-package com.example.demo.Controllers;
+package com.example.demo.controllers;
 
-import com.example.demo.DataAccess.DbFirebase.CloudFirestore;
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.example.demo.DataAccess.DbMongo.IDbMongoConfiguration;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**
  * Tenga en cuenta que @RestController se usa para escribir la interfaz
+ *
  * @Controller se usa para escribir saltos de página
+ * @CrossOrigin se usa para no tener problemas con Cors
  */
 
+//@CrossOrigin(origins = "Localhost:8080")
 @RestController
 //@Controller
-@SpringBootApplication
 @RequestMapping("/user")
 public class UserController {
 
-    @Resource
-    CloudFirestore cloudFirestore;
+    private final IDbMongoConfiguration dbMongoConfiguration;
 
-//    public UserController(CloudFirestore cloudFirestore) {
-//        this.cloudFirestore = cloudFirestore;
-//    }
+    @Autowired
+    public UserController(IDbMongoConfiguration dbMongoConfiguration) {
+        this.dbMongoConfiguration = dbMongoConfiguration;
+    }
 
     /**
      * Si ResponseBody devuelve un objeto, el resultado devuelto se convertirá al formato Json para su salida
@@ -37,19 +35,27 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET)
-    public Map<String, Object> getUser(@PathVariable String id) throws ExecutionException, InterruptedException {
+    public String getUser(@PathVariable String id) throws ExecutionException, InterruptedException {
 
-        DocumentReference docRef = this.cloudFirestore.context().collection("usuarios").document(id);
-        ApiFuture<DocumentSnapshot> future = docRef.get();
-        DocumentSnapshot document = future.get();
-        if (document.exists()) {
-            var data =  document.getData();
-            System.out.println("Document data: " + data);
-            return data;
-        } else {
-            System.out.println("No such document!");
-            return null;
-        }
+        MongoDatabase database = dbMongoConfiguration.dbContext();
+
+        var collection = database.getCollection("usuarios");
+
+        Document aDoc = new Document().append("hola2", "mundo2");
+        collection.insertOne(aDoc);
+
+
+//        DocumentReference docRef = this.cloudFirestore.context().collection("usuarios").document(id);
+//        ApiFuture<DocumentSnapshot> future = docRef.get();
+//        DocumentSnapshot document = future.get();
+//        if (document.exists()) {
+//            var data =  document.getData();
+//            System.out.println("Document data: " + data);
+//            return data;
+//        } else {
+//            System.out.println("No such document!");
+        return "null";
+//        }
 //        return User.findById(id);
     }
 
