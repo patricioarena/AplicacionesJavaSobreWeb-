@@ -1,6 +1,9 @@
 package com.example.demo.controllers;
 
 import com.example.demo.DataAccess.DbMongo.IDbMongoConfiguration;
+import com.example.demo.DataAccess.Models.AbstractUser;
+import com.example.demo.DataAccess.Models.OfferPerson;
+import com.example.demo.DataAccess.Repository.UserRepository;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +25,12 @@ import java.util.concurrent.ExecutionException;
 public class UserController {
 
     private final IDbMongoConfiguration dbMongoConfiguration;
+    private final UserRepository userRepository;
 
     @Autowired
-    public UserController(IDbMongoConfiguration dbMongoConfiguration) {
+    public UserController(IDbMongoConfiguration dbMongoConfiguration, UserRepository userRepository) {
         this.dbMongoConfiguration = dbMongoConfiguration;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -60,8 +65,9 @@ public class UserController {
 //        return User.findById(id);
     }
 
-//    @RequestMapping(value = "/user", method = RequestMethod.GET)
-//    public User getUser(@RequestParam(value = "idUser", defaultValue = "1") int _idUser) {
-//        return User.getById(idUser);
-//    }
+    @RequestMapping(value = "/insertUser", method = RequestMethod.POST)
+    public int insertUser(@RequestBody OfferPerson model) {
+        userRepository.save(model);
+        return 1;
+    }
 }
