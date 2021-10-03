@@ -1,9 +1,7 @@
 package com.example.demo.DataAccess.Models;
 
-import lombok.Data;
-import lombok.Generated;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,23 +13,19 @@ import java.util.Date;
 @Document(collection = "requirementCollection")
 public class Requirement {
 
-    @Id
-    private Long _idRequirement;
-
-    private Long _idRequestPerson;
-    private Long _idTypeJob;
-    private Long _idRequirementStatus;
+    private ObjectId _idRequestPerson;
+    private ObjectId _idTypeJob;
+    private ObjectId _idRequirementStatus;
     private Date date;
     private String description;
     private String zone;
 
     public Requirement() {
-
     }
 
-    public Requirement(Long _idRequirement, Long _idRequestPerson, Long _idTypeJob, Long _idRequirementStatus, Date date, String description, String zone) {
+    public Requirement(ObjectId _idRequestPerson, ObjectId _idTypeJob, ObjectId _idRequirementStatus, Date date, String description, String zone) {
         super();
-        this._idRequirement = _idRequirement;
+
         this._idRequestPerson = _idRequestPerson;
         this._idTypeJob = _idTypeJob;
         this._idRequirementStatus = _idRequirementStatus;

@@ -7,8 +7,10 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoClient;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
@@ -85,8 +87,16 @@ public class DbMongoConfiguration implements IDbMongoConfiguration{
     }
 
     @Bean
+    @Qualifier("customMongoTemplate")
     public MongoTemplate mongoTemplate() throws Exception {
-        return new MongoTemplate(myClient(), "test");
+        return new MongoTemplate(myClient(), dbName);
+    }
+
+    @Bean
+    @Qualifier(value="customMongoOps")
+    public MongoOperations mongoOps() throws Exception {
+        MongoOperations ops = mongoTemplate();
+        return ops;
     }
 
 }

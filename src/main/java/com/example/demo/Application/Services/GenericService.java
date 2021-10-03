@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class GenericService <T, ID extends Serializable> implements IGenericService<T, ID> {
+public abstract class GenericService<T, ID extends Serializable> implements IGenericService<T, ID> {
     @Override
     public T save(T entity) {
         return getRepository().save(entity);
@@ -24,7 +24,7 @@ public abstract class GenericService <T, ID extends Serializable> implements IGe
     @Override
     public T get(ID id) {
         Optional<T> obj = getRepository().findById(id);
-        if (obj.isPresent()){
+        if (obj.isPresent()) {
             return obj.get();
         }
         return null;
