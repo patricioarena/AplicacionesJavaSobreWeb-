@@ -44,7 +44,9 @@ public class DbMongoConfiguration implements IDbMongoConfiguration{
     @PostConstruct
     private void Initialize() throws FileNotFoundException {
         try {
-            String path = "C:\\Users\\maxi\\Desktop\\AplicacionesJavaSobreWeb-\\src\\main\\java\\com\\example\\demo\\appsettings.json";
+
+            String path = System.getProperty("user.dir") + "\\appsettings.json";
+
             BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
             Gson gson = new Gson();
             HashMap<String, String> json = gson.fromJson(bufferedReader, HashMap.class);
