@@ -4,11 +4,10 @@ import com.example.demo.DataAccess.DbMongo.IDbMongoConfiguration;
 import com.example.demo.DataAccess.Models.AbstractUser;
 import com.example.demo.DataAccess.Models.OfferPerson;
 import com.example.demo.DataAccess.Repository.UserRepository;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -24,12 +23,10 @@ import java.util.concurrent.ExecutionException;
 @RequestMapping("/user")
 public class UserController {
 
-    private final IDbMongoConfiguration dbMongoConfiguration;
     private final UserRepository userRepository;
 
     @Autowired
-    public UserController(IDbMongoConfiguration dbMongoConfiguration, UserRepository userRepository) {
-        this.dbMongoConfiguration = dbMongoConfiguration;
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -40,34 +37,37 @@ public class UserController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET)
-    public String getUser(@PathVariable String id) throws ExecutionException, InterruptedException {
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    public List<AbstractUser> getUser(@PathVariable String id) throws Exception, ExecutionException, InterruptedException {
+        return userRepository.get(id);
+    }
 
-        MongoDatabase database = dbMongoConfiguration.dbContext();
-
-        var collection = database.getCollection("usuarios");
-
-        Document aDoc = new Document().append("hola3", "mundo3");
-        collection.insertOne(aDoc);
-
-
-//        DocumentReference docRef = this.cloudFirestore.context().collection("usuarios").document(id);
-//        ApiFuture<DocumentSnapshot> future = docRef.get();
-//        DocumentSnapshot document = future.get();
-//        if (document.exists()) {
-//            var data =  document.getData();
-//            System.out.println("Document data: " + data);
-//            return data;
-//        } else {
-//            System.out.println("No such document!");
-        return "null";
-//        }
-//        return User.findById(id);
+    @ResponseBody
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public List<AbstractUser> getAll() throws ExecutionException, InterruptedException {
+        return userRepository.getAll();
     }
 
     @RequestMapping(value = "/insertUser", method = RequestMethod.POST)
-    public int insertUser(@RequestBody OfferPerson model) {
-        userRepository.save(model);
-        return 1;
+    public String insertUser(@RequestBody OfferPerson model) {
+        return userRepository.save(model);
     }
+
+    // for develoment use
+    @RequestMapping(value = "/fisicalDelete/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable String id) {
+        userRepository.fisicalDelete(id);
+    }
+
+    // for develoment use
+    @RequestMapping(value = "/fisicalDelete", method = RequestMethod.DELETE)
+    public void delete(@RequestBody OfferPerson model) {
+        userRepository.fisicalDelete(model);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.DELETE)
+    public void update(@RequestBody OfferPerson model) {
+        userRepository.update(model);
+    }
+
 }
