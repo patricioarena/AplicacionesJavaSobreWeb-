@@ -67,6 +67,7 @@ public abstract class AbstractMongoRepository<T> {
         });
         return returnList;
     }
+
     //endregion
     //region PROTECTED METHODS
     protected String getDocumentId(T id) {

@@ -4,6 +4,7 @@ import com.example.demo.Application.IServices.Find;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
@@ -11,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Document(collection = "usuarios")
 public abstract class AbstractUser {
-    private int _idRole;
+    private ObjectId _idRole;
     private String name;
     private String lastName;
     private String birthDate;
