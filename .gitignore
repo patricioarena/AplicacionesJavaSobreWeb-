@@ -33,3 +33,5 @@ build/
 .vscode/
 
 serviceAccountKey.json
+appsettings.json
+/appsettings.json
