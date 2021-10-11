@@ -1,9 +1,11 @@
 package com.example.demo.Application.Services;
 
 import com.example.demo.Application.IServices.IGenericService;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import javax.management.Query;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
