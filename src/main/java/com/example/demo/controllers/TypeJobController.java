@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.ITypeJobService;
 import com.example.demo.DataAccess.Models.TypeJob;
+import com.example.demo.Domain.TypeJobDto;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +22,10 @@ public class TypeJobController {
     }
 
     @GetMapping(value = "/getAll")
-    public List<TypeJob> getAll(){
-        return _typeJobService.getAll();
+    public List<TypeJobDto> getAll(){
+
+      //  return _typeJobService.getAll();
+        return _typeJobService.getAllJobs();
     }
 
     @GetMapping(value = "/find/{id}")

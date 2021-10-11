@@ -40,25 +40,8 @@ public class AbstractUserController {
 
     @PostMapping(value = "/save")
     public ResponseEntity<AbstractUser> save(@RequestBody AbstractUserDto abstractUser){
-        System.out.println(abstractUser);
-        var roleId = new ObjectId(abstractUser.get_idRole());
-
-        AbstractUser user = new AdminPerson();
-
-        user.set_idRole(roleId);
-        user.setName(abstractUser.getName());
-        user.setLastName(abstractUser.getLastName());
-        user.setBirthDate(abstractUser.getBirthDate());
-        user.setTypeDoc(abstractUser.getTypeDoc());
-        user.setNumberDoc(abstractUser.getNumberDoc());
-        user.setGender(abstractUser.getGender());
-        user.setEmail(abstractUser.getEmail());
-        user.setTelephoneNumber(abstractUser.getTelephoneNumber());
-        user.setReputation(abstractUser.getReputation());
-        user.setAddress(abstractUser.getAddress());
-        user.setDeleted(abstractUser.getDeleted());
-
-        AbstractUser obj = _abstractUserService.save(user);
+       // System.out.println(abstractUser);
+        AbstractUser obj = _abstractUserService.saveNewUser(abstractUser);
         return new ResponseEntity<AbstractUser>(obj, HttpStatus.OK);
     }
 

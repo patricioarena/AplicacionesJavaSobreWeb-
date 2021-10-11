@@ -26,12 +26,12 @@ public abstract class AbstractUser {
     private String telephoneNumber;
     private float reputation;
     private Address address;
-    private Boolean deleted;
+    private boolean deleted;
 
 
     public AbstractUser(ObjectId _idRole, String name, String lastName, String birthDate, String typeDoc,
                         int numberDoc, String gender, String email, String telephoneNumber, float reputation,
-                        Address address, Boolean deleted){
+                        Address address, boolean deleted){
         this._idRole = _idRole;
         this.name = name;
         this.lastName = lastName;

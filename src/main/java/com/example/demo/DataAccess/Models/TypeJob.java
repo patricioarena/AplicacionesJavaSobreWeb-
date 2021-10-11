@@ -6,7 +6,6 @@ import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
 
 @Data
 @Getter
@@ -19,9 +18,10 @@ public class TypeJob {
     public TypeJob() {
     }
 
-    public TypeJob(String jobName) {
+    public TypeJob(String jobName, ObjectId id) {
         super();
 
         this.jobName = jobName;
     }
+
 }

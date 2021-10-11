@@ -3,6 +3,7 @@ package com.example.demo.Domain;
 import com.example.demo.DataAccess.Models.Address;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 import org.bson.types.ObjectId;
 
@@ -22,5 +23,6 @@ public class AbstractUserDto {
     private String telephoneNumber;
     private float reputation;
     private Address address;
-    private Boolean deleted;
+    private boolean deleted;
+
 }
