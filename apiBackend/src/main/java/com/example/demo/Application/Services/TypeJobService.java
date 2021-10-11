@@ -34,7 +34,6 @@ public class TypeJobService extends GenericService<TypeJob, ObjectId> implements
         this.commonResourcesRepository.initialized("typeJobCollection");
     }
 
-
     private Document getDocument(TypeJob model) {
         Gson gson = new GsonBuilder().create();
         String json = gson.toJson(model);
