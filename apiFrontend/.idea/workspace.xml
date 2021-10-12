@@ -10,82 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d54080-2735-474d-98a6-dd394cc79892" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/IServices/Find.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/IServices/IAbstractUserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/IServices/ICommentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/IServices/IGenericService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/IServices/IOfferService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/IServices/IRequirementService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/IServices/IRequirementStatusService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/IServices/IRoleService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/IServices/ITypeJobService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/Services/AbstractUserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/Services/CommentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/Services/Find.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/Services/GenericService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/Services/OfferService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/Services/RequirementService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/Services/RequirementStatusService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/Services/RoleService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Application/Services/TypeJobService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/BaseApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/DbMongo/DbMongoConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/DbMongo/IDbMongoConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/AbstractUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/Address.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/AdminPerson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/Comment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/Offer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/OfferPerson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/RequestPerson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/Requirement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/RequirementStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Models/TypeJob.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Repository/AbstractUserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Repository/CommentRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Repository/DocumentId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Repository/OfferRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Repository/RequirementRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Repository/RequirementStatusRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Repository/RoleRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DataAccess/Repository/TypeJobRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/DemoApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Domain/AbstractUserDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Domain/RoleDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/Domain/TypeJobDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/SwaggerConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/controllers/AbstractUserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/controllers/CommentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/controllers/OfferController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/controllers/RequirementController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/controllers/RequirementStatusController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/controllers/RoleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/controllers/TypeJobController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/classes/com/example/demo/controllers/ValuesController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../target/test-classes/com/example/demo/DemoApplicationTests.class" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/NotAuthorizationHeaderException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/HttpClientAsynchronous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/HttpClientAsynchronous.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ClientRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ClientRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -106,11 +53,23 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.apifrontend.controllers" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.apifrontend.controllers" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.54" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.54" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8090/" />
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8090/swagger-ui.html" />
+      <option name="BROWSER_ID" value="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="apiFrontend:war exploded">
@@ -208,10 +167,28 @@
       <option name="presentableId" value="Default" />
       <updated>1633981538671</updated>
       <workItem from="1633981540478" duration="355000" />
+      <workItem from="1633985443564" duration="12657000" />
+      <workItem from="1634013486901" duration="8909000" />
+      <workItem from="1634058701341" duration="12505000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/apiFrontend$Tomcat_9_0_54.ic" NAME="Tomcat 9.0.54 Coverage Results" MODIFIED="1634016839160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
