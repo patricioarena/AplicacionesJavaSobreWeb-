@@ -49,7 +49,7 @@ public class AbstractUserController {
     public ResponseEntity<AbstractUser> delete(@PathVariable ObjectId id){
         AbstractUser abstractUser = _abstractUserService.get(id);
         if(abstractUser != null){
-            _abstractUserService.delete(id);
+            _abstractUserService.setDeleted(id);
         }else{
             return new ResponseEntity<AbstractUser>(HttpStatus.NO_CONTENT);
         }
