@@ -2,8 +2,11 @@ package com.example.demo.DataAccess.Repository;
 
 import com.example.demo.DataAccess.DbMongo.IDbMongoConfiguration;
 import com.example.demo.DataAccess.Models.Requirement;
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
@@ -30,5 +33,25 @@ public class CommonResourcesRepository<T> {
     public Iterable<Document> getAll() {
         var iterableDocs = collectionReference.find();
         return iterableDocs;
+    }
+
+
+    public int setDeleted(String id){
+        BasicDBObject updateFields = new BasicDBObject();
+        updateFields.append("deleted",true);
+
+        BasicDBObject setQuery = new BasicDBObject();
+        setQuery.append("$set", updateFields);
+
+        BasicDBObject searchQuery = new BasicDBObject("_id", new ObjectId(id));
+
+        var updateResult = collectionReference.updateOne(searchQuery, setQuery);
+
+        if(updateResult.getMatchedCount() == 1 && updateResult.getModifiedCount() == 1){
+            return 1;
+        }else {
+            return 0;
+        }
+
     }
 }

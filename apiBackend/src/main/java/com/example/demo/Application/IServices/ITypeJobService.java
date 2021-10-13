@@ -9,4 +9,8 @@ import java.util.List;
 public interface ITypeJobService extends IGenericService<TypeJob, ObjectId>{
     List<TypeJobDto> getAllJobs();
     ObjectId getObjectIdTypeJob(TypeJob model);
+    TypeJobDto deleted(String id);
+    TypeJobDto saveNewTypeJob(TypeJob typeJob);
+    TypeJobDto getJobById(ObjectId id);
+    TypeJobDto modifyJob(TypeJobDto model);
 }
