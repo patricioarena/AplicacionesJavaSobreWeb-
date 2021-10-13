@@ -10,15 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d54080-2735-474d-98a6-dd394cc79892" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/NotAuthorizationHeaderException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/HttpClientAsynchronous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/HttpClientAsynchronous.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ClientRestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ClientRestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +31,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -56,6 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -169,7 +173,7 @@
       <workItem from="1633981540478" duration="355000" />
       <workItem from="1633985443564" duration="12657000" />
       <workItem from="1634013486901" duration="8909000" />
-      <workItem from="1634058701341" duration="12505000" />
+      <workItem from="1634058701341" duration="15894000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 package com.example.apifrontend.services;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -36,9 +37,15 @@ public class HttpClientAsynchronous {
         return (JSONObject) parser.parse(result);
     }
 
+    private static void controlContainsBearer(Map<String, String> headers, boolean active) throws NotAuthorizationHeaderException {
+        if (active == true){
+            if (!headers.containsKey("authorization"))
+                throw new NotAuthorizationHeaderException();
+        }
+    }
+
     private static void setHeaders(Map<String, String> headers, HttpRequest.Builder output) throws NotAuthorizationHeaderException {
-        if (!headers.containsKey("authorization"))
-            throw new NotAuthorizationHeaderException();
+        controlContainsBearer(headers, false);
         headers.forEach((key, value) -> {
             if (key.equals("authorization")) {
                 output.header(key, value);
@@ -47,6 +54,13 @@ public class HttpClientAsynchronous {
                 output.header(key, value);
             }
         });
+    }
+
+    private String objectToString(Object data) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper
+                .writerWithDefaultPrettyPrinter()
+                .writeValueAsString(data);
     }
 
     private JSONObject executeRequest(HttpRequest request) throws InterruptedException, ExecutionException, TimeoutException, ParseException {
@@ -64,10 +78,7 @@ public class HttpClientAsynchronous {
 
     public JSONObject POST(Map<String, String> headers, String uri, Object data) throws Exception {
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        String requestBody = objectMapper
-                .writerWithDefaultPrettyPrinter()
-                .writeValueAsString(data);
+        String requestBody = objectToString(data);
 
         HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
         setHeaders(headers, requestBuilder);
@@ -82,10 +93,7 @@ public class HttpClientAsynchronous {
 
     public JSONObject PUT(Map<String, String> headers, String uri, Object data) throws Exception {
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        String requestBody = objectMapper
-                .writerWithDefaultPrettyPrinter()
-                .writeValueAsString(data);
+        String requestBody = objectToString(data);
 
         HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
         setHeaders(headers, requestBuilder);

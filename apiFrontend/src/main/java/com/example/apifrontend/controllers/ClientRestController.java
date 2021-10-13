@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
+import java.lang.annotation.Annotation;
 import java.util.Map;
 
 @RestController
@@ -87,6 +88,6 @@ public class ClientRestController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
+
 }
