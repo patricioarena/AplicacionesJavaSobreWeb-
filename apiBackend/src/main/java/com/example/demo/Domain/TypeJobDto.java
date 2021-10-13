@@ -11,4 +11,5 @@ public class TypeJobDto {
 
     private String _id;
     private String jobName;
+    private boolean deleted;
 }

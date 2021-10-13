@@ -33,7 +33,7 @@ public class AbstractUserService extends GenericService<AbstractUser, ObjectId> 
     @Override
     public void setDeleted(ObjectId id){
         var get = getRepository();
-        Optional<AbstractUser> obj = getRepository().findById(id);
+        Optional<AbstractUser> obj = get.findById(id);
         if(obj.isPresent()){
             AbstractUser abstractUser = obj.get();
             abstractUser.setDeleted(true);

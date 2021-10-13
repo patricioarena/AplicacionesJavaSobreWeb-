@@ -13,15 +13,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "typeJobCollection")
 public class TypeJob {
 
+    private ObjectId id;
     private String jobName;
+    private boolean deleted;
 
     public TypeJob() {
     }
 
-    public TypeJob(String jobName, ObjectId id) {
+    public TypeJob(String jobName, ObjectId id, boolean deleted) {
         super();
 
+        this.id = id;
         this.jobName = jobName;
+        this.deleted = deleted;
     }
 
 }
