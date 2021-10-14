@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.IRequirementService;
 import com.example.demo.DataAccess.Models.Requirement;
+import com.example.demo.Domain.RequirementDto;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,30 +24,33 @@ public class RequirementController {
     }
 
     @GetMapping(value = "/getAll")
-    public List<Requirement> getAll(){
-        return _requirementService.getAll();
+    public ResponseEntity<List<RequirementDto>> getAll(){
+        List<RequirementDto> listRequirement = _requirementService.getAllRequirements();
+        return new ResponseEntity<List<RequirementDto>>(listRequirement, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public Requirement find(@PathVariable ObjectId id){
-        return _requirementService.get(id);
+    public ResponseEntity<RequirementDto> find(@PathVariable ObjectId id){
+        RequirementDto requirement = _requirementService.getRequirementById(id);
+        return new ResponseEntity<RequirementDto>(requirement, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<Requirement> save(@RequestBody Requirement requirement){
-        Requirement obj = _requirementService.save(requirement);
-        return new ResponseEntity<Requirement>(obj, HttpStatus.OK);
+    public ResponseEntity<RequirementDto> save(@RequestBody Requirement requirement){
+        RequirementDto obj = _requirementService.saveNewRequirement(requirement);
+        return new ResponseEntity<RequirementDto>(obj, HttpStatus.OK);
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Requirement> delete(@PathVariable ObjectId id){
-        Requirement requirement = _requirementService.get(id);
-        if(requirement != null){
-            _requirementService.delete(id);
-        }else{
-            return new ResponseEntity<Requirement>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<Requirement>(requirement, HttpStatus.OK);
+    public ResponseEntity<RequirementDto> delete(@PathVariable String id){
+        var requirementDto = _requirementService.deleted(id);
+        return new ResponseEntity<RequirementDto>(requirementDto, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/modifyRequirement")
+    public ResponseEntity<RequirementDto> modifyRequirement(@RequestBody RequirementDto requirement){
+        RequirementDto requirementDtoModify = _requirementService.modifyRequirement(requirement);
+        return new ResponseEntity<RequirementDto>(requirementDtoModify, HttpStatus.OK);
     }
 
 }

@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.IRequirementStatusService;
 import com.example.demo.DataAccess.Models.RequirementStatus;
+import com.example.demo.Domain.RequirementStatusDto;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,30 +22,22 @@ public class RequirementStatusController {
     }
 
     @GetMapping(value = "/getAll")
-    public List<RequirementStatus> getAll(){
-        return _requirementStatusService.getAll();
+    public ResponseEntity<List<RequirementStatusDto>> getAll(){
+        List<RequirementStatusDto> listRequirementStatus = _requirementStatusService.getAllRequirementStatus();
+        return new ResponseEntity<List<RequirementStatusDto>>(listRequirementStatus, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public RequirementStatus find(@PathVariable ObjectId id){
-        return _requirementStatusService.get(id);
+    public ResponseEntity<RequirementStatusDto> find(@PathVariable ObjectId id){
+        RequirementStatusDto rStatus = _requirementStatusService.getRequirementStatusById(id);
+        return new ResponseEntity<RequirementStatusDto>(rStatus, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<RequirementStatus> save(@RequestBody RequirementStatus requirementStatus){
-        RequirementStatus obj = _requirementStatusService.save(requirementStatus);
-        return new ResponseEntity<RequirementStatus>(obj, HttpStatus.OK);
+    public ResponseEntity<RequirementStatusDto> save(@RequestBody RequirementStatus requirementStatus){
+        RequirementStatusDto rStatus = _requirementStatusService.saveNewRequirementStatus(requirementStatus);
+        return new ResponseEntity<RequirementStatusDto>(rStatus, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<RequirementStatus> delete(@PathVariable ObjectId id){
-        RequirementStatus requirementStatus = _requirementStatusService.get(id);
-        if(requirementStatus != null){
-            _requirementStatusService.delete(id);
-        }else{
-            return new ResponseEntity<RequirementStatus>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<RequirementStatus>(requirementStatus, HttpStatus.OK);
-    }
 }
 
