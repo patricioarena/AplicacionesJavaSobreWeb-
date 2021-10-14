@@ -30,6 +30,7 @@ public class AbstractUserController {
 
     @GetMapping(value = "/getAll")
     public List<AbstractUser> getAll(){
+
         return _abstractUserService.getAll();
     }
 

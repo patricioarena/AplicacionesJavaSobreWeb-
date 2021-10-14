@@ -14,14 +14,16 @@ import java.util.Date;
 @Document(collection = "requirementStatusCollection")
 public class RequirementStatus {
 
+    private ObjectId id;
     private String status;
 
     public RequirementStatus() {
     }
 
-    public RequirementStatus(String status) {
+    public RequirementStatus(ObjectId id, String status) {
         super();
 
+        this.id = id;
         this.status = status;
     }
 }

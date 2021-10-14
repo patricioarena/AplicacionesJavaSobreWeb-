@@ -1,17 +1,13 @@
 package com.example.demo.DataAccess.Repository;
 
 import com.example.demo.DataAccess.DbMongo.IDbMongoConfiguration;
-import com.example.demo.DataAccess.Models.Requirement;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Repository;
-import java.lang.reflect.ParameterizedType;
 
 
 @Repository

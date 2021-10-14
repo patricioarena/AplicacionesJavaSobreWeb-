@@ -79,8 +79,10 @@ public class TypeJobService extends GenericService<TypeJob, ObjectId> implements
             TypeJobDto job = new TypeJobDto();
             var value = typeJob.getObjectId("_id");
             var name = typeJob.get("jobName");
+            var deleted = typeJob.get("deleted");
             job.set_id(value.toString());
             job.setJobName(name.toString());
+            job.setDeleted((Boolean) deleted);
            // System.out.println("" + typeJob);
             returnList.add(job);
         });
@@ -104,9 +106,6 @@ public class TypeJobService extends GenericService<TypeJob, ObjectId> implements
     }
 
     public TypeJobDto modifyJob(TypeJobDto model){
-        //no funciona bien, revisar, genera nuevo objeto
-        //return saveNewTypeJob(model);
-
         Optional<TypeJob> typeJobOptional = getRepository().findById(new ObjectId(model.get_id()));
         TypeJob typeJob = typeJobOptional.get();
         typeJob.setId((new ObjectId(model.get_id())));

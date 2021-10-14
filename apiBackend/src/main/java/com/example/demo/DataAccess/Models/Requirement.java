@@ -13,17 +13,19 @@ import java.util.Date;
 @Document(collection = "requirementCollection")
 public class Requirement {
 
+    private ObjectId _id;
     private ObjectId _idRequestPerson;
     private ObjectId _idTypeJob;
     private ObjectId _idRequirementStatus;
     private Date date;
     private String description;
     private String zone;
+    private boolean deleted;
 
     public Requirement() {
     }
 
-    public Requirement(ObjectId _idRequestPerson, ObjectId _idTypeJob, ObjectId _idRequirementStatus, Date date, String description, String zone) {
+    public Requirement(ObjectId _idRequestPerson, ObjectId _idTypeJob, ObjectId _idRequirementStatus, Date date, String description, String zone, boolean deleted) {
         super();
 
         this._idRequestPerson = _idRequestPerson;
@@ -32,6 +34,7 @@ public class Requirement {
         this.date = date;
         this.description = description;
         this.zone = zone;
+        this.deleted = deleted;
     }
 
 }
