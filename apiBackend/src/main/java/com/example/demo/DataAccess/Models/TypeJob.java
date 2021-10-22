@@ -1,5 +1,6 @@
 package com.example.demo.DataAccess.Models;
 
+import com.example.demo.DataAccess.Database;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Getter
 @Setter
-@Document(collection = "typeJobCollection")
+@Document(collection = Database.typeJobCollection)
 public class TypeJob {
 
     private ObjectId id;

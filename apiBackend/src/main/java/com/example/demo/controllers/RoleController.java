@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.IRoleService;
 import com.example.demo.DataAccess.Models.Role;
+import com.example.demo.Domain.RoleDto;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +22,8 @@ public class RoleController {
     }
 
     @GetMapping(value = "/getAll")
-    public List<Role> getAll(){
-        return _roleService.getAll();
+    public List<RoleDto> getAll(){
+        return _roleService.getAllRoles();
     }
 
     @GetMapping(value = "/find/{id}")

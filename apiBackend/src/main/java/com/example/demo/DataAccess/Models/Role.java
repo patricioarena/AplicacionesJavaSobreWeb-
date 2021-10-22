@@ -1,5 +1,6 @@
 package com.example.demo.DataAccess.Models;
 
+import com.example.demo.DataAccess.Database;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +13,7 @@ import java.util.Date;
 @Data
 @Getter
 @Setter
-@Document(collection = "roleCollection")
+@Document(collection = Database.roleCollection)
 public class Role {
 
     private String roleName;

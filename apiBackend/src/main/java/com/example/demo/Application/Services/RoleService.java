@@ -1,15 +1,14 @@
 package com.example.demo.Application.Services;
 
 import com.example.demo.Application.IServices.IRoleService;
+import com.example.demo.DataAccess.Database;
 import com.example.demo.DataAccess.Models.Role;
 import com.example.demo.DataAccess.Repository.CommonResourcesRepository;
 import com.example.demo.DataAccess.Repository.RoleRepository;
 import com.example.demo.Domain.RoleDto;
-import com.example.demo.Domain.TypeJobDto;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -33,18 +32,18 @@ public class RoleService extends GenericService<Role, ObjectId> implements IRole
     //Extraer logica a un metodo
     public List<RoleDto> getAllRoles() {
         List<RoleDto> returnList = new ArrayList<>();
-        Iterable<Document> roles = commonResourcesRepository.getAll(); // usar otro metodo o query para traer todos los documentos
-        RoleDto role = new RoleDto();
+        Iterable<Document> roles = commonResourcesRepository.getAll(Database.roleCollection); // usar otro metodo o query para traer todos los documentos
 
         roles.forEach(rol -> {
+            RoleDto role = new RoleDto();
             var value = rol.getObjectId("_id");
             var name = rol.get("roleName");
             role.set_id(value.toString());
             role.setRoleName(name.toString());
-            System.out.println("" + rol);
+//            System.out.println("" + rol);
+            returnList.add(role);
+//            System.out.println(role);
         });
-        returnList.add(role);
-        System.out.println(role);
         return returnList;
     }
 
