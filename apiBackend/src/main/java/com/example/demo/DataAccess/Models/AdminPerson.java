@@ -10,8 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @Document(collection = "adminPersonCollection")
-public class AdminPerson extends AbstractUser {
-
+public class AdminPerson extends User {
 
     public AdminPerson(ObjectId _idRole, String name, String lastName, String birthDate, String typeDoc,
                        int numberDoc, String gender, String email, String telephoneNumber, float reputation,

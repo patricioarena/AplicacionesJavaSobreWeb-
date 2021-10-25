@@ -11,9 +11,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @Document(collection = Database.userCollection)
-@JsonDeserialize(as = AbstractUser.class)
-public abstract class AbstractUser {
+@JsonDeserialize(as = User.class)
+public class User {
 
+    private ObjectId _id;
     private ObjectId _idRole;
     private String name;
     private String lastName;
@@ -28,9 +29,9 @@ public abstract class AbstractUser {
     private boolean deleted;
 
 
-    public AbstractUser(ObjectId _idRole, String name, String lastName, String birthDate, String typeDoc,
-                        int numberDoc, String gender, String email, String telephoneNumber, float reputation,
-                        Address address, boolean deleted){
+    public User(ObjectId _idRole, String name, String lastName, String birthDate, String typeDoc,
+                int numberDoc, String gender, String email, String telephoneNumber, float reputation,
+                Address address, boolean deleted){
         this._idRole = _idRole;
         this.name = name;
         this.lastName = lastName;
@@ -46,7 +47,7 @@ public abstract class AbstractUser {
 
     }
 
-    public AbstractUser() {
+    public User() {
 
     }
 }

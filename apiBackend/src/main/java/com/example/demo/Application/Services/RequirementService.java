@@ -19,6 +19,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+// TODO: 25/10/2021 Ver lo que se pueda cambiar por mapper
+
 @Service
 @Configuration
 public class RequirementService extends GenericService<Requirement, ObjectId> implements IRequirementService {

@@ -1,72 +1,75 @@
-//package com.example.demo.controllers;
-//
-//import com.example.demo.DataAccess.Models.AbstractUser;
-//import com.example.demo.DataAccess.Models.OfferPerson;
-//import com.example.demo.DataAccess.Repository.UserRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.List;
-//import java.util.concurrent.ExecutionException;
-//
-///**
-// * Tenga en cuenta que @RestController se usa para escribir la interfaz
-// *
-// * @Controller se usa para escribir saltos de página
-// * @CrossOrigin se usa para no tener problemas con Cors
-// */
-//
-////@CrossOrigin(origins = "Localhost:8080")
-//@RestController
-////@Controller
-//@RequestMapping("/user")
-//public class UserController {
-//
-//    private final UserRepository userRepository;
-//
-//    @Autowired
-//    public UserController(UserRepository userRepository) {
-//        this.userRepository = userRepository;
+package com.example.demo.controllers;
+
+import com.example.demo.Application.IServices.IUserService;
+import com.example.demo.DataAccess.Models.User;
+import com.example.demo.Domain.UserDto;
+import org.bson.types.ObjectId;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("api/user")
+@CrossOrigin("*")
+public class UserController {
+
+    private IUserService _userService;
+
+    public UserController(IUserService userService){
+        this._userService = userService;
+    }
+
+    @GetMapping(value = "/getAll")
+    public ResponseEntity<List<UserDto>> getAll(){
+        List<UserDto> resultList = _userService.getAllUsers();
+        return new ResponseEntity<List<UserDto>>(resultList, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/find/{id}")
+    public ResponseEntity<UserDto> find(@PathVariable String id){
+        UserDto resultUserDto = _userService.get(id);
+        return new ResponseEntity<UserDto>(resultUserDto, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/save")
+    public ResponseEntity<UserDto> save(@RequestBody UserDto userDto){
+        UserDto resultUserDto = _userService.saveNewUser(userDto);
+        return new ResponseEntity<UserDto>(resultUserDto, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/update")
+    public ResponseEntity<Integer> update(@RequestBody UserDto userDto){
+        Integer resultUpdate = _userService.updateUser(userDto);
+        return new ResponseEntity<Integer>(resultUpdate, HttpStatus.OK);
+    }
+
+    // Implementacion redundante
+    //    @DeleteMapping(value = "/delete/{id}")
+    //    public ResponseEntity<UserDto> delete(@PathVariable String id){
+    //        UserDto resultUserDto = _userService.get(id);
+    //        if(resultUserDto != null){
+    //            _userService.setDeleted(id);
+    //        }else{
+    //            return new ResponseEntity<UserDto>(HttpStatus.NO_CONTENT);
+    //        }
+    //        return new ResponseEntity<UserDto>(resultUserDto, HttpStatus.OK);
+    //    }
+
+    //    @DeleteMapping(value = "/setDeleted")
+    //    public void setDeletedByUserModel(@RequestBody UserDto userDto){
+    //        _userService.setDeleted(userDto);
+    //    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<Integer> setDeleted(@PathVariable String id){
+        Integer resultDelete = _userService.setDeleted(id);
+        return new ResponseEntity<Integer>(resultDelete, HttpStatus.OK);
+    }
+
+//    @DeleteMapping(value = "/setDeleted/byObjectId/{ObjectId}")
+//    public void setDeletedByObjectId(@PathVariable String ObjectId){
+//        _userService.setDeleted(new ObjectId(ObjectId));
 //    }
-//
-//    /**
-//     * Si ResponseBody devuelve un objeto, el resultado devuelto se convertirá al formato Json para su salida
-//     *
-//     * @param id
-//     * @return
-//     */
-//    @ResponseBody
-//    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-//    public List<AbstractUser> getUser(@PathVariable String id) throws Exception, ExecutionException, InterruptedException {
-//        return userRepository.get(id);
-//    }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-//    public List<AbstractUser> getAll() throws ExecutionException, InterruptedException {
-//        return userRepository.getAll();
-//    }
-//
-//    @RequestMapping(value = "/insertUser", method = RequestMethod.POST)
-//    public String insertUser(@RequestBody OfferPerson model) {
-//        return userRepository.save(model);
-//    }
-//
-//    // for develoment use
-//    @RequestMapping(value = "/fisicalDelete/{id}", method = RequestMethod.DELETE)
-//    public void delete(@PathVariable String id) {
-//        userRepository.fisicalDelete(id);
-//    }
-//
-//    // for develoment use
-//    @RequestMapping(value = "/fisicalDelete", method = RequestMethod.DELETE)
-//    public void delete(@RequestBody OfferPerson model) {
-//        userRepository.fisicalDelete(model);
-//    }
-//
-//    @RequestMapping(value = "/update", method = RequestMethod.DELETE)
-//    public void update(@RequestBody OfferPerson model) {
-//        userRepository.update(model);
-//    }
-//
-//}
+}

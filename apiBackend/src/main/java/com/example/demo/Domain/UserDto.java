@@ -10,7 +10,7 @@ import org.bson.types.ObjectId;
 @Data
 @Getter
 @Setter
-public class AbstractUserDto {
+public class UserDto {
 
     private String _id;
     private String _idRole;
