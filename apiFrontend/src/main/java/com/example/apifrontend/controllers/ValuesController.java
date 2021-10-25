@@ -1,9 +1,11 @@
 package com.example.apifrontend.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 
+@ApiIgnore
 @RestController
 @RequestMapping("api/values")
 public class ValuesController {

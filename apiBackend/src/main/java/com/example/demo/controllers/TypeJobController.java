@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.ITypeJobService;
 import com.example.demo.DataAccess.Models.TypeJob;
+import com.example.demo.Domain.Datawrapper;
 import com.example.demo.Domain.TypeJobDto;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
@@ -22,21 +23,24 @@ public class TypeJobController {
     }
 
     @GetMapping(value = "/getAll")
-    public ResponseEntity<List<TypeJobDto>> getAll(){
+    public ResponseEntity<Datawrapper<List<TypeJobDto>>> getAll(){
         List<TypeJobDto> listTypejob = _typeJobService.getAllJobs();
-        return new ResponseEntity<List<TypeJobDto>>(listTypejob, HttpStatus.OK);
+        Datawrapper<List<TypeJobDto>> response = new Datawrapper<>(listTypejob);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public ResponseEntity<TypeJobDto> find(@PathVariable ObjectId id){
+    public ResponseEntity<Datawrapper<TypeJobDto>> find(@PathVariable ObjectId id){
         TypeJobDto job = _typeJobService.getJobById(id);
-        return new ResponseEntity<TypeJobDto>(job, HttpStatus.OK);
+        Datawrapper<TypeJobDto> response = new Datawrapper<>(job);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<TypeJobDto> save(@RequestBody TypeJob typeJob){
-        TypeJobDto obj = _typeJobService.saveNewTypeJob(typeJob);
-        return new ResponseEntity<TypeJobDto>(obj, HttpStatus.OK);
+    public ResponseEntity<Datawrapper<TypeJobDto>> save(@RequestBody TypeJob typeJob){
+        TypeJobDto job = _typeJobService.saveNewTypeJob(typeJob);
+        Datawrapper<TypeJobDto> response = new Datawrapper<>(job);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 /*    @GetMapping(value = "/delete/{id}")
@@ -51,14 +55,16 @@ public class TypeJobController {
     }*/
 
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<TypeJobDto> delete(@PathVariable String id){
-        var typeJobDto = _typeJobService.deleted(id);
-        return new ResponseEntity<TypeJobDto>(typeJobDto, HttpStatus.OK);
+    public ResponseEntity<Datawrapper<TypeJobDto>> delete(@PathVariable String id){
+        TypeJobDto job = _typeJobService.deleted(id);
+        Datawrapper<TypeJobDto> response = new Datawrapper<>(job);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping(value = "/modifyJob")
-    public ResponseEntity<TypeJobDto> modifyJob(@RequestBody TypeJobDto typeJob){
-        TypeJobDto typeJobDtoModify = _typeJobService.modifyJob(typeJob);
-        return new ResponseEntity<TypeJobDto>(typeJobDtoModify, HttpStatus.OK);
+    public ResponseEntity<Datawrapper<TypeJobDto>> modifyJob(@RequestBody TypeJobDto typeJob){
+        TypeJobDto job = _typeJobService.modifyJob(typeJob);
+        Datawrapper<TypeJobDto> response = new Datawrapper<>(job);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

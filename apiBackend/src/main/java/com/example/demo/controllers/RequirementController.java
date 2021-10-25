@@ -1,7 +1,6 @@
 package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.IRequirementService;
-import com.example.demo.DataAccess.Models.Requirement;
 import com.example.demo.Domain.RequirementDto;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,7 @@ public class RequirementController {
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<RequirementDto> save(@RequestBody Requirement requirement){
+    public ResponseEntity<RequirementDto> save(@RequestBody RequirementDto requirement){
         RequirementDto obj = _requirementService.saveNewRequirement(requirement);
         return new ResponseEntity<RequirementDto>(obj, HttpStatus.OK);
     }

@@ -9,6 +9,7 @@ import com.example.demo.DataAccess.Repository.RequirementRepository;
 import com.example.demo.Domain.RequirementDto;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.repository.CrudRepository;
@@ -55,9 +56,10 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
         return getRequirementDto(requirement);
     }
 
-    public RequirementDto saveNewRequirement(Requirement requirement){
+    public RequirementDto saveNewRequirement(RequirementDto requirementDto){
+        ModelMapper modelMapper = new ModelMapper();
+        Requirement requirement = modelMapper.map(requirementDto, Requirement.class);
         var requirementSave = getRepository().save(requirement);
-
         return getRequirementDto(requirement);
     }
 
