@@ -10,34 +10,29 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
-import java.lang.annotation.Annotation;
 import java.util.Map;
 
 @RestController
-@RequestMapping(name = "", value = "api/ClientRest", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ClientRestController {
+@RequestMapping(name = "", value = "api/typeJob", produces = MediaType.APPLICATION_JSON_VALUE)
+public class TypeJobController {
 
     private HttpClientAsynchronous httpClientAsynchronous;
 
-    private String urlPokemon = "https://pokeapi.co/api/v2/pokemon";
-
-    private String urlTestGet = "http://localhost:3000/getTest";
-    private String urlTestGetById = "http://localhost:3000/getTest/12";
-    private String urlTestPost = "http://localhost:3000/postTest";
-    private String urlTestPut = "http://localhost:3000/putTest/12";
-    private String urlTestDelete = "http://localhost:3000/deleteTest/12";
+    private String baseUrl = "http://localhost:8080/api/";
 
     @Autowired
-    public ClientRestController(HttpClientAsynchronous httpClientAsynchronous) {
+    public TypeJobController(HttpClientAsynchronous httpClientAsynchronous) {
         this.httpClientAsynchronous = httpClientAsynchronous;
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<JSONObject> Get(@ApiIgnore @RequestHeader Map<String, String> headers) throws Exception {
         try {
-            JSONObject respose = this.httpClientAsynchronous.GET(headers, urlPokemon);
+            String url = baseUrl + "typeJob/getAll";
+            var respose = this.httpClientAsynchronous.GET(headers, url);
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
+            e.printStackTrace();
             if (e instanceof NotAuthorizationHeaderException)
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -47,7 +42,7 @@ public class ClientRestController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<JSONObject> GetById(@ApiIgnore @RequestHeader Map<String, String> headers) throws Exception {
         try {
-            JSONObject respose = this.httpClientAsynchronous.GET(headers, urlTestGet);
+            JSONObject respose = this.httpClientAsynchronous.GET(headers, baseUrl);
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
             if (e instanceof NotAuthorizationHeaderException)
@@ -59,7 +54,7 @@ public class ClientRestController {
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     public ResponseEntity<JSONObject> Post(@ApiIgnore @RequestHeader Map<String, String> headers, @RequestBody Object data) throws Exception {
         try {
-            JSONObject respose = this.httpClientAsynchronous.POST(headers,urlTestPost, data);
+            JSONObject respose = this.httpClientAsynchronous.POST(headers,baseUrl, data);
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
             if (e instanceof NotAuthorizationHeaderException)
@@ -71,7 +66,7 @@ public class ClientRestController {
     @RequestMapping(value = "/put", method = RequestMethod.PUT)
     public ResponseEntity<JSONObject> Put(@ApiIgnore @RequestHeader Map<String, String> headers, @RequestBody Object data) throws Exception {
         try {
-            JSONObject respose = this.httpClientAsynchronous.PUT(headers,urlTestPut, data);
+            JSONObject respose = this.httpClientAsynchronous.PUT(headers,baseUrl, data);
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
             if (e instanceof NotAuthorizationHeaderException)
@@ -83,7 +78,7 @@ public class ClientRestController {
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public ResponseEntity<JSONObject> Delete(@ApiIgnore @RequestHeader Map<String, String> headers) throws Exception {
         try {
-            JSONObject respose = this.httpClientAsynchronous.DELETE(headers, urlTestDelete);
+            JSONObject respose = this.httpClientAsynchronous.DELETE(headers, baseUrl);
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
             if (e instanceof NotAuthorizationHeaderException)

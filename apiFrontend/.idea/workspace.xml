@@ -10,7 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d54080-2735-474d-98a6-dd394cc79892" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../clientApp" beforeDir="false" afterPath="$PROJECT_DIR$/../clientApp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Domain/Datawrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/TypeJobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/IServices/IRequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/IServices/IRequirementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/RequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/RequirementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/TypeJobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/TypeJobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/ValuesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/ValuesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ValuesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ValuesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ClientRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ValuesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ValuesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ClientRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ValuesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ValuesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +78,9 @@
       <recent name="com.example.apifrontend.controllers" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.apifrontend.controllers" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.apifrontend.controllers" />
     </key>
   </component>
@@ -171,6 +190,7 @@
       <workItem from="1634013486901" duration="8909000" />
       <workItem from="1634058701341" duration="15894000" />
       <workItem from="1634414367889" duration="20000" />
+      <workItem from="1635181397258" duration="7381000" />
     </task>
     <servers />
   </component>

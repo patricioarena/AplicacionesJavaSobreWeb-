@@ -2,6 +2,8 @@ package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.IUserService;
 import com.example.demo.DataAccess.Models.User;
+import com.example.demo.Domain.Datawrapper;
+import com.example.demo.Domain.TypeJobDto;
 import com.example.demo.Domain.UserDto;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
@@ -22,27 +24,31 @@ public class UserController {
     }
 
     @GetMapping(value = "/getAll")
-    public ResponseEntity<List<UserDto>> getAll(){
+    public ResponseEntity<Datawrapper<List<UserDto>>> getAll(){
         List<UserDto> resultList = _userService.getAllUsers();
-        return new ResponseEntity<List<UserDto>>(resultList, HttpStatus.OK);
+        Datawrapper<List<UserDto>> response = new Datawrapper<>(resultList);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public ResponseEntity<UserDto> find(@PathVariable String id){
+    public ResponseEntity<Datawrapper<UserDto>> find(@PathVariable String id){
         UserDto resultUserDto = _userService.get(id);
-        return new ResponseEntity<UserDto>(resultUserDto, HttpStatus.OK);
+        Datawrapper<UserDto> response = new Datawrapper<>(resultUserDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<UserDto> save(@RequestBody UserDto userDto){
+    public ResponseEntity<Datawrapper<UserDto>> save(@RequestBody UserDto userDto){
         UserDto resultUserDto = _userService.saveNewUser(userDto);
-        return new ResponseEntity<UserDto>(resultUserDto, HttpStatus.OK);
+        Datawrapper<UserDto> response = new Datawrapper<>(resultUserDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping(value = "/update")
-    public ResponseEntity<Integer> update(@RequestBody UserDto userDto){
+    public ResponseEntity<Datawrapper<Integer>> update(@RequestBody UserDto userDto){
         Integer resultUpdate = _userService.updateUser(userDto);
-        return new ResponseEntity<Integer>(resultUpdate, HttpStatus.OK);
+        Datawrapper<Integer> response = new Datawrapper<>(resultUpdate);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     // Implementacion redundante
@@ -63,9 +69,10 @@ public class UserController {
     //    }
 
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<Integer> setDeleted(@PathVariable String id){
+    public ResponseEntity<Datawrapper<Integer>> setDeleted(@PathVariable String id){
         Integer resultDelete = _userService.setDeleted(id);
-        return new ResponseEntity<Integer>(resultDelete, HttpStatus.OK);
+        Datawrapper<Integer> response = new Datawrapper<>(resultDelete);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 //    @DeleteMapping(value = "/setDeleted/byObjectId/{ObjectId}")
