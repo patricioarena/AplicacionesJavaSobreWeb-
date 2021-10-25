@@ -74,10 +74,17 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
     @Override
     public UserDto saveNewUser(UserDto userDto) {
         ModelMapper modelMapper = new ModelMapper();
-        ObjectId roleId = new ObjectId(userDto.get_idRole());
+        ObjectId roleId = null;
+
+        if (userDto.get_idRole() != null){
+            roleId = new ObjectId(userDto.get_idRole());
+        }else{
+            roleId = new ObjectId();
+        }
+
         UserDto userDtoReturn = null;
 
-        switch(userDto.get_idRole()){
+        switch(roleId.toString()){
             case "6171ffa57831007cb5105356":    // admin
 
                 AdminPerson adminPerson = modelMapper.map(userDto, AdminPerson.class);
@@ -103,6 +110,11 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
                 break;
 
             default:
+
+                User user = modelMapper.map(userDto, User.class);
+                user.set_idRole(null);
+                var temp4 = getRepository().save(user);
+                userDtoReturn = modelMapper.map(temp4, UserDto.class);
                 break;
 
         }
