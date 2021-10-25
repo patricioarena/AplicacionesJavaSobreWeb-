@@ -1,6 +1,8 @@
 package com.example.demo.DataAccess.Repository;
 
 import com.example.demo.DataAccess.DbMongo.IDbMongoConfiguration;
+import com.example.demo.Domain.UserDto;
+import com.google.gson.Gson;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -49,6 +51,26 @@ public class CommonResourcesRepository<T> {
         }else {
             return 0;
         }
-
     }
+
+    public Integer updateFields(UserDto userDto, String collectionName){
+
+        Gson gson = new Gson();
+        String json = gson.toJson(userDto);
+        BasicDBObject updateFields = BasicDBObject.parse(json);
+        updateFields.removeField("_id");
+
+        BasicDBObject setQuery = new BasicDBObject();
+        setQuery.append("$set", updateFields);
+
+        BasicDBObject searchQuery = new BasicDBObject("_id", new ObjectId(userDto.get_id()));
+        var updateResult = getDocumentMongoCollection(collectionName).updateOne(searchQuery, setQuery);
+
+        if(updateResult.getMatchedCount() == 1 && updateResult.getModifiedCount() == 1){
+            return 1;
+        }else {
+            return 0;
+        }
+    }
+
 }

@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: 25/10/2021 Ver lo que se pueda cambiar por mapper
+
 @Service
 @Configuration
 public class RoleService extends GenericService<Role, ObjectId> implements IRoleService {

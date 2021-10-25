@@ -10,12 +10,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @Document(collection = "offerPersonCollection")
-public class OfferPerson extends AbstractUser {
+public class OfferPerson extends User {
 
     public OfferPerson(ObjectId _idRole, String name, String lastName, String birthDate, String typeDoc,
                        int numberDoc, String gender, String email, String telephoneNumber, float reputation,
                        Address address, boolean deleted){
         super(_idRole, name, lastName, birthDate, typeDoc, numberDoc, gender, email,
                 telephoneNumber, reputation, address, deleted);
+    }
+
+    public OfferPerson() {
+
     }
 }
