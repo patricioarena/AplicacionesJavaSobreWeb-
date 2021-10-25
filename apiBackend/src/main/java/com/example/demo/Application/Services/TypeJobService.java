@@ -1,6 +1,7 @@
 package com.example.demo.Application.Services;
 
 import com.example.demo.Application.IServices.ITypeJobService;
+import com.example.demo.DataAccess.Database;
 import com.example.demo.DataAccess.Models.TypeJob;
 import com.example.demo.DataAccess.Repository.CommonResourcesRepository;
 import com.example.demo.DataAccess.Repository.TypeJobRepository;
@@ -29,7 +30,6 @@ public class TypeJobService extends GenericService<TypeJob, ObjectId> implements
     public TypeJobService(TypeJobRepository typeJobRepository, CommonResourcesRepository commonResourcesRepository){
         this.typeJobRepository = typeJobRepository;
         this.commonResourcesRepository = commonResourcesRepository;
-        this.commonResourcesRepository.initialized("typeJobCollection");
     }
 
     private Document getDocument(TypeJob model) {
@@ -69,11 +69,10 @@ public class TypeJobService extends GenericService<TypeJob, ObjectId> implements
         return typeJobDto;
     }
 
-
     //Extraer logica a un metodo
     public List<TypeJobDto> getAllJobs() {
         List<TypeJobDto> returnList = new ArrayList<>();
-        Iterable<Document> typeJobs = commonResourcesRepository.getAll(); // usar otro metodo o query para traer todos los documentos
+        Iterable<Document> typeJobs = commonResourcesRepository.getAll(Database.typeJobCollection); // usar otro metodo o query para traer todos los documentos
 
         typeJobs.forEach(typeJob -> {
             TypeJobDto job = new TypeJobDto();
@@ -91,7 +90,7 @@ public class TypeJobService extends GenericService<TypeJob, ObjectId> implements
 
     public TypeJobDto deleted(String id){
         TypeJobDto typeJobDto = new TypeJobDto();
-        var result = commonResourcesRepository.setDeleted(id);
+        var result = commonResourcesRepository.setDeleted(id,Database.typeJobCollection);
 
         if (result == 1){
             Optional<TypeJob> typeJobOptional = getRepository().findById(new ObjectId(id));

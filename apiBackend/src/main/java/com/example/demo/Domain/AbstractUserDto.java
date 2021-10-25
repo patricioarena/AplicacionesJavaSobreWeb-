@@ -12,6 +12,7 @@ import org.bson.types.ObjectId;
 @Setter
 public class AbstractUserDto {
 
+    private String _id;
     private String _idRole;
     private String name;
     private String lastName;
@@ -21,7 +22,7 @@ public class AbstractUserDto {
     private String gender;
     private String email;
     private String telephoneNumber;
-    private float reputation;
+    private double reputation;
     private Address address;
     private boolean deleted;
 

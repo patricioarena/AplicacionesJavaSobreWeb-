@@ -29,14 +29,13 @@ public class AbstractUserController {
     }
 
     @GetMapping(value = "/getAll")
-    public List<AbstractUser> getAll(){
-
-        return _abstractUserService.getAll();
+    public List<AbstractUserDto> getAll(){
+        return _abstractUserService.getAllUsers();
     }
 
     @GetMapping(value = "/find/{id}")
-    public AbstractUser find(@PathVariable ObjectId id){
-        return _abstractUserService.get(id);
+    public AbstractUser find(@PathVariable String id){
+        return _abstractUserService.get(new ObjectId(id));
     }
 
     @PostMapping(value = "/save")
@@ -47,10 +46,10 @@ public class AbstractUserController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<AbstractUser> delete(@PathVariable ObjectId id){
-        AbstractUser abstractUser = _abstractUserService.get(id);
+    public ResponseEntity<AbstractUser> delete(@PathVariable String id){
+        AbstractUser abstractUser = _abstractUserService.get(new ObjectId(id));
         if(abstractUser != null){
-            _abstractUserService.setDeleted(id);
+            _abstractUserService.setDeleted(new ObjectId(id));
         }else{
             return new ResponseEntity<AbstractUser>(HttpStatus.NO_CONTENT);
         }
@@ -63,7 +62,7 @@ public class AbstractUserController {
     }
 
     @PutMapping(value = "/setDeleted/{id}")
-    public void setDeleted(@PathVariable ObjectId id){
-        _abstractUserService.setDeleted(id);
+    public void setDeleted(@PathVariable String id){
+        _abstractUserService.setDeleted(new ObjectId(id));
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.DataAccess.Models;
 
+import com.example.demo.DataAccess.Database;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -10,7 +11,7 @@ import java.util.Date;
 @Data
 @Getter
 @Setter
-@Document(collection = "requirementCollection")
+@Document(collection = Database.requirementCollection)
 public class Requirement {
 
     private ObjectId _id;

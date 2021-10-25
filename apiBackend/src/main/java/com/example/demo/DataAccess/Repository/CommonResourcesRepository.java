@@ -3,6 +3,7 @@ package com.example.demo.DataAccess.Repository;
 import com.example.demo.DataAccess.DbMongo.IDbMongoConfiguration;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,24 +16,24 @@ import org.springframework.stereotype.Repository;
 public class CommonResourcesRepository<T> {
 
     private final IDbMongoConfiguration dbMongoConfiguration;
-    private MongoCollection<Document> collectionReference;
+    private MongoDatabase dbMongo = null;
 
     @Autowired(required = false)
     public CommonResourcesRepository(IDbMongoConfiguration dbMongoConfiguration) {
         this.dbMongoConfiguration = dbMongoConfiguration;
+        this.dbMongo = this.dbMongoConfiguration.dbContext();
     }
 
-    public void initialized(String collectionName){
-        this.collectionReference = this.dbMongoConfiguration.dbContext().getCollection(collectionName);
+    private MongoCollection<Document> getDocumentMongoCollection(String collectionName) {
+        return this.dbMongo.getCollection(collectionName);
     }
 
-    public Iterable<Document> getAll() {
-        var iterableDocs = collectionReference.find();
+    public Iterable<Document> getAll(String collectionName) {
+        var iterableDocs = getDocumentMongoCollection(collectionName).find();
         return iterableDocs;
     }
 
-
-    public int setDeleted(String id){
+    public int setDeleted(String id, String collectionName){
         BasicDBObject updateFields = new BasicDBObject();
         updateFields.append("deleted",true);
 
@@ -41,7 +42,7 @@ public class CommonResourcesRepository<T> {
 
         BasicDBObject searchQuery = new BasicDBObject("_id", new ObjectId(id));
 
-        var updateResult = collectionReference.updateOne(searchQuery, setQuery);
+        var updateResult = getDocumentMongoCollection(collectionName).updateOne(searchQuery, setQuery);
 
         if(updateResult.getMatchedCount() == 1 && updateResult.getModifiedCount() == 1){
             return 1;

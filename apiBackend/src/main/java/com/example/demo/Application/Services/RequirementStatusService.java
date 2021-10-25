@@ -1,6 +1,7 @@
 package com.example.demo.Application.Services;
 
 import com.example.demo.Application.IServices.IRequirementStatusService;
+import com.example.demo.DataAccess.Database;
 import com.example.demo.DataAccess.Models.RequirementStatus;
 import com.example.demo.DataAccess.Repository.CommonResourcesRepository;
 import com.example.demo.DataAccess.Repository.RequirementStatusRepository;
@@ -49,9 +50,9 @@ public class RequirementStatusService extends GenericService<RequirementStatus, 
 
     public List<RequirementStatusDto> getAllRequirementStatus(){
         List<RequirementStatusDto> returnList = new ArrayList<>();
-        Iterable<Document> requirementsStatus = commonResourcesRepository.getAll();
+        Iterable<Document> requirementsStatus = commonResourcesRepository.getAll(Database.requirementStatusCollection);
 
-        requirementsStatus.forEach(requirementStatus ->{
+        requirementsStatus.forEach(requirementStatus -> {
             RequirementStatusDto rStatus = new RequirementStatusDto();
             var value = requirementStatus.getObjectId("_id");
             var status = requirementStatus.get("status");

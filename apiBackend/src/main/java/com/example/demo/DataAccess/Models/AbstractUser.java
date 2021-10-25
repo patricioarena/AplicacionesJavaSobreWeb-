@@ -1,6 +1,5 @@
 package com.example.demo.DataAccess.Models;
-
-import com.example.demo.Application.IServices.Find;
+import com.example.demo.DataAccess.Database;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
 import lombok.Getter;
@@ -11,8 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Getter
 @Setter
-@Document(collection = "usuarios")
-@JsonDeserialize(as = AdminPerson.class)
+@Document(collection = Database.userCollection)
+@JsonDeserialize(as = AbstractUser.class)
 public abstract class AbstractUser {
 
     private ObjectId _idRole;
@@ -24,7 +23,7 @@ public abstract class AbstractUser {
     private String gender;
     private String email;
     private String telephoneNumber;
-    private float reputation;
+    private double reputation;
     private Address address;
     private boolean deleted;
 

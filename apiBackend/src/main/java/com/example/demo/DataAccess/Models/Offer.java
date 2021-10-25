@@ -1,5 +1,6 @@
 package com.example.demo.DataAccess.Models;
 
+import com.example.demo.DataAccess.Database;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import java.util.Date;
 @Data
 @Getter
 @Setter
-@Document(collection = "offerCollection")
+@Document(collection = Database.offerCollection)
 public class Offer {
 
     private ObjectId _idOfferPerson;

@@ -2,6 +2,7 @@ package com.example.demo.Application.Services;
 
 
 import com.example.demo.Application.IServices.IRequirementService;
+import com.example.demo.DataAccess.Database;
 import com.example.demo.DataAccess.Models.Requirement;
 import com.example.demo.DataAccess.Repository.CommonResourcesRepository;
 import com.example.demo.DataAccess.Repository.RequirementRepository;
@@ -60,7 +61,7 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
 
     public List<RequirementDto> getAllRequirements(){
         List<RequirementDto> returnList = new ArrayList<>();
-        Iterable<Document> requirements = commonResourcesRepository.getAll();
+        Iterable<Document> requirements = commonResourcesRepository.getAll(Database.requirementCollection);
 
         requirements.forEach(requirement -> {
             RequirementDto requirementDto = new RequirementDto();
@@ -87,7 +88,7 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
 
     public RequirementDto deleted(String id){
         RequirementDto requirementDto = new RequirementDto();
-        var result = commonResourcesRepository.setDeleted(id);
+        var result = commonResourcesRepository.setDeleted(id,Database.requirementCollection);
 
         if (result == 1){
             Optional<Requirement> requirementOptional = getRepository().findById(new ObjectId(id));

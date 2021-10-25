@@ -10,11 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d54080-2735-474d-98a6-dd394cc79892" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/HttpClientAsynchronous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/HttpClientAsynchronous.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientApp" beforeDir="false" afterPath="$PROJECT_DIR$/../clientApp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +170,7 @@
       <workItem from="1633985443564" duration="12657000" />
       <workItem from="1634013486901" duration="8909000" />
       <workItem from="1634058701341" duration="15894000" />
+      <workItem from="1634414367889" duration="20000" />
     </task>
     <servers />
   </component>
