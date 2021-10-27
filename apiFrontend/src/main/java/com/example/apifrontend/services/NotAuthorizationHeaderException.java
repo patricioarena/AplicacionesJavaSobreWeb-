@@ -1,4 +1,4 @@
-package com.example.apifrontend.services;
+package com.example.apiFrontend.services;
 
 public class NotAuthorizationHeaderException extends Exception {
     public NotAuthorizationHeaderException() {

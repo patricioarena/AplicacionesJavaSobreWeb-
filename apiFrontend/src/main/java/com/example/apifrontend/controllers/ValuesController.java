@@ -1,4 +1,4 @@
-package com.example.apifrontend.controllers;
+package com.example.apiFrontend.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
