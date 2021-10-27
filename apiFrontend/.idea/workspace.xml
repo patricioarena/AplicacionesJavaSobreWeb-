@@ -1,33 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="apiFrontend:war exploded" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66d54080-2735-474d-98a6-dd394cc79892" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Domain/Datawrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/TypeJobController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/IServices/IRequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/IServices/IRequirementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/RequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/RequirementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/TypeJobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/TypeJobController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/ValuesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/ValuesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ClientRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ValuesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/ValuesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ClientRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ValuesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ValuesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ClientRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ValuesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ValuesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
-    </list>
+    <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,180 +13,76 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="LogFilters">
-    <option name="FILTER_ERRORS" value="false" />
-    <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
-    <option name="CUSTOM_FILTER" />
-  </component>
-  <component name="ProjectId" id="1zNHHFHXVUGCz1b2rm4TMkgpeZR" />
+  <component name="ProjectId" id="204yNc9XU5rf4Z71GCOwpThUmyx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/example/apiFrontend" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.apifrontend.controllers" />
-    </key>
-    <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="com.example.apifrontend.controllers" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\patri\Desktop\apiFrontend\src\main\java\com\example\apiFrontend" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.apifrontend.controllers" />
+      <recent name="com.example.apiFrontend" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.54" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.54" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER" value="false" />
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8090/swagger-ui.html" />
-      <option name="BROWSER_ID" value="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment>
-        <artifact name="apiFrontend:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="dc18c62f-6124-4f0e-9336-2b53099865b8" />
-        <option name="HTTP_PORT" value="8090" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="57896" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
+    <configuration name="ApifrontendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="apiFrontend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apiFrontend.ApiFrontendApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="apiFrontend:war exploded" />
-        </option>
       </method>
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="66d54080-2735-474d-98a6-dd394cc79892" name="Changes" comment="" />
-      <created>1633981538671</created>
+      <changelist id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="" />
+      <created>1635318117751</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1633981538671</updated>
-      <workItem from="1633981540478" duration="355000" />
-      <workItem from="1633985443564" duration="12657000" />
-      <workItem from="1634013486901" duration="8909000" />
-      <workItem from="1634058701341" duration="15894000" />
-      <workItem from="1634414367889" duration="20000" />
-      <workItem from="1635181397258" duration="7381000" />
+      <updated>1635318117751</updated>
+      <workItem from="1635318118999" duration="187000" />
+      <workItem from="1635318355586" duration="2812000" />
+      <workItem from="1635321236171" duration="5000" />
+      <workItem from="1635321310955" duration="29000" />
+      <workItem from="1635321368883" duration="11000" />
+      <workItem from="1635321419444" duration="206000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/apiFrontend$Tomcat_9_0_54.ic" NAME="Tomcat 9.0.54 Coverage Results" MODIFIED="1634016839160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

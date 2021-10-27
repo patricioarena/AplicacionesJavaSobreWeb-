@@ -1,7 +1,7 @@
-package com.example.apifrontend.controllers;
+package com.example.apiFrontend.controllers;
 
-import com.example.apifrontend.services.HttpClientAsynchronous;
-import com.example.apifrontend.services.NotAuthorizationHeaderException;
+import com.example.apiFrontend.services.HttpClientAsynchronous;
+import com.example.apiFrontend.services.NotAuthorizationHeaderException;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +29,7 @@ public class TypeJobController {
     public ResponseEntity<JSONObject> Get(@ApiIgnore @RequestHeader Map<String, String> headers) throws Exception {
         try {
             String url = baseUrl + "typeJob/getAll";
-            var respose = this.httpClientAsynchronous.GET(headers, url);
+            JSONObject respose = this.httpClientAsynchronous.GET(headers, url);
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();

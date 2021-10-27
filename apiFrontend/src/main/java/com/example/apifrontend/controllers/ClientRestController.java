@@ -1,7 +1,7 @@
-package com.example.apifrontend.controllers;
+package com.example.apiFrontend.controllers;
 
-import com.example.apifrontend.services.HttpClientAsynchronous;
-import com.example.apifrontend.services.NotAuthorizationHeaderException;
+import com.example.apiFrontend.services.HttpClientAsynchronous;
+import com.example.apiFrontend.services.NotAuthorizationHeaderException;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
-import java.lang.annotation.Annotation;
 import java.util.Map;
 
 @RestController

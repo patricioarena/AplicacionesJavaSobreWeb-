@@ -1,3 +1,13 @@
-C:\Users\patri\source\repos\IdeaProjects\apiFrontend\src\main\java\com\example\apifrontend\controllers\WelcomeController.java
-C:\Users\patri\source\repos\IdeaProjects\apiFrontend\src\main\java\com\example\apifrontend\config\DispatcherServletInit.java
-C:\Users\patri\source\repos\IdeaProjects\apiFrontend\src\main\java\com\example\apifrontend\config\WebApplicationContextConfig.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\config\swagger\SwaggerDocumentationConfig.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\config\swagger\SwaggerUiConfiguration.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\config\ThymeleafConfig.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\controllers\ClientRestController.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\controllers\ValuesController.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\controllers\TypeJobController.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\config\swagger\LocalDateConverter.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\services\NotAuthorizationHeaderException.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\config\DispatcherServletInit.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\config\swagger\LocalDateTimeConverter.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\controllers\HomeController.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\services\HttpClientAsynchronous.java
+C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\java\com\example\apifrontend\config\swagger\RFC3339DateFormat.java

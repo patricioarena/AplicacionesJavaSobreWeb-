@@ -1,4 +1,4 @@
-package com.example.apifrontend.services;
+package com.example.apiFrontend.services;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -12,11 +12,11 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
-import java.time.Duration;
 import java.util.concurrent.TimeoutException;
 
 //https://programmerclick.com/article/92712109938/
