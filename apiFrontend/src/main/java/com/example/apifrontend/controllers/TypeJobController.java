@@ -18,17 +18,15 @@ public class TypeJobController {
 
     private HttpClientAsynchronous httpClientAsynchronous;
 
-    private String baseUrl = "http://localhost:8080/api/";
-
     @Autowired
     public TypeJobController(HttpClientAsynchronous httpClientAsynchronous) {
         this.httpClientAsynchronous = httpClientAsynchronous;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public ResponseEntity<JSONObject> Get(@ApiIgnore @RequestHeader Map<String, String> headers) throws Exception {
         try {
-            String url = baseUrl + "typeJob/getAll";
+            String url = "typeJob/getAll";
             JSONObject respose = this.httpClientAsynchronous.GET(headers, url);
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
@@ -42,7 +40,7 @@ public class TypeJobController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<JSONObject> GetById(@ApiIgnore @RequestHeader Map<String, String> headers) throws Exception {
         try {
-            JSONObject respose = this.httpClientAsynchronous.GET(headers, baseUrl);
+            JSONObject respose = this.httpClientAsynchronous.GET(headers, "baseUrl");
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
             if (e instanceof NotAuthorizationHeaderException)
@@ -54,7 +52,7 @@ public class TypeJobController {
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     public ResponseEntity<JSONObject> Post(@ApiIgnore @RequestHeader Map<String, String> headers, @RequestBody Object data) throws Exception {
         try {
-            JSONObject respose = this.httpClientAsynchronous.POST(headers,baseUrl, data);
+            JSONObject respose = this.httpClientAsynchronous.POST(headers,"baseUrl", data);
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
             if (e instanceof NotAuthorizationHeaderException)
@@ -66,7 +64,7 @@ public class TypeJobController {
     @RequestMapping(value = "/put", method = RequestMethod.PUT)
     public ResponseEntity<JSONObject> Put(@ApiIgnore @RequestHeader Map<String, String> headers, @RequestBody Object data) throws Exception {
         try {
-            JSONObject respose = this.httpClientAsynchronous.PUT(headers,baseUrl, data);
+            JSONObject respose = this.httpClientAsynchronous.PUT(headers,"baseUrl", data);
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
             if (e instanceof NotAuthorizationHeaderException)
@@ -78,7 +76,7 @@ public class TypeJobController {
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public ResponseEntity<JSONObject> Delete(@ApiIgnore @RequestHeader Map<String, String> headers) throws Exception {
         try {
-            JSONObject respose = this.httpClientAsynchronous.DELETE(headers, baseUrl);
+            JSONObject respose = this.httpClientAsynchronous.DELETE(headers, "baseUrl");
             return new ResponseEntity<>(respose, HttpStatus.OK);
         } catch (Exception e) {
             if (e instanceof NotAuthorizationHeaderException)
