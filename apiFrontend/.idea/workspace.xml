@@ -1,81 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="apiFrontend:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/GreetingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/models/Greeting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/greeting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/example.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/config/DispatcherServletInit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/config/swagger/LocalDateConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/config/swagger/LocalDateTimeConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/config/swagger/RFC3339DateFormat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/config/swagger/SwaggerDocumentationConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/config/swagger/SwaggerUiConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/TypeJobController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/controllers/ValuesController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/com/example/apifrontend/services/NotAuthorizationHeaderException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/classes/swagger.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/bootstrap-5.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/bootstrap-datepicker-1.9.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/byte-buddy-1.8.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/classmate-1.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/guava-20.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/hamcrest-core-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/jackson-annotations-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/jackson-core-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/jackson-databind-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/jackson-datatype-jdk8-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/jackson-datatype-jsr310-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/jackson-module-parameter-names-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/jakarta.annotation-api-1.3.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/jquery-3.6.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/json-simple-1.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/jul-to-slf4j-1.7.32.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/junit-4.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/log4j-api-2.14.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/log4j-to-slf4j-2.14.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/logback-classic-1.2.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/logback-core-1.2.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/mapstruct-1.2.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/popper.js-2.9.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/snakeyaml-1.28.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/spring-boot-starter-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/spring-boot-starter-json-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/spring-boot-starter-logging-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/spring-boot-starter-tomcat-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/spring-boot-starter-web-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/spring-plugin-core-1.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/spring-plugin-metadata-1.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/spring-web-5.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/springfox-core-2.9.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/springfox-schema-2.9.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/springfox-spi-2.9.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/springfox-spring-web-2.9.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/springfox-swagger-common-2.9.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/springfox-swagger-ui-2.9.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/springfox-swagger2-2.9.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/swagger-annotations-1.5.20.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/swagger-models-1.5.20.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/tomcat-embed-core-9.0.52.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/tomcat-embed-el-9.0.52.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/apiFrontend/WEB-INF/lib/tomcat-embed-websocket-9.0.52.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/GreetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/GreetingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/TypeJobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/controllers/TypeJobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/HttpClientAsynchronous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apifrontend/services/HttpClientAsynchronous.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/TypeJobController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/TypeJobController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +33,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -122,7 +70,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatSettingConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -180,6 +128,7 @@
       <workItem from="1635322107389" duration="231000" />
       <workItem from="1635322513801" duration="855000" />
       <workItem from="1635323398365" duration="645000" />
+      <workItem from="1635401054182" duration="2361000" />
     </task>
     <servers />
   </component>

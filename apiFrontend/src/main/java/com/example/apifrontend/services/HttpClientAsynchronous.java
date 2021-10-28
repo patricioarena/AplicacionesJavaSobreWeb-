@@ -24,7 +24,10 @@ import java.util.concurrent.TimeoutException;
 @Service
 public class HttpClientAsynchronous {
 
+    private String baseUrl;
+
     public HttpClientAsynchronous() {
+        this.baseUrl = "http://localhost:8080/api/";
     }
 
     private static final HttpClient httpClient = HttpClient.newBuilder()
@@ -72,7 +75,7 @@ public class HttpClientAsynchronous {
     public JSONObject GET(Map<String, String> headers, String uri) throws Exception {
         HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
         setHeaders(headers, requestBuilder);
-        HttpRequest request = requestBuilder.GET().uri(URI.create(uri)).build();
+        HttpRequest request = requestBuilder.GET().uri(URI.create(baseUrl+uri)).build();
         return executeRequest(request);
     }
 
@@ -85,7 +88,7 @@ public class HttpClientAsynchronous {
 
         HttpRequest request = requestBuilder
                 .POST(HttpRequest.BodyPublishers.ofString(requestBody))
-                .uri(URI.create(uri))
+                .uri(URI.create(baseUrl+uri))
                 .build();
 
         return executeRequest(request);
@@ -112,5 +115,4 @@ public class HttpClientAsynchronous {
         HttpRequest request = requestBuilder.DELETE().uri(URI.create(uri)).build();
         return executeRequest(request);
     }
-
 }
