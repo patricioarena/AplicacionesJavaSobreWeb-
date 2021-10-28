@@ -11,4 +11,5 @@ public class RoleDto {
 
     private String _id;
     private String roleName;
+    private boolean deleted;
 }

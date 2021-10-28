@@ -1,6 +1,6 @@
 package com.example.demo.DataAccess;
 
-public class Database {
+public final class Database {
     public static final String requirementCollection = "requirementCollection";
     public static final String roleCollection = "roleCollection";
     public static final String typeJobCollection = "typeJobCollection";

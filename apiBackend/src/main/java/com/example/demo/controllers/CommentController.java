@@ -16,33 +16,33 @@ public class CommentController {
 
     private ICommentService _commentService;
 
-    public CommentController(ICommentService commentService){
+    public CommentController(ICommentService commentService) {
 
         this._commentService = commentService;
     }
 
     @GetMapping(value = "/getAll")
-    public List<Comment> getAll(){
+    public List<Comment> getAll() {
         return _commentService.getAll();
     }
 
     @GetMapping(value = "/find/{id}")
-    public Comment find(@PathVariable ObjectId id){
+    public Comment find(@PathVariable ObjectId id) {
         return _commentService.get(id);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<Comment> save(@RequestBody Comment comment){
+    public ResponseEntity<Comment> save(@RequestBody Comment comment) {
         Comment obj = _commentService.save(comment);
         return new ResponseEntity<Comment>(obj, HttpStatus.OK);
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Comment> delete(@PathVariable ObjectId id){
+    public ResponseEntity<Comment> delete(@PathVariable ObjectId id) {
         Comment comment = _commentService.get(id);
-        if(comment != null){
+        if (comment != null) {
             _commentService.delete(id);
-        }else{
+        } else {
             return new ResponseEntity<Comment>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<Comment>(comment, HttpStatus.OK);

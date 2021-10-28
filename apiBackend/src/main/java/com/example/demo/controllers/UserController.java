@@ -19,33 +19,33 @@ public class UserController {
 
     private IUserService _userService;
 
-    public UserController(IUserService userService){
+    public UserController(IUserService userService) {
         this._userService = userService;
     }
 
     @GetMapping(value = "/getAll")
-    public ResponseEntity<Datawrapper<List<UserDto>>> getAll(){
+    public ResponseEntity<Datawrapper<List<UserDto>>> getAll() {
         List<UserDto> resultList = _userService.getAllUsers();
         Datawrapper<List<UserDto>> response = new Datawrapper<>(resultList);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public ResponseEntity<Datawrapper<UserDto>> find(@PathVariable String id){
+    public ResponseEntity<Datawrapper<UserDto>> find(@PathVariable String id) {
         UserDto resultUserDto = _userService.get(id);
         Datawrapper<UserDto> response = new Datawrapper<>(resultUserDto);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<Datawrapper<UserDto>> save(@RequestBody UserDto userDto){
+    public ResponseEntity<Datawrapper<UserDto>> save(@RequestBody UserDto userDto) {
         UserDto resultUserDto = _userService.saveNewUser(userDto);
         Datawrapper<UserDto> response = new Datawrapper<>(resultUserDto);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping(value = "/update")
-    public ResponseEntity<Datawrapper<Integer>> update(@RequestBody UserDto userDto){
+    public ResponseEntity<Datawrapper<Integer>> update(@RequestBody UserDto userDto) {
         Integer resultUpdate = _userService.updateUser(userDto);
         Datawrapper<Integer> response = new Datawrapper<>(resultUpdate);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -69,7 +69,7 @@ public class UserController {
     //    }
 
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<Datawrapper<Integer>> setDeleted(@PathVariable String id){
+    public ResponseEntity<Datawrapper<Integer>> setDeleted(@PathVariable String id) {
         Integer resultDelete = _userService.setDeleted(id);
         Datawrapper<Integer> response = new Datawrapper<>(resultDelete);
         return new ResponseEntity<>(response, HttpStatus.OK);
