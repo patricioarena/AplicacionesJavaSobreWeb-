@@ -18,26 +18,26 @@ public class TypeJobController {
 
     private ITypeJobService _typeJobService;
 
-    public TypeJobController(ITypeJobService typeJobService){
+    public TypeJobController(ITypeJobService typeJobService) {
         this._typeJobService = typeJobService;
     }
 
     @GetMapping(value = "/getAll")
-    public ResponseEntity<Datawrapper<List<TypeJobDto>>> getAll(){
+    public ResponseEntity<Datawrapper<List<TypeJobDto>>> getAll() {
         List<TypeJobDto> listTypejob = _typeJobService.getAllJobs();
         Datawrapper<List<TypeJobDto>> response = new Datawrapper<>(listTypejob);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public ResponseEntity<Datawrapper<TypeJobDto>> find(@PathVariable ObjectId id){
+    public ResponseEntity<Datawrapper<TypeJobDto>> find(@PathVariable ObjectId id) {
         TypeJobDto job = _typeJobService.getJobById(id);
         Datawrapper<TypeJobDto> response = new Datawrapper<>(job);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<Datawrapper<TypeJobDto>> save(@RequestBody TypeJob typeJob){
+    public ResponseEntity<Datawrapper<TypeJobDto>> save(@RequestBody TypeJob typeJob) {
         TypeJobDto job = _typeJobService.saveNewTypeJob(typeJob);
         Datawrapper<TypeJobDto> response = new Datawrapper<>(job);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -55,14 +55,14 @@ public class TypeJobController {
     }*/
 
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<Datawrapper<TypeJobDto>> delete(@PathVariable String id){
+    public ResponseEntity<Datawrapper<TypeJobDto>> delete(@PathVariable String id) {
         TypeJobDto job = _typeJobService.deleted(id);
         Datawrapper<TypeJobDto> response = new Datawrapper<>(job);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping(value = "/modifyJob")
-    public ResponseEntity<Datawrapper<TypeJobDto>> modifyJob(@RequestBody TypeJobDto typeJob){
+    public ResponseEntity<Datawrapper<TypeJobDto>> modifyJob(@RequestBody TypeJobDto typeJob) {
         TypeJobDto job = _typeJobService.modifyJob(typeJob);
         Datawrapper<TypeJobDto> response = new Datawrapper<>(job);
         return new ResponseEntity<>(response, HttpStatus.OK);

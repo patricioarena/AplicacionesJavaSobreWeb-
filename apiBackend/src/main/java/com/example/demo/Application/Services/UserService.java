@@ -2,6 +2,7 @@ package com.example.demo.Application.Services;
 
 import com.example.demo.Application.IServices.IUserService;
 import com.example.demo.DataAccess.Database;
+import com.example.demo.DataAccess.DefaultRoles;
 import com.example.demo.DataAccess.Models.*;
 import com.example.demo.DataAccess.Repository.IUserRepository;
 import com.example.demo.DataAccess.Repository.CommonResourcesRepository;
@@ -84,8 +85,11 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
 
         UserDto userDtoReturn = null;
 
+
+
+
         switch(roleId.toString()){
-            case "6171ffa57831007cb5105356":    // admin
+            case DefaultRoles.adminPerson:
 
                 AdminPerson adminPerson = modelMapper.map(userDto, AdminPerson.class);
                 adminPerson.set_idRole(roleId);
@@ -93,7 +97,7 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
                 userDtoReturn = modelMapper.map(temp1, UserDto.class);
                 break;
 
-            case "6171ffed7831007cb5105357":    // requestPerson
+            case DefaultRoles.requestPerson:    // requestPerson
 
                 RequestPerson requestPerson = modelMapper.map(userDto, RequestPerson.class);
                 requestPerson.set_idRole(roleId);
@@ -101,7 +105,7 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
                 userDtoReturn = modelMapper.map(temp2, UserDto.class);
                 break;
 
-            case "617200147831007cb5105358":    // offerPerson
+            case DefaultRoles.offerPerson:    // offerPerson
 
                 OfferPerson offerPerson = modelMapper.map(userDto, OfferPerson.class);
                 offerPerson.set_idRole(roleId);

@@ -1,7 +1,9 @@
 package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.IRequirementService;
+import com.example.demo.Domain.Datawrapper;
 import com.example.demo.Domain.RequirementDto;
+import com.example.demo.Domain.TypeJobDto;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,33 +25,38 @@ public class RequirementController {
     }
 
     @GetMapping(value = "/getAll")
-    public ResponseEntity<List<RequirementDto>> getAll(){
+    public ResponseEntity<Datawrapper<List<RequirementDto>>> getAll() {
         List<RequirementDto> listRequirement = _requirementService.getAllRequirements();
-        return new ResponseEntity<List<RequirementDto>>(listRequirement, HttpStatus.OK);
+        Datawrapper<List<RequirementDto>> response = new Datawrapper<>(listRequirement);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public ResponseEntity<RequirementDto> find(@PathVariable ObjectId id){
+    public ResponseEntity<Datawrapper<RequirementDto>> find(@PathVariable ObjectId id) {
         RequirementDto requirement = _requirementService.getRequirementById(id);
-        return new ResponseEntity<RequirementDto>(requirement, HttpStatus.OK);
+        Datawrapper<RequirementDto> response = new Datawrapper<>(requirement);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<RequirementDto> save(@RequestBody RequirementDto requirement){
-        RequirementDto obj = _requirementService.saveNewRequirement(requirement);
-        return new ResponseEntity<RequirementDto>(obj, HttpStatus.OK);
+    public ResponseEntity<Datawrapper<RequirementDto>> save(@RequestBody RequirementDto requirementDto) {
+        RequirementDto requirement = _requirementService.saveNewRequirement(requirementDto);
+        Datawrapper<RequirementDto> response = new Datawrapper<>(requirement);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<RequirementDto> delete(@PathVariable String id){
-        var requirementDto = _requirementService.deleted(id);
-        return new ResponseEntity<RequirementDto>(requirementDto, HttpStatus.OK);
+    public ResponseEntity<Datawrapper<RequirementDto>> delete(@PathVariable String id) {
+        RequirementDto requirementDto = _requirementService.deleted(id);
+        Datawrapper<RequirementDto> response = new Datawrapper<>(requirementDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping(value = "/modifyRequirement")
-    public ResponseEntity<RequirementDto> modifyRequirement(@RequestBody RequirementDto requirement){
+    public ResponseEntity<Datawrapper<RequirementDto>> modifyRequirement(@RequestBody RequirementDto requirement) {
         RequirementDto requirementDtoModify = _requirementService.modifyRequirement(requirement);
-        return new ResponseEntity<RequirementDto>(requirementDtoModify, HttpStatus.OK);
+        Datawrapper<RequirementDto> response = new Datawrapper<>(requirementDtoModify);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }
