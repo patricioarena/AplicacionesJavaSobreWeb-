@@ -2,7 +2,9 @@ package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.IRoleService;
 import com.example.demo.DataAccess.Models.Role;
+import com.example.demo.Domain.Datawrapper;
 import com.example.demo.Domain.RoleDto;
+import com.example.demo.Domain.UserDto;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,29 +24,44 @@ public class RoleController {
     }
 
     @GetMapping(value = "/getAll")
-    public List<RoleDto> getAll(){
-        return _roleService.getAllRoles();
+    public ResponseEntity<Datawrapper<List<RoleDto>>> getAll(){
+        List<RoleDto> list = _roleService.getAllRoles();
+        Datawrapper<List<RoleDto>> response = new Datawrapper<>(list);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public Role find(@PathVariable ObjectId id){
-        return _roleService.get(id);
+    public ResponseEntity<Datawrapper<RoleDto>> find(@PathVariable String id){
+        RoleDto roleDto = _roleService.get(id);
+        Datawrapper<RoleDto> response = new Datawrapper<>(roleDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<Role> save(@RequestBody Role role){
-        Role obj = _roleService.save(role);
-        return new ResponseEntity<Role>(obj, HttpStatus.OK);
+    public ResponseEntity<Datawrapper<RoleDto>> save(@RequestBody RoleDto roleDto){
+        RoleDto resultRoleDto = _roleService.saveNewRole(roleDto);
+        Datawrapper<RoleDto> response = new Datawrapper<>(resultRoleDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Role> delete(@PathVariable ObjectId id){
-        Role role = _roleService.get(id);
-        if(role != null){
-            _roleService.delete(id);
+    @PostMapping(value = "/createDefaultRoles")
+    public ResponseEntity<Datawrapper<List<RoleDto>>> createDefaultRoles(){
+        List<RoleDto> list = _roleService.createDefaultRoles();
+        Datawrapper<List<RoleDto>> response = new Datawrapper<>(list);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<Datawrapper<RoleDto>> delete(@PathVariable String id){
+        int result = _roleService.setDeleted(id);
+        RoleDto role;
+        if(result == 1){
+             role = _roleService.get(id);
         }else{
-            return new ResponseEntity<Role>(HttpStatus.NO_CONTENT);
+            Datawrapper<RoleDto> response = new Datawrapper<>(new RoleDto());
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<Role>(role, HttpStatus.OK);
+        Datawrapper<RoleDto> response = new Datawrapper<>(role);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
