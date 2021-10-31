@@ -1,8 +1,10 @@
+/*
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+*/
 
 :root{
     --detail: #007bff;
@@ -12,9 +14,14 @@
 
 .btn-group{
     display: flex;
-    height: 100vh;
+    height: 100%;
     align-items: center;
     justify-content: center;
+}
+
+.btn-group ul{
+    margin: auto;
+    padding: 2px;
 }
 
 .btn-group ul li{
@@ -36,10 +43,6 @@
     transition: .2s;
 }
 
-.btn-group ul:hover a{
-    filter: blur(2px);
-}
-
 .btn-group ul li a:hover{
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 5px 5px 0px rgba(0,0,0,.4);
@@ -57,3 +60,28 @@
 .btn-group ul li .deleted:hover{
     background: var(--deleted);
 }
+
+/*.my-class{
+    background-color: #dc3545;
+    font-size: 3em;
+    color: darkmagenta;
+}*/
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.table{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.table td{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
