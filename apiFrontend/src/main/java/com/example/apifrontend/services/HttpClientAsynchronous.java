@@ -26,12 +26,12 @@ public class HttpClientAsynchronous {
 
     private String baseUrl;
 
-    /*public HttpClientAsynchronous() {
-        this.baseUrl = "http://localhost:8080/api/";
-    }*/
     public HttpClientAsynchronous() {
-        this.baseUrl = "https://0964-186-39-19-206.ngrok.io/api/";
+        this.baseUrl = "http://localhost:8080/api/";
     }
+  /*  public HttpClientAsynchronous() {
+        this.baseUrl = "https://0964-186-39-19-206.ngrok.io/api/";
+    }*/
 
 
     private static final HttpClient httpClient = HttpClient.newBuilder()
