@@ -31,29 +31,23 @@ public class RequirementStatusService extends GenericService<RequirementStatus, 
 
     public RequirementStatusDto getRequirementStatusById(ObjectId id){
         var rStatus = super.get(id);
-
         RequirementStatusDto statusDto = new RequirementStatusDto();
-
         statusDto.set_id(rStatus.getId().toString());
         statusDto.setStatus(rStatus.getStatus());
-
         return statusDto;
     }
 
     public RequirementStatusDto saveNewRequirementStatus(RequirementStatus requirementStatus){
-        var rStatus = getRepository().save(requirementStatus);
-
+        var rStatus = this.getRepository().save(requirementStatus);
         RequirementStatusDto statusDto = new RequirementStatusDto();
         statusDto.set_id(requirementStatus.getId().toString());
         statusDto.setStatus(requirementStatus.getStatus());
-
         return statusDto;
     }
 
     public List<RequirementStatusDto> getAllRequirementStatus(){
         List<RequirementStatusDto> returnList = new ArrayList<>();
-        Iterable<Document> requirementsStatus = commonResourcesRepository.getAll(Database.requirementStatusCollection);
-
+        Iterable<Document> requirementsStatus = this.commonResourcesRepository.getAll(Database.requirementStatusCollection);
         requirementsStatus.forEach(requirementStatus -> {
             RequirementStatusDto rStatus = new RequirementStatusDto();
             var value = requirementStatus.getObjectId("_id");

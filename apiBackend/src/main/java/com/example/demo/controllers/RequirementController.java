@@ -45,7 +45,7 @@ public class RequirementController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Datawrapper<RequirementDto>> delete(@PathVariable String id) {
         RequirementDto requirementDto = _requirementService.deleted(id);
         Datawrapper<RequirementDto> response = new Datawrapper<>(requirementDto);

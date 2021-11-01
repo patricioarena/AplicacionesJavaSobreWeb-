@@ -11,7 +11,6 @@ import org.bson.types.ObjectId;
 @Getter
 @Setter
 public class UserDto {
-
     private String _id;
     private String _idRole;
     private String name;

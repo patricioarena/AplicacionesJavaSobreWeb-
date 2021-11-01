@@ -28,48 +28,31 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
     private final CommonResourcesRepository commonResourcesRepository;
 
     @Autowired
-    public UserService(IUserRepository userRepository, CommonResourcesRepository commonResourcesRepository){
+    public UserService(IUserRepository userRepository, CommonResourcesRepository commonResourcesRepository) {
         this.userRepository = userRepository;
-        this.commonResourcesRepository =commonResourcesRepository;
+        this.commonResourcesRepository = commonResourcesRepository;
     }
 
-//    @Override
-//    public void setDeleted(UserDto user){
-//        ModelMapper modelMapper = new ModelMapper();
-//        User userAux = modelMapper.map(user, User.class);
-//        user.setDeleted(true);
-//        getRepository().save(userAux);
-//    }
-//
-//    @Override
-//    public void setDeleted(String id){
-//        var get = getRepository();
-//        Optional<User> obj = get.findById(new ObjectId(id));
-//        if(obj.isPresent()){
-//            User user = obj.get();
-//            user.setDeleted(true);
-//            getRepository().save(user);
+    public UserDto deleted(String id) {
+        UserDto userDto = new UserDto();
+        var result = this.commonResourcesRepository.deleted(id, Database.userCollection);
+        return (result == 1) ? this.get(id) : userDto;
+//        if (result == 1){
+//            return this.get(id);
+//        }else {
+//            return userDto;
 //        }
-//    }
-//
-//    // No se esta utilizando
-//    @Override
-//    public void setDeleted(ObjectId id){
-//        var get = getRepository();
-//        Optional<User> obj = get.findById(id);
-//        if(obj.isPresent()){
-//            User user = obj.get();
-//            user.setDeleted(true);
-//            getRepository().save(user);
-//        }
-//    }
-
-    public Integer setDeleted(String id){
-        return this.commonResourcesRepository.setDeleted(id, Database.userCollection);
     }
 
-    public Integer updateUser(UserDto userDto){
-        return this.commonResourcesRepository.updateFields(userDto, Database.userCollection);
+    public UserDto updateUser(UserDto dto) {
+        UserDto userDto = new UserDto();
+        var result = this.commonResourcesRepository.updateFields(dto, Database.userCollection);
+        return (result == 1) ? this.get(dto.get_id()) : userDto;
+//        if (result == 1){
+//            return this.get(dto.get_id());
+//        }else {
+//            return userDto;
+//        }
     }
 
     @Override
@@ -77,23 +60,20 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
         ModelMapper modelMapper = new ModelMapper();
         ObjectId roleId = null;
 
-        if (userDto.get_idRole() != null){
+        if (userDto.get_idRole() != null) {
             roleId = new ObjectId(userDto.get_idRole());
-        }else{
+        } else {
             roleId = new ObjectId();
         }
 
         UserDto userDtoReturn = null;
 
-
-
-
-        switch(roleId.toString()){
+        switch (roleId.toString()) {
             case DefaultRoles.adminPerson:
 
                 AdminPerson adminPerson = modelMapper.map(userDto, AdminPerson.class);
                 adminPerson.set_idRole(roleId);
-                var temp1 = getRepository().save(adminPerson);
+                var temp1 = this.getRepository().save(adminPerson);
                 userDtoReturn = modelMapper.map(temp1, UserDto.class);
                 break;
 
@@ -101,7 +81,7 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
 
                 RequestPerson requestPerson = modelMapper.map(userDto, RequestPerson.class);
                 requestPerson.set_idRole(roleId);
-                var temp2 = getRepository().save(requestPerson);
+                var temp2 = this.getRepository().save(requestPerson);
                 userDtoReturn = modelMapper.map(temp2, UserDto.class);
                 break;
 
@@ -109,7 +89,7 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
 
                 OfferPerson offerPerson = modelMapper.map(userDto, OfferPerson.class);
                 offerPerson.set_idRole(roleId);
-                var temp3 = getRepository().save(offerPerson);
+                var temp3 = this.getRepository().save(offerPerson);
                 userDtoReturn = modelMapper.map(temp3, UserDto.class);
                 break;
 
@@ -117,7 +97,7 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
 
                 User user = modelMapper.map(userDto, User.class);
                 user.set_idRole(null);
-                var temp4 = getRepository().save(user);
+                var temp4 = this.getRepository().save(user);
                 userDtoReturn = modelMapper.map(temp4, UserDto.class);
                 break;
 
@@ -125,12 +105,10 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
         return userDtoReturn;
     }
 
-    public List<UserDto> getAllUsers(){
+    public List<UserDto> getAllUsers() {
         List<UserDto> returnList = new ArrayList<>();
-        Iterable<User> iterableDocuments = this.userRepository.findAll();
-
+        Iterable<User> iterableDocuments = this.getRepository().findAll();
         ModelMapper modelMapper = new ModelMapper();
-
         iterableDocuments.forEach(user -> {
             UserDto userDto = modelMapper.map(user, UserDto.class);
             returnList.add(userDto);
@@ -138,14 +116,14 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
         return returnList;
     }
 
-    public UserDto get(String id){
-        User user = this.userRepository.findById(new ObjectId(id)).get();
+    public UserDto get(String id) {
+        User user = this.getRepository().findById(new ObjectId(id)).get();
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(user, UserDto.class);
     }
 
     @Override
-    public List<User> getAll(){
+    public List<User> getAll() {
         throw new java.lang.UnsupportedOperationException("Not supported yet. Use getAllUsers");
     }
 
