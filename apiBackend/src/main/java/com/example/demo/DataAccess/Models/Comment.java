@@ -15,6 +15,7 @@ import java.util.Date;
 @Document(collection = Database.commentCollection)
 public class Comment {
 
+    private ObjectId _id;
     private ObjectId _idScorerPerson;
     private ObjectId _idScoredPerson;
     private ObjectId _idRequirement;
@@ -25,9 +26,10 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(ObjectId _idScorerPerson, ObjectId _idScoredPerson, ObjectId _idRequirement, String commentDescription, int score, Date dateTime) {
+    public Comment(ObjectId _id, ObjectId _idScorerPerson, ObjectId _idScoredPerson, ObjectId _idRequirement, String commentDescription, int score, Date dateTime) {
         super();
 
+        this._id = _id;
         this._idScorerPerson = _idScorerPerson;
         this._idScoredPerson = _idScoredPerson;
         this._idRequirement = _idRequirement;

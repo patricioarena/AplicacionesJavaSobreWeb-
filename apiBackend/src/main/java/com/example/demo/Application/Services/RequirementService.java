@@ -37,7 +37,6 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
 
     private RequirementDto getRequirementDto(Requirement requirement) {
         RequirementDto requirementDto = new RequirementDto();
-
         requirementDto.set_id(requirement.get_id().toString());
         requirementDto.set_idRequestPerson(requirement.get_idRequestPerson().toString());
         requirementDto.set_idTypeJob(requirement.get_idTypeJob().toString());
@@ -46,27 +45,24 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
         requirementDto.setDescription(requirement.getDescription());
         requirementDto.setZone(requirement.getZone());
         requirementDto.setDeleted(requirement.isDeleted());
-
         return requirementDto;
     }
 
     public RequirementDto getRequirementById(ObjectId id){
         var requirement = super.get(id);
-
         return getRequirementDto(requirement);
     }
 
     public RequirementDto saveNewRequirement(RequirementDto requirementDto){
         ModelMapper modelMapper = new ModelMapper();
         Requirement requirement = modelMapper.map(requirementDto, Requirement.class);
-        var requirementSave = getRepository().save(requirement);
+        var requirementSave = this.getRepository().save(requirement);
         return getRequirementDto(requirement);
     }
 
     public List<RequirementDto> getAllRequirements(){
         List<RequirementDto> returnList = new ArrayList<>();
-        Iterable<Document> requirements = commonResourcesRepository.getAll(Database.requirementCollection);
-
+        Iterable<Document> requirements = this.commonResourcesRepository.getAll(Database.requirementCollection);
         requirements.forEach(requirement -> {
             RequirementDto requirementDto = new RequirementDto();
             var value = requirement.getObjectId("_id");
@@ -92,10 +88,9 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
 
     public RequirementDto deleted(String id){
         RequirementDto requirementDto = new RequirementDto();
-        var result = commonResourcesRepository.setDeleted(id,Database.requirementCollection);
-
+        var result = this.commonResourcesRepository.deleted(id,Database.requirementCollection);
         if (result == 1){
-            Optional<Requirement> requirementOptional = getRepository().findById(new ObjectId(id));
+            Optional<Requirement> requirementOptional = this.getRepository().findById(new ObjectId(id));
             Requirement requirement = requirementOptional.get();
             requirementDto.set_id(id);
             requirementDto.set_idRequestPerson(requirement.get_idRequestPerson().toString());
@@ -105,7 +100,6 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
             requirementDto.setDescription(requirement.getDescription());
             requirementDto.setZone(requirement.getZone());
             requirementDto.setDeleted(requirement.isDeleted());
-
             return requirementDto;
         }else{
             return requirementDto;
@@ -113,7 +107,7 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
     }
 
     public RequirementDto modifyRequirement(RequirementDto model){
-        Optional<Requirement> requirementOptional = getRepository().findById(new ObjectId(model.get_id()));
+        Optional<Requirement> requirementOptional = this.getRepository().findById(new ObjectId(model.get_id()));
         Requirement requirement = requirementOptional.get();
         requirement.set_id(new ObjectId(model.get_id()));
         requirement.set_idRequestPerson(new ObjectId(model.get_idRequestPerson()));
@@ -123,14 +117,14 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
         requirement.setDescription(model.getDescription());
         requirement.setZone(model.getZone());
         requirement.setDeleted(model.isDeleted());
+
         if (!model.isDeleted()){
             requirement.setDeleted(false);
         }else{
             requirement.setDeleted(true);
         }
 
-        getRepository().save(requirement);
-
+        this.getRepository().save(requirement);
         RequirementDto requirementDto = new RequirementDto();
         requirementDto.set_id(model.get_id());
         requirementDto.set_idRequestPerson(model.get_idRequestPerson());
@@ -140,6 +134,7 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
         requirementDto.setDescription(model.getDescription());
         requirementDto.setZone(model.getZone());
         requirementDto.setDeleted(model.isDeleted());
+
         if (!model.isDeleted()){
             requirement.setDeleted(false);
         }else{

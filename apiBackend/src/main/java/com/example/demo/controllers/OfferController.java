@@ -2,6 +2,9 @@ package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.IOfferService;
 import com.example.demo.DataAccess.Models.Offer;
+import com.example.demo.Domain.Datawrapper;
+import com.example.demo.Domain.OfferDto;
+import com.example.demo.Domain.UserDto;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,29 +24,30 @@ public class OfferController {
     }
 
     @GetMapping(value = "/getAll")
-    public List<Offer> getAll() {
-        return _offerService.getAll();
+    public ResponseEntity<Datawrapper<List<OfferDto>>> getAll() {
+        List<OfferDto> resultList = _offerService.getAllOffer();
+        Datawrapper<List<OfferDto>> response = new Datawrapper<>(resultList);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public Offer find(@PathVariable ObjectId id) {
-        return _offerService.get(id);
+    public ResponseEntity<Datawrapper<OfferDto>> find(@PathVariable String id) {
+        OfferDto resultOfferDto = _offerService.get(id);
+        Datawrapper<OfferDto> response = new Datawrapper<>(resultOfferDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<Offer> save(@RequestBody Offer offer) {
-        Offer obj = _offerService.save(offer);
-        return new ResponseEntity<Offer>(obj, HttpStatus.OK);
+    public ResponseEntity<Datawrapper<OfferDto>> save(@RequestBody OfferDto offerDto) {
+        OfferDto resultOfferDto = _offerService.save(offerDto);
+        Datawrapper<OfferDto> response = new Datawrapper<>(resultOfferDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Offer> delete(@PathVariable ObjectId id) {
-        Offer offer = _offerService.get(id);
-        if (offer != null) {
-            _offerService.delete(id);
-        } else {
-            return new ResponseEntity<Offer>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<Offer>(offer, HttpStatus.OK);
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<Datawrapper<OfferDto>> delete(@PathVariable String id) {
+        OfferDto resultDelete = _offerService.deleted(id);
+        Datawrapper<OfferDto> response = new Datawrapper<>(resultDelete);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

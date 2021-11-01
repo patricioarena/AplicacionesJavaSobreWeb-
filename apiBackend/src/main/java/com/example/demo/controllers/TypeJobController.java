@@ -43,17 +43,6 @@ public class TypeJobController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-/*    @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<TypeJob> delete(@PathVariable ObjectId id){
-        TypeJob typeJob = _typeJobService.get(id);
-        if(typeJob != null){
-            _typeJobService.delete(id);
-        }else{
-            return new ResponseEntity<TypeJob>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<TypeJob>(typeJob, HttpStatus.OK);
-    }*/
-
     @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Datawrapper<TypeJobDto>> delete(@PathVariable String id) {
         TypeJobDto job = _typeJobService.deleted(id);

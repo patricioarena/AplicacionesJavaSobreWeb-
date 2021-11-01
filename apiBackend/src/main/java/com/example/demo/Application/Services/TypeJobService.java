@@ -30,7 +30,7 @@ public class TypeJobService extends GenericService<TypeJob, ObjectId> implements
     private final CommonResourcesRepository commonResourcesRepository;
 
     @Autowired
-    public TypeJobService(TypeJobRepository typeJobRepository, CommonResourcesRepository commonResourcesRepository){
+    public TypeJobService(TypeJobRepository typeJobRepository, CommonResourcesRepository commonResourcesRepository) {
         this.typeJobRepository = typeJobRepository;
         this.commonResourcesRepository = commonResourcesRepository;
     }
@@ -43,40 +43,34 @@ public class TypeJobService extends GenericService<TypeJob, ObjectId> implements
     }
 
     //metodo que devuelva un objectId pasandole un modelo de TypeJob
-    public ObjectId getObjectIdTypeJob(TypeJob model){
+    public ObjectId getObjectIdTypeJob(TypeJob model) {
         Document document = getDocument(model);
         ObjectId id = document.getObjectId("_id");
         return id;
     }
 
-    public TypeJobDto getJobById(ObjectId id){
+    public TypeJobDto getJobById(ObjectId id) {
         var job = super.get(id);
-
         TypeJobDto jobDto = new TypeJobDto();
-
         jobDto.set_id(job.getId().toString());
         jobDto.setJobName(job.getJobName());
         jobDto.setDeleted(job.isDeleted());
-
         return jobDto;
     }
 
-    public TypeJobDto saveNewTypeJob(TypeJob typeJob){
-        var job = getRepository().save(typeJob);
-
+    public TypeJobDto saveNewTypeJob(TypeJob typeJob) {
+        var job = this.getRepository().save(typeJob);
         TypeJobDto typeJobDto = new TypeJobDto();
         typeJobDto.set_id(typeJob.getId().toString());
         typeJobDto.setJobName(job.getJobName());
         typeJobDto.setDeleted(job.isDeleted());
-
         return typeJobDto;
     }
 
     //Extraer logica a un metodo
     public List<TypeJobDto> getAllJobs() {
         List<TypeJobDto> returnList = new ArrayList<>();
-        Iterable<Document> typeJobs = commonResourcesRepository.getAll(Database.typeJobCollection); // usar otro metodo o query para traer todos los documentos
-
+        Iterable<Document> typeJobs = this.commonResourcesRepository.getAll(Database.typeJobCollection); // usar otro metodo o query para traer todos los documentos
         typeJobs.forEach(typeJob -> {
             TypeJobDto job = new TypeJobDto();
             var value = typeJob.getObjectId("_id");
@@ -85,47 +79,46 @@ public class TypeJobService extends GenericService<TypeJob, ObjectId> implements
             job.set_id(value.toString());
             job.setJobName(name.toString());
             job.setDeleted((Boolean) deleted);
-           // System.out.println("" + typeJob);
+            // System.out.println("" + typeJob);
             returnList.add(job);
         });
         return returnList;
     }
 
-    public TypeJobDto deleted(String id){
+    public TypeJobDto deleted(String id) {
         TypeJobDto typeJobDto = new TypeJobDto();
-        var result = commonResourcesRepository.setDeleted(id,Database.typeJobCollection);
-
-        if (result == 1){
-            Optional<TypeJob> typeJobOptional = getRepository().findById(new ObjectId(id));
-            TypeJob typeJob = typeJobOptional.get();
+        var result = this.commonResourcesRepository.deleted(id, Database.typeJobCollection);
+        if (result == 1) {
+            Optional<TypeJob> typeOptional = this.getRepository().findById(new ObjectId(id));
+            TypeJob typeJob = typeOptional.get();
             typeJobDto.set_id(id);
             typeJobDto.setJobName(typeJob.getJobName());
-
             return typeJobDto;
-        }else {
+        } else {
             return typeJobDto;
         }
     }
 
-    public TypeJobDto modifyJob(TypeJobDto model){
-        Optional<TypeJob> typeJobOptional = getRepository().findById(new ObjectId(model.get_id()));
+    public TypeJobDto modifyJob(TypeJobDto model) {
+        Optional<TypeJob> typeJobOptional = this.getRepository().findById(new ObjectId(model.get_id()));
         TypeJob typeJob = typeJobOptional.get();
         typeJob.setId((new ObjectId(model.get_id())));
         typeJob.setJobName(model.getJobName());
-        if(!model.isDeleted()){
+
+        if (!model.isDeleted()) {
             typeJob.setDeleted(false);
-        }else{
+        } else {
             typeJob.setDeleted(true);
         }
 
-        getRepository().save(typeJob);
-
+        this.getRepository().save(typeJob);
         TypeJobDto typeJobDto = new TypeJobDto();
         typeJobDto.set_id(model.get_id());
         typeJobDto.setJobName(model.getJobName());
-        if(!model.isDeleted()){
+
+        if (!model.isDeleted()) {
             typeJobDto.setDeleted(false);
-        }else{
+        } else {
             typeJobDto.setDeleted(true);
         }
 
