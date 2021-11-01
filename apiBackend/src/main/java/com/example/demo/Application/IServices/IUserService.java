@@ -8,13 +8,8 @@ import java.util.List;
 
 public interface IUserService extends IGenericService <User, ObjectId>{
 
-//    void setDeleted(UserDto user);
-//    void setDeleted(String id);
-//    void setDeleted(ObjectId id);
-
-    Integer setDeleted(String id);
-    Integer updateUser(UserDto userDto);
-
+    UserDto deleted(String id);
+    UserDto updateUser(UserDto dto);
     UserDto saveNewUser(UserDto abstractUser);
     List<UserDto> getAllUsers();
     UserDto get(String id);

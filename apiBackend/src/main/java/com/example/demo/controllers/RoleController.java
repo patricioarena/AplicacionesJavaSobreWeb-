@@ -4,6 +4,7 @@ import com.example.demo.Application.IServices.IRoleService;
 import com.example.demo.DataAccess.Models.Role;
 import com.example.demo.Domain.Datawrapper;
 import com.example.demo.Domain.RoleDto;
+import com.example.demo.Domain.TypeJobDto;
 import com.example.demo.Domain.UserDto;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
@@ -53,15 +54,8 @@ public class RoleController {
 
     @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Datawrapper<RoleDto>> delete(@PathVariable String id){
-        int result = _roleService.setDeleted(id);
-        RoleDto role;
-        if(result == 1){
-             role = _roleService.get(id);
-        }else{
-            Datawrapper<RoleDto> response = new Datawrapper<>(new RoleDto());
-            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-        }
-        Datawrapper<RoleDto> response = new Datawrapper<>(role);
+        RoleDto resultRoleDto = _roleService.deleted(id);
+        Datawrapper<RoleDto> response = new Datawrapper<>(resultRoleDto);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

@@ -14,5 +14,5 @@ public interface IRoleService extends IGenericService<Role, ObjectId>{
     RoleDto get(String id);
     List<RoleDto> createDefaultRoles();
     RoleDto saveNewRole(RoleDto roleDto);
-    Integer setDeleted(String id);
+    RoleDto deleted(String id);
 }

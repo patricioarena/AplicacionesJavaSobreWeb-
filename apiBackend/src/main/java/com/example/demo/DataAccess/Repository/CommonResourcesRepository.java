@@ -37,9 +37,9 @@ public class CommonResourcesRepository<T> {
         return iterableDocs;
     }
 
-    public int setDeleted(String id, String collectionName){
+    public Integer deleted(String id, String collectionName) {
         BasicDBObject updateFields = new BasicDBObject();
-        updateFields.append("deleted",true);
+        updateFields.append("deleted", true);
 
         BasicDBObject setQuery = new BasicDBObject();
         setQuery.append("$set", updateFields);
@@ -48,29 +48,30 @@ public class CommonResourcesRepository<T> {
 
         var updateResult = getDocumentMongoCollection(collectionName).updateOne(searchQuery, setQuery);
 
-        if(updateResult.getMatchedCount() == 1 && updateResult.getModifiedCount() == 1){
+        if (updateResult.getMatchedCount() == 1 && updateResult.getModifiedCount() == 1) {
             return 1;
-        }else {
+        } else {
             return 0;
         }
     }
 
-    public Integer updateFields(UserDto userDto, String collectionName){
-
+    public Integer updateFields(T dto, String collectionName) {
         Gson gson = new Gson();
-        String json = gson.toJson(userDto);
+        String json = gson.toJson(dto);
         BasicDBObject updateFields = BasicDBObject.parse(json);
+
+        String _id = updateFields.getString("_id");
         updateFields.removeField("_id");
 
         BasicDBObject setQuery = new BasicDBObject();
         setQuery.append("$set", updateFields);
 
-        BasicDBObject searchQuery = new BasicDBObject("_id", new ObjectId(userDto.get_id()));
+        BasicDBObject searchQuery = new BasicDBObject("_id", new ObjectId(_id));
         var updateResult = getDocumentMongoCollection(collectionName).updateOne(searchQuery, setQuery);
 
-        if(updateResult.getMatchedCount() == 1 && updateResult.getModifiedCount() == 1){
+        if (updateResult.getMatchedCount() == 1 && updateResult.getModifiedCount() == 1) {
             return 1;
-        }else {
+        } else {
             return 0;
         }
     }

@@ -15,6 +15,7 @@ import java.util.Date;
 @Document(collection = Database.offerCollection)
 public class Offer {
 
+    private ObjectId _id;
     private ObjectId _idOfferPerson;
     private Date date;
     private String description;
@@ -23,9 +24,10 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(ObjectId _idOfferPerson, Date date, String description, Float price) {
+    public Offer(ObjectId id, ObjectId _idOfferPerson, Date date, String description, Float price) {
         super();
 
+        this._id = id;
         this._idOfferPerson = _idOfferPerson;
         this.date = date;
         this.description = description;
