@@ -10,7 +10,6 @@ import java.util.Date;
 @Getter
 @Setter
 public class RequirementDto {
-
     private String _id;
     private String _idRequestPerson;
     private String _idTypeJob;

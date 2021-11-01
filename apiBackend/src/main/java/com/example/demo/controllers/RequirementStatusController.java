@@ -24,19 +24,19 @@ public class RequirementStatusController {
     @GetMapping(value = "/getAll")
     public ResponseEntity<List<RequirementStatusDto>> getAll() {
         List<RequirementStatusDto> listRequirementStatus = _requirementStatusService.getAllRequirementStatus();
-        return new ResponseEntity<List<RequirementStatusDto>>(listRequirementStatus, HttpStatus.OK);
+        return new ResponseEntity<>(listRequirementStatus, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
     public ResponseEntity<RequirementStatusDto> find(@PathVariable ObjectId id) {
         RequirementStatusDto rStatus = _requirementStatusService.getRequirementStatusById(id);
-        return new ResponseEntity<RequirementStatusDto>(rStatus, HttpStatus.OK);
+        return new ResponseEntity<>(rStatus, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
     public ResponseEntity<RequirementStatusDto> save(@RequestBody RequirementStatus requirementStatus) {
         RequirementStatusDto rStatus = _requirementStatusService.saveNewRequirementStatus(requirementStatus);
-        return new ResponseEntity<RequirementStatusDto>(rStatus, HttpStatus.OK);
+        return new ResponseEntity<>(rStatus, HttpStatus.OK);
     }
 
 }

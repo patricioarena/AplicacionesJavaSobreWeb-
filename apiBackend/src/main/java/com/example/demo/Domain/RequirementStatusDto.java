@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RequirementStatusDto {
-
     private String _id;
     private String status;
 }
