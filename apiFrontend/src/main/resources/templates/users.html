@@ -7,6 +7,9 @@
 <nav th:replace="plantillas/base :: nav"></nav>
 
 <main>
+ <!--   <div class="container">
+        <h1 th:text="${titulo}"></h1>
+    </div>-->
     <div class="container">
         <table id="tabla" class="table table-striped table-bordered dt-responsive nowrap">
             <thead>
@@ -28,10 +31,10 @@
             </thead>
             <tbody>
                 <tr th:each="user:${users}">
-                    <th th:scope="row" th:text="${user._id}"></th>
+                    <th id="id" th:scope="row" th:text="${user._id}"></th>
                     <td th:text="${user._idRole}"></td>
-                    <td th:text="${user.name}"></td>
-                    <td th:text="${user.lastName}"></td>
+                    <td id="name" th:text="${user.name}"></td>
+                    <td id="lastName" th:text="${user.lastName}"></td>
                     <td th:text="${user.birthDate}"></td>
                     <td th:text="${user.typeDoc}"></td>
                     <td th:text="${user.numberDoc}"></td>
@@ -39,12 +42,13 @@
                     <td th:text="${user.email}"></td>
                     <td th:text="${user.telephoneNumber}"></td>
                     <td th:text="${user.reputation}"></td>
-                    <td th:text="${user.address}"></td>
+                    <td id="address" th:text="${user.address}"></td>
                     <td th:text="${user.deleted}"></td>
                     <td>
                         <div class="btn-group">
                             <ul>
-                                <li><a href="#" class="detail"><i class="fas fa-eye"></i></a></li>
+                                <li><a class="detail"><i class="fas fa-eye"></i></a></li>
+                                <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button></li>
                                 <li><a href="#" class="edit"><i class="fas fa-edit"></i></a></li>
                                 <li><a href="#" class="deleted"><i class="fas fa-trash-alt"></i></a></li>
                             </ul>
@@ -54,51 +58,91 @@
             </tbody>
         </table>
     </div>
+
+    <!-- Edit Modal-->
+    <!--<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <center><h4 class="modal-title" id="myModalLabel">Editar usuario</h4></center>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="form-group input-group">
+                            <span class="input-group-addon">Nombres:</span>
+                            <input type="text" class="form-control" id="efirstname">
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon">Apellidos:</span>
+                            <input type="text" class="form-control" id="elastname">
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon">Dirección:</span>
+                            <input type="text" class="form-control" id="eaddress">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit"></span> </i> Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+<!--
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+-->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+
 </main>
 
 <footer th:replace="plantillas/base :: footer"></footer>
-<!--    <div class="container">
-        <h1 th:text="${titulo}"></h1>
-    </div>
-    <div class="container">
-        <table class="table">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">IdRole</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">LastName</th>
-                    <th scope="col">BirthDate</th>
-                    <th scope="col">TypeDoc</th>
-                    <th scope="col">NumberDoc</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">TelephoneNumber</th>
-                    <th scope="col">Reputation</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Deleted</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="user:${users}">
-                    <th th:scope="row" th:text="${user._id}"></th>
-                    <td th:text="${user._idRole}"></td>
-                    <td th:text="${user.name}"></td>
-                    <td th:text="${user.lastName}"></td>
-                    <td th:text="${user.birthDate}"></td>
-                    <td th:text="${user.typeDoc}"></td>
-                    <td th:text="${user.numberDoc}"></td>
-                    <td th:text="${user.gender}"></td>
-                    <td th:text="${user.email}"></td>
-                    <td th:text="${user.telephoneNumber}"></td>
-                    <td th:text="${user.reputation}"></td>
-                    <td th:text="${user.address}"></td>
-                    <td th:text="${user.deleted}"></td>
 
-                </tr>
-
-            </tbody>
-        </table>
-    </div>-->
 </body>
+<script>
+    $(document).ready(function(){
+        $(document).on('click', '.btn', function(){
+            var _id=$(this).val();
+            var name=$('#name'+_id).text();
+            var lastName=$('#lastName'+_id).text();
+            var address=$('#address'+_id).text();
+
+            $('#exampleModal').modal('show');
+            $('#efirstname').val(name);
+            $('#elastname').val(lastName);
+            $('#eaddress').val(address);
+        });
+    });
+
+</script>
 </html>
