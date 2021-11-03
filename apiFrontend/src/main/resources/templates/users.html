@@ -47,8 +47,11 @@
                     <td>
                         <div class="btn-group">
                             <ul>
-                                <li><a class="detail"><i class="fas fa-eye"></i></a></li>
-                                <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button></li>
+                                <li><a class="detail" id="detail" th:data-param1="${user}" onclick="printData(this)"><i class="fas fa-eye"></i></a></li>
+                            <!--    <li><button data-modal-trigger="trigger-demo" class="trigger">
+                                    Launch
+                                </button></li>-->
+                               <!-- <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button></li>-->
                                 <li><a href="#" class="edit"><i class="fas fa-edit"></i></a></li>
                                 <li><a href="#" class="deleted"><i class="fas fa-trash-alt"></i></a></li>
                             </ul>
@@ -60,7 +63,33 @@
     </div>
 
     <!-- Edit Modal-->
-    <!--<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!--    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+    <div class="modal" id="viewMore" tabindex="-1" role="dialog" aria-hidden="true">
+        <article class="content-wrapper">
+            <button class="close" id="close"></button>
+            <header class="modal-header">
+                <h2>Detalles Usuario</h2>
+            </header>
+            <div class="modal-body">
+                <form name="info_form" class="form-inline" action="#" method="post">
+                    <div class="form-group col-sm-12">
+                        <label type="text" class="form-control" id="showFirstname"></label>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label type="text" class="form-control" id="showLastname"></label>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label type="text" class="form-control" id="showAddress"></label>
+                    </div>
+                </form>
+            </div>
+            <footer class="modal-footer">
+                <button>Okey</button>
+                <button>Cancel</button>
+            </footer>
+        </article>
+    </div>
+<!--    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -90,13 +119,14 @@
             </div>
         </div>
     </div>-->
+
 <!--
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 -->
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -121,7 +151,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- /.modal -->
 
 </main>
@@ -129,20 +159,56 @@
 <footer th:replace="plantillas/base :: footer"></footer>
 
 </body>
-<script>
+<script th:inline="javascript">
+    function printData(user){
+        console.log(user)
+        const param1 = user.dataset.param1;
+        console.log(param1)
+    }
+
     $(document).ready(function(){
-        $(document).on('click', '.btn', function(){
+        $(document).on('click', '#detail', function(){
             var _id=$(this).val();
             var name=$('#name'+_id).text();
             var lastName=$('#lastName'+_id).text();
             var address=$('#address'+_id).text();
 
-            $('#exampleModal').modal('show');
-            $('#efirstname').val(name);
-            $('#elastname').val(lastName);
-            $('#eaddress').val(address);
+            $('#viewMore').addClass('open');
+            $('#showFirstname').empty();
+            $('#showFirstname').append(name);
+            $('#showLastname').empty();
+            $('#showLastname').append(lastName);
+            $('#showAddress').empty();
+            $('#showAddress').append(address);
         });
+
+        $(document).on('click', '#close', function (){
+            $('#viewMore').removeClass('open');
+        })
+
     });
+
+/*    const buttons = document.querySelectorAll(`button[data-modal-trigger]`);
+
+    for(let button of buttons) {
+        modalEvent(button);
+    }
+
+    function modalEvent(button) {
+        button.addEventListener('click', () => {
+            const trigger = button.getAttribute('data-modal-trigger');
+            const modal = document.querySelector(`[data-modal=${trigger}]`);
+            const contentWrapper = modal.querySelector('.content-wrapper');
+            const close = modal.querySelector('.close');
+            const name = modal.querySelector('#efirstname');
+
+            close.addEventListener('click', () => modal.classList.remove('open'));
+            modal.addEventListener('click', () => modal.classList.remove('open'));
+            contentWrapper.addEventListener('click', (e) => e.stopPropagation())
+
+            modal.classList.toggle('open');
+        });
+    }*/
 
 </script>
 </html>
