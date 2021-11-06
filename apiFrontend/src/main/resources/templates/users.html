@@ -31,10 +31,10 @@
             </thead>
             <tbody>
                 <tr th:each="user:${users}">
-                    <th id="id" th:scope="row" th:text="${user._id}"></th>
+                    <th th:text="${user._id}"></th>
                     <td th:text="${user._idRole}"></td>
-                    <td id="name" th:text="${user.name}"></td>
-                    <td id="lastName" th:text="${user.lastName}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.lastName}"></td>
                     <td th:text="${user.birthDate}"></td>
                     <td th:text="${user.typeDoc}"></td>
                     <td th:text="${user.numberDoc}"></td>
@@ -42,18 +42,14 @@
                     <td th:text="${user.email}"></td>
                     <td th:text="${user.telephoneNumber}"></td>
                     <td th:text="${user.reputation}"></td>
-                    <td id="address" th:text="${user.address}"></td>
+                    <td th:text="${user.address}"></td>
                     <td th:text="${user.deleted}"></td>
                     <td>
                         <div class="btn-group">
                             <ul>
-                                <li><a class="detail" id="detail" th:data-param1="${user}" onclick="printData(this)"><i class="fas fa-eye"></i></a></li>
-                            <!--    <li><button data-modal-trigger="trigger-demo" class="trigger">
-                                    Launch
-                                </button></li>-->
-                               <!-- <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button></li>-->
-                                <li><a href="#" class="edit"><i class="fas fa-edit"></i></a></li>
-                                <li><a href="#" class="deleted"><i class="fas fa-trash-alt"></i></a></li>
+<!--                                <li><a class="detail" id="detail" th:data-param1="${user}" onclick="printData(this)"><i class="fas fa-eye"></i></a></li>-->
+                                <li><a class="edit" id="editButton" th:href="@{/users/getOne/(Id=${user._id})}" ><i class="fas fa-edit"></i></a></li>
+<!--                                <li><a class="deleted"><i class="fas fa-trash-alt"></i></a></li>-->
                             </ul>
                         </div>
                     </td>
@@ -62,24 +58,22 @@
         </table>
     </div>
 
-    <!-- Edit Modal-->
-<!--    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
-    <div class="modal" id="viewMore" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
         <article class="content-wrapper">
             <button class="close" id="close"></button>
             <header class="modal-header">
                 <h2>Detalles Usuario</h2>
             </header>
             <div class="modal-body">
-                <form name="info_form" class="form-inline" action="#" method="post">
+                <form name="info_form" class="form-inline" th:action="@{/users/edit}" method="put">
                     <div class="form-group col-sm-12">
-                        <label type="text" class="form-control" id="showFirstname"></label>
+                        <input type="text" class="form-control" id="editFirstname" name="editFirstname">
                     </div>
                     <div class="form-group col-sm-12">
-                        <label type="text" class="form-control" id="showLastname"></label>
+                        <input type="text" class="form-control" id="editLastname" name="editLastname">
                     </div>
                     <div class="form-group col-sm-12">
-                        <label type="text" class="form-control" id="showAddress"></label>
+                        <input type="text" class="form-control" id="editAddress" name="editAddress">
                     </div>
                 </form>
             </div>
@@ -89,6 +83,7 @@
             </footer>
         </article>
     </div>
+
 <!--    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -126,95 +121,131 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 -->
 
-   <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+<!--
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Message:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Send message</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>-->
-    <!-- /.modal -->
+        </div>-->
 
 </main>
 
 <footer th:replace="plantillas/base :: footer"></footer>
 
 </body>
-<script th:inline="javascript">
+<!--<script th:inline="javascript">-->
 
-    function printData(user){
-        const param1 = user.dataset.param1;
-        const regExp = /"User*.[()](.*)[[)]/
-        const data = regExp.exec(param1)
+<!--    const Address = {-->
+<!--        constructor(-->
+<!--            street,-->
+<!--            number,-->
+<!--            zipCode,-->
+<!--            city,-->
+<!--            provState,-->
+<!--            country,-->
+<!--        ) {-->
+<!--            this.street = street;-->
+<!--            this.number = number;-->
+<!--            this.zipCode = zipCode;-->
+<!--            this.city = city;-->
+<!--            this.provState = provState;-->
+<!--            this.country = country;-->
+<!--        }-->
+<!--    }-->
+
+<!--    const User = {-->
+<!--        constructor(-->
+<!--            _id,-->
+<!--            _idRole,-->
+<!--            name,-->
+<!--            lastName,-->
+<!--            birthDate,-->
+<!--            typeDoc,-->
+<!--            numberDoc,-->
+<!--            gender,-->
+<!--            email,-->
+<!--            telephoneNumber,-->
+<!--            reputation,-->
+<!--            address,-->
+<!--            deleted,-->
+<!--        ) {-->
+<!--            this._id = _id,-->
+<!--                this._idRole = _idRole,-->
+<!--                this._name = name,-->
+<!--                this._lastName = lastName,-->
+<!--                this._birthDate = birthDate,-->
+<!--                this._typeDoc = typeDoc,-->
+<!--                this._numberDoc = numberDoc,-->
+<!--                this._gender = gender,-->
+<!--                this._email = email,-->
+<!--                this._telephoneNumber = telephoneNumber,-->
+<!--                this._reputation = reputation,-->
+<!--                this._address = address,-->
+<!--                this._deleted = deleted-->
+<!--        }-->
+
+<!--    }-->
+
+<!--    function printData(user){-->
+<!--        const param1 = user.dataset.param1;-->
+<!--        const rx = /\(([^()]|(.*))\)/;-->
+<!--        const data = rx.exec(param1);-->
+
+<!--        var strJson = data[1];-->
+
+<!--        strJson = strJson.replace(/=/g,'":"')-->
+<!--                         .replace(/, /g,'","')-->
+<!--                         .replace(`Address(`,`{"`)-->
+<!--                         .replace(')","deleted"','"},"deleted"')-->
+
+<!--        strJson = `{"${strJson}"}`;-->
 
 
 
-        console.log(data)
+<!--    }-->
 
-    }
+<!--    $(document).ready(function(){-->
+<!--            $(document).on('click', '#detail', function(){-->
+<!--            var _id=$(this).val();-->
+<!--            var name=$('#name'+_id).text();-->
+<!--            var lastName=$('#lastName'+_id).text();-->
+<!--            var address=$('#address'+_id).text();-->
 
-    $(document).ready(function(){
-            $(document).on('click', '#detail', function(){
-            var _id=$(this).val();
-            var name=$('#name'+_id).text();
-            var lastName=$('#lastName'+_id).text();
-            var address=$('#address'+_id).text();
+<!--            $(_id).addClass('open');-->
+<!--            $('#showFirstname').empty();-->
+<!--            $('#showFirstname').append(name);-->
+<!--            $('#showLastname').empty();-->
+<!--            $('#showLastname').append(lastName);-->
+<!--            $('#showAddress').empty();-->
+<!--            $('#showAddress').append(address);-->
+<!--        });-->
 
-            $('#viewMore').addClass('open');
-            $('#showFirstname').empty();
-            $('#showFirstname').append(name);
-            $('#showLastname').empty();
-            $('#showLastname').append(lastName);
-            $('#showAddress').empty();
-            $('#showAddress').append(address);
-        });
+<!--        $(document).on('click', '#close', function (){-->
+<!--            $('#viewMore').removeClass('open');-->
+<!--        })-->
 
-        $(document).on('click', '#close', function (){
-            $('#viewMore').removeClass('open');
-        })
-
-    });
-
-/*    const buttons = document.querySelectorAll(`button[data-modal-trigger]`);
-
-    for(let button of buttons) {
-        modalEvent(button);
-    }
-
-    function modalEvent(button) {
-        button.addEventListener('click', () => {
-            const trigger = button.getAttribute('data-modal-trigger');
-            const modal = document.querySelector(`[data-modal=${trigger}]`);
-            const contentWrapper = modal.querySelector('.content-wrapper');
-            const close = modal.querySelector('.close');
-            const name = modal.querySelector('#efirstname');
-
-            close.addEventListener('click', () => modal.classList.remove('open'));
-            modal.addEventListener('click', () => modal.classList.remove('open'));
-            contentWrapper.addEventListener('click', (e) => e.stopPropagation())
-
-            modal.classList.toggle('open');
-        });
-    }*/
-
-</script>
+<!--    });-->
+<!--    -->
+<!--</script>-->
 </html>

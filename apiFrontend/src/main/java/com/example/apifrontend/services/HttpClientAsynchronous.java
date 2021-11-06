@@ -13,11 +13,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //https://programmerclick.com/article/92712109938/
 
@@ -74,6 +77,35 @@ public class HttpClientAsynchronous {
         CompletableFuture<HttpResponse<String>> response = httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString());
         String result = response.thenApply(HttpResponse::body).get(5, TimeUnit.SECONDS);
         return getJsonObject(result);
+    }
+
+    private Map<String, String> createHeaders() {
+        Map<String, String> headersMap = new HashMap<>();
+        headersMap.put("user-agent","PostmanRuntime/7.28.4");
+        headersMap.put("accept","*/*");
+        headersMap.put("accept-encoding","gzip, deflate, br");
+        headersMap.put("content-type","application/json");
+        return headersMap;
+    }
+
+    public JSONObject GET(String uri) throws Exception {
+        Map<String, String> headersMap = createHeaders();
+        return this.GET(headersMap, uri);
+    }
+
+    public JSONObject POST(String uri, Object data) throws Exception {
+        Map<String, String> headersMap = createHeaders();
+        return this.POST(headersMap, uri,data);
+    }
+
+    public JSONObject PUT(String uri, Object data) throws Exception {
+        Map<String, String> headersMap = createHeaders();
+        return this.PUT(headersMap, uri, data);
+    }
+
+    public JSONObject DELETE(String uri) throws Exception {
+        Map<String, String> headersMap = createHeaders();
+        return this.DELETE(headersMap, uri);
     }
 
     public JSONObject GET(Map<String, String> headers, String uri) throws Exception {
