@@ -160,14 +160,20 @@
 
 </body>
 <script th:inline="javascript">
+
     function printData(user){
-        console.log(user)
         const param1 = user.dataset.param1;
-        console.log(param1)
+        const regExp = /"User*.[()](.*)[[)]/
+        const data = regExp.exec(param1)
+
+
+
+        console.log(data)
+
     }
 
     $(document).ready(function(){
-        $(document).on('click', '#detail', function(){
+            $(document).on('click', '#detail', function(){
             var _id=$(this).val();
             var name=$('#name'+_id).text();
             var lastName=$('#lastName'+_id).text();
