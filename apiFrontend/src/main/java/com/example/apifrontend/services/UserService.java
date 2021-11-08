@@ -36,13 +36,22 @@ public class UserService {
         JSONObject resposeUser = this.httpClientAsynchronous.GET(urlUserFind);
         String responseString = resposeUser.get("data").toString();
 
-        Type listType = new TypeToken<User>() {}.getType();
+        Type listType = new TypeToken<User>() {}.getType(); //TypeToken se utiliza para indicarle a Gson el tipo especifico al cual lo tiene que convertir
         User user = new Gson().fromJson(responseString, listType);
 
         return user;
     }
 
-    public void update(User user) {
-        System.out.println("Hacer algo");
+    public User update(User user) throws Exception {
+
+        String urlUserUpdate = "user/update";
+        JSONObject responseUser = this.httpClientAsynchronous.PUT(urlUserUpdate, user);
+        String responseString = responseUser.get("data").toString();
+
+        Type listType = new TypeToken<User>(){
+        }.getType();
+        User userUpdate = new Gson().fromJson(responseString, listType);
+
+        return userUpdate;
     }
 }

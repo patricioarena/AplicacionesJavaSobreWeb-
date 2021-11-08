@@ -55,7 +55,7 @@ public class HttpClientAsynchronous {
     }
 
     private static void setHeaders(Map<String, String> headers, HttpRequest.Builder output) throws NotAuthorizationHeaderException {
-        controlContainsBearer(headers, false);
+        controlContainsBearer(headers, false); //parametro de activacion
         headers.forEach((key, value) -> {
             if (key.equals("authorization")) {
                 output.header(key, value);
@@ -79,6 +79,7 @@ public class HttpClientAsynchronous {
         return getJsonObject(result);
     }
 
+    //generar headers ya que no los obtiene, para pasarselos al get post put ...
     private Map<String, String> createHeaders() {
         Map<String, String> headersMap = new HashMap<>();
         headersMap.put("user-agent","PostmanRuntime/7.28.4");
@@ -139,7 +140,7 @@ public class HttpClientAsynchronous {
 
         HttpRequest request = requestBuilder
                 .PUT(HttpRequest.BodyPublishers.ofString(requestBody))
-                .uri(URI.create(uri))
+                .uri(URI.create(baseUrl+uri))
                 .build();
 
         return executeRequest(request);
@@ -148,7 +149,7 @@ public class HttpClientAsynchronous {
     public JSONObject DELETE(Map<String, String> headers, String uri) throws Exception {
         HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
         setHeaders(headers, requestBuilder);
-        HttpRequest request = requestBuilder.DELETE().uri(URI.create(uri)).build();
+        HttpRequest request = requestBuilder.DELETE().uri(URI.create(baseUrl+uri)).build();
         return executeRequest(request);
     }
 }

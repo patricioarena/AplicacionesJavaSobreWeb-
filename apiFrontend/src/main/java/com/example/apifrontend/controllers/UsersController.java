@@ -2,11 +2,14 @@ package com.example.apiFrontend.controllers;
 
 import com.example.apiFrontend.models.Role;
 import com.example.apiFrontend.models.User;
+import com.example.apiFrontend.models.UserForm;
 import com.example.apiFrontend.services.HttpClientAsynchronous;
 import com.example.apiFrontend.services.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import org.json.simple.JSONObject;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -89,9 +92,13 @@ public class UsersController {
         return temp;
     }
 
-    @RequestMapping(value="/update", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String update(User model) {
-        this.userService.update(model);
+    @RequestMapping(value="users/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(UserForm model) throws Exception{
+        var user = new User();
+        ModelMapper modelMapper = new ModelMapper();
+        user = modelMapper.map(model,User.class);
+        var temp = this.userService.update(user);
+        System.out.println(temp);
         return "redirect:/users/getAll";
     }
 }
