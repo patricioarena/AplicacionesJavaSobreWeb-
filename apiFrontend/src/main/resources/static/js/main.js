@@ -1,17 +1,28 @@
 $(document).ready(function () {
 
-    $(document).on('click', '#close', function () {
+    $(document).on('click', '#close', function (event) {
+        event.preventDefault();
         $('#editModal').removeClass('open');
     })
+
+    $(document).on('click', '#btnCloseForm', function (event) {
+        event.preventDefault();
+        $('#editModal').removeClass('open');
+    })
+
 
     $('.table #editButton').on('click',function(event){
 		event.preventDefault();
         var href = $(this).attr('href');
+
+        console.log(href)
+
         $.get(href, function (user, status) {
             console.log(user);
             $('#editModal').addClass('open');
+
             $('#editId').val(user._id);
-            $('#editRole').val(user._idRole);
+            $('#editIdRole').val(user._idRole);
             $('#editFirstname').val(user.name);
             $('#editLastname').val(user.lastName);
             $('#editBirthDate').val(user.birthDate);

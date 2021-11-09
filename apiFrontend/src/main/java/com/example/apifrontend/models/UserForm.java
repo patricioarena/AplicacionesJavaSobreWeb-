@@ -4,12 +4,15 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Data
 @Getter
 @Setter
 public class UserForm {
-    private String _id;
-    private String _idRole;
+    private String id;
+    private String idRole;
     private String name;
     private String lastName;
     private String birthDate;

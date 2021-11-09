@@ -15,7 +15,8 @@
             <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">IdRole</th>
+                <th scope="col" hidden>IdRole</th>
+                <th scope="col">RoleLabel</th>
                 <th scope="col">Name</th>
                 <th scope="col">LastName</th>
                 <th scope="col">BirthDate</th>
@@ -32,7 +33,8 @@
             <tbody>
                 <tr th:each="user:${users}">
                     <th th:text="${user._id}"></th>
-                    <td th:text="${user._idRole}"></td>
+                    <td th:text="${user._idRole}" hidden></td>
+                    <td th:text="${user.roleLabel}"></td>
                     <td th:text="${user.name}"></td>
                     <td th:text="${user.lastName}"></td>
                     <td th:text="${user.birthDate}"></td>
@@ -53,276 +55,121 @@
                             </ul>
                         </div>
                     </td>
+
+                    <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                        <form name="info_form" class="content-wrapper" th:action="@{/users/update/} + ${user._id} +@{/}+ ${user._idRole}" method="put">
+                            <article>
+                                <button class="close" id="close"></button>
+                                <header class="modal-header">
+                                    <h2 class="modal-title" id="editModalLabel">Editar Usuario</h2>
+                                </header>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="editId" class="col-form-label">Id:</label>
+                                            <input type="text" class="form-control" id="editId" name="id" disabled>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="editIdRole" class="col-form-label">Rol:</label>
+                                            <input type="text" class="form-control" id="editIdRole" name="idRole" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="editFirstname" class="col-form-label">Nombres:</label>
+                                            <input type="text" class="form-control" id="editFirstname" name="name">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="editLastname" class="col-form-label">Apellidos:</label>
+                                            <input type="text" class="form-control" id="editLastname" name="lastName">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-3">
+                                            <label for="editBirthDate" class="col-form-label">Fecha de Nacimiento:</label>
+                                            <input type="date" class="form-control" id="editBirthDate" name="birthDate">
+                                        </div>
+                                        <div class="form-group col-sm-3">
+                                            <label for="editTypeDoc" class="col-form-label">Tipo de Documento:</label>
+                                            <input type="text" class="form-control" id="editTypeDoc" name="typeDoc">
+                                        </div>
+                                        <div class="form-group col-sm-3">
+                                            <label for="editNumberDoc" class="col-form-label">Numero de Documento:</label>
+                                            <input type="number" class="form-control" id="editNumberDoc" name="numberDoc">
+                                        </div>
+                                        <div class="form-group col-sm-3">
+                                            <label for="editGender" class="col-form-label">Genero:</label>
+                                            <input type="text" class="form-control" id="editGender" name="gender">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="editEmail" class="col-form-label">Email:</label>
+                                            <input type="email" class="form-control" id="editEmail" name="email">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="editTelephoneNumber" class="col-form-label">Numero de Telefono:</label>
+                                            <input type="number" class="form-control" id="editTelephoneNumber" name="telephoneNumber">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="editReputation" class="col-form-label">Reputacion:</label>
+                                            <input type="number" class="form-control" id="editReputation" name="reputation">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="editStreet" class="col-form-label">Calle:</label>
+                                            <input type="text" class="form-control" id="editStreet" name="street">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="editNumber" class="col-form-label">Numero:</label>
+                                            <input type="text" class="form-control" id="editNumber" name="number">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="editZipCode" class="col-form-label">Codigo Postal:</label>
+                                            <input type="text" class="form-control" id="editZipCode" name="zipCode">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="editCity" class="col-form-label">Localidad:</label>
+                                            <input type="text" class="form-control" id="editCity" name="city">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="editProvState" class="col-form-label">Provincia:</label>
+                                            <input type="text" class="form-control" id="editProvState" name="provState">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="editCountry" class="col-form-label">Pais:</label>
+                                            <input type="text" class="form-control" id="editCountry" name="country">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="editDeleted" class="col-form-label">Usuario Borrado:</label>
+                                            <input type="text" class="form-control" id="editDeleted" name="deleted">
+                                        </div>
+                                    </div>
+                                </div>
+                                <footer class="modal-footer">
+                                    <button id="btnSubmitForm" type="submit">Aceptar</button>
+                                    <button id="btnCloseForm" type="reset">Cancelar</button>
+                                </footer>
+                            </article>
+                        </form>
+                    </div>
+
                 </tr>
             </tbody>
         </table>
     </div>
 
-     <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-        <form name="info_form" class="content-wrapper" th:action="@{/users/update}" method="put">
-        <article>
-            <button class="close" id="close"></button>
-            <header class="modal-header">
-                <h2 class="modal-title" id="editModalLabel">Editar Usuario</h2>
-            </header>
-            <div class="modal-body">
-                <div id="IdUsers" class="row">
-                    <div class="form-group col-sm-4">
-                        <label for="editId" class="col-form-label">Id:</label>
-                        <input type="text" class="form-control" id="editId" name="_id" disabled>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="editRole" class="col-form-label">Rol:</label>
-                        <input type="text" class="form-control" id="editRole" name="_idRole" disabled>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-sm-4">
-                        <label for="editFirstname" class="col-form-label">Nombres:</label>
-                        <input type="text" class="form-control" id="editFirstname" name="name">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="editLastname" class="col-form-label">Apellidos:</label>
-                        <input type="text" class="form-control" id="editLastname" name="lastName">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-sm-3">
-                        <label for="editBirthDate" class="col-form-label">Fecha de Nacimiento:</label>
-                        <input type="date" class="form-control" id="editBirthDate" name="birthDate">
-                    </div>
-                    <div class="form-group col-sm-3">
-                        <label for="editTypeDoc" class="col-form-label">Tipo de Documento:</label>
-                        <input type="text" class="form-control" id="editTypeDoc" name="typeDoc">
-                    </div>
-                    <div class="form-group col-sm-3">
-                        <label for="editNumberDoc" class="col-form-label">Numero de Documento:</label>
-                        <input type="number" class="form-control" id="editNumberDoc" name="numberDoc">
-                    </div>
-                    <div class="form-group col-sm-3">
-                        <label for="editGender" class="col-form-label">Genero:</label>
-                        <input type="text" class="form-control" id="editGender" name="gender">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-sm-4">
-                        <label for="editEmail" class="col-form-label">Email:</label>
-                        <input type="email" class="form-control" id="editEmail" name="email">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="editTelephoneNumber" class="col-form-label">Numero de Telefono:</label>
-                        <input type="number" class="form-control" id="editTelephoneNumber" name="telephoneNumber">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-sm-4">
-                        <label for="editReputation" class="col-form-label">Reputacion:</label>
-                        <input type="number" class="form-control" id="editReputation" name="reputation">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-sm-4">
-                        <label for="editStreet" class="col-form-label">Calle:</label>
-                        <input type="text" class="form-control" id="editStreet" name="street">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="editNumber" class="col-form-label">Numero:</label>
-                        <input type="text" class="form-control" id="editNumber" name="number">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="editZipCode" class="col-form-label">Codigo Postal:</label>
-                        <input type="text" class="form-control" id="editZipCode" name="zipCode">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-sm-4">
-                        <label for="editCity" class="col-form-label">Localidad:</label>
-                        <input type="text" class="form-control" id="editCity" name="city">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="editProvState" class="col-form-label">Provincia:</label>
-                        <input type="text" class="form-control" id="editProvState" name="provState">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="editCountry" class="col-form-label">Pais:</label>
-                        <input type="text" class="form-control" id="editCountry" name="country">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="editDeleted" class="col-form-label">Usuario Borrado:</label>
-                        <input type="text" class="form-control" id="editDeleted" name="deleted">
-                    </div>
-                </div>
-            </div>
-            <footer class="modal-footer">
-                <button type="submit">Aceptar</button>
-                <button>Cancelar</button>
-            </footer>
-        </article>
-        </form>
-    </div>
 
-<!--    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <center><h4 class="modal-title" id="myModalLabel">Editar usuario</h4></center>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">Nombres:</span>
-                            <input type="text" class="form-control" id="efirstname">
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">Apellidos:</span>
-                            <input type="text" class="form-control" id="elastname">
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">Dirección:</span>
-                            <input type="text" class="form-control" id="eaddress">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
-                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-edit"></span> </i> Actualizar</button>
-                </div>
-            </div>
-        </div>
-    </div>-->
-
-<!--
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
--->
-
-<!--
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">Message:</label>
-                                <textarea class="form-control" id="message-text"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Send message</button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
 
 </main>
 
 <footer th:replace="plantillas/base :: footer"></footer>
 
 </body>
-<!--<script th:inline="javascript">-->
 
-<!--    const Address = {-->
-<!--        constructor(-->
-<!--            street,-->
-<!--            number,-->
-<!--            zipCode,-->
-<!--            city,-->
-<!--            provState,-->
-<!--            country,-->
-<!--        ) {-->
-<!--            this.street = street;-->
-<!--            this.number = number;-->
-<!--            this.zipCode = zipCode;-->
-<!--            this.city = city;-->
-<!--            this.provState = provState;-->
-<!--            this.country = country;-->
-<!--        }-->
-<!--    }-->
-
-<!--    const User = {-->
-<!--        constructor(-->
-<!--            _id,-->
-<!--            _idRole,-->
-<!--            name,-->
-<!--            lastName,-->
-<!--            birthDate,-->
-<!--            typeDoc,-->
-<!--            numberDoc,-->
-<!--            gender,-->
-<!--            email,-->
-<!--            telephoneNumber,-->
-<!--            reputation,-->
-<!--            address,-->
-<!--            deleted,-->
-<!--        ) {-->
-<!--            this._id = _id,-->
-<!--                this._idRole = _idRole,-->
-<!--                this._name = name,-->
-<!--                this._lastName = lastName,-->
-<!--                this._birthDate = birthDate,-->
-<!--                this._typeDoc = typeDoc,-->
-<!--                this._numberDoc = numberDoc,-->
-<!--                this._gender = gender,-->
-<!--                this._email = email,-->
-<!--                this._telephoneNumber = telephoneNumber,-->
-<!--                this._reputation = reputation,-->
-<!--                this._address = address,-->
-<!--                this._deleted = deleted-->
-<!--        }-->
-
-<!--    }-->
-
-<!--    function printData(user){-->
-<!--        const param1 = user.dataset.param1;-->
-<!--        const rx = /\(([^()]|(.*))\)/;-->
-<!--        const data = rx.exec(param1);-->
-
-<!--        var strJson = data[1];-->
-
-<!--        strJson = strJson.replace(/=/g,'":"')-->
-<!--                         .replace(/, /g,'","')-->
-<!--                         .replace(`Address(`,`{"`)-->
-<!--                         .replace(')","deleted"','"},"deleted"')-->
-
-<!--        strJson = `{"${strJson}"}`;-->
-
-
-
-<!--    }-->
-
-<!--    $(document).ready(function(){-->
-<!--            $(document).on('click', '#detail', function(){-->
-<!--            var _id=$(this).val();-->
-<!--            var name=$('#name'+_id).text();-->
-<!--            var lastName=$('#lastName'+_id).text();-->
-<!--            var address=$('#address'+_id).text();-->
-
-<!--            $(_id).addClass('open');-->
-<!--            $('#showFirstname').empty();-->
-<!--            $('#showFirstname').append(name);-->
-<!--            $('#showLastname').empty();-->
-<!--            $('#showLastname').append(lastName);-->
-<!--            $('#showAddress').empty();-->
-<!--            $('#showAddress').append(address);-->
-<!--        });-->
-
-<!--        $(document).on('click', '#close', function (){-->
-<!--            $('#viewMore').removeClass('open');-->
-<!--        })-->
-
-<!--    });-->
-<!--    -->
-<!--</script>-->
 </html>

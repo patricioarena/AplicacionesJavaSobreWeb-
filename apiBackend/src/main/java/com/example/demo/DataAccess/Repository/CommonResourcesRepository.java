@@ -60,6 +60,14 @@ public class CommonResourcesRepository<T> {
         String json = gson.toJson(dto);
         BasicDBObject updateFields = BasicDBObject.parse(json);
 
+        ObjectId idRole = null;
+        if (updateFields.containsKey("_idRole")){
+            String idRoleString = updateFields.getString("_idRole");
+            idRole = new ObjectId(idRoleString);
+            updateFields.removeField("_idRole");
+            updateFields.append("_idRole",idRole);
+        }
+
         String _id = updateFields.getString("_id");
         updateFields.removeField("_id");
 

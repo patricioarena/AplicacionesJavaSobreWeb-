@@ -1,5 +1,6 @@
 package com.example.apiFrontend.controllers;
 
+import com.example.apiFrontend.models.Address;
 import com.example.apiFrontend.models.Role;
 import com.example.apiFrontend.models.User;
 import com.example.apiFrontend.models.UserForm;
@@ -65,7 +66,7 @@ public class UsersController {
                 for (Role aRole : roles){
                     if (aUser.get_idRole().equals(aRole.get_id())) {
                         User aux = aUser;
-                        aux.set_idRole(aRole.getRoleName());
+                        aux.setRoleLabel(aRole.getRoleName());
                         usersWithRoleName.add(aux);
                     }
                 }
@@ -92,11 +93,20 @@ public class UsersController {
         return temp;
     }
 
-    @RequestMapping(value="users/update", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String update(UserForm model) throws Exception{
-        var user = new User();
+    @RequestMapping(value="users/update/{id}/{idRole}", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(@PathVariable String id, @PathVariable String idRole, UserForm model) throws Exception{
+
+        if(model.getId() == null){
+            return "redirect:/users/getAll";
+        }
+
         ModelMapper modelMapper = new ModelMapper();
-        user = modelMapper.map(model,User.class);
+        Address adress = modelMapper.map(model, Address.class);
+        User user = modelMapper.map(model,User.class);
+        user.set_id(id);
+        user.set_idRole(idRole);
+        user.setAddress(adress);
+
         var temp = this.userService.update(user);
         System.out.println(temp);
         return "redirect:/users/getAll";
