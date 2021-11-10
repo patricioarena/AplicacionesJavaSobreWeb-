@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $(document).on('click', '#close', function (event) {
+    $(document).on('click', '#closeTopButton', function (event) {
         event.preventDefault();
         $('#editModal').removeClass('open');
     })

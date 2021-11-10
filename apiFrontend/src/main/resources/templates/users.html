@@ -59,7 +59,7 @@
                     <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                         <form name="info_form" class="content-wrapper" th:action="@{/users/update/} + ${user._id} +@{/}+ ${user._idRole}" method="put">
                             <article>
-                                <button class="close" id="close"></button>
+                                <button class="close" id="closeTopButton"></button>
                                 <header class="modal-header">
                                     <h2 class="modal-title" id="editModalLabel">Editar Usuario</h2>
                                 </header>
@@ -151,10 +151,16 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <footer class="modal-footer">
-                                    <button id="btnSubmitForm" type="submit">Aceptar</button>
-                                    <button id="btnCloseForm" type="reset">Cancelar</button>
+                                        <div>
+                                            <button id="btnSubmitForm" type="submit">Aceptar</button>
+                                        </div>
+                                        <div>
+                                            <button id="btnCloseForm" type="reset">Cancelar</button>
+                                        </div>
                                 </footer>
+
                             </article>
                         </form>
                     </div>
