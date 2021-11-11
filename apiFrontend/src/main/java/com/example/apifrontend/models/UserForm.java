@@ -3,17 +3,16 @@ package com.example.apiFrontend.models;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.lang.Nullable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 @Getter
 @Setter
-public class User {
-
-    private String _id;
-    private String _idRole;
-    @Nullable
-    private String roleLabel;
+public class UserForm {
+    private String id;
+    private String idRole;
     private String name;
     private String lastName;
     private String birthDate;
@@ -23,7 +22,11 @@ public class User {
     private String email;
     private String telephoneNumber;
     private double reputation;
-    private Address address;
+    private String street;
+    private String number;
+    private String zipCode;
+    private String city;
+    private String provState;
+    private String country;
     private boolean deleted;
-
 }
