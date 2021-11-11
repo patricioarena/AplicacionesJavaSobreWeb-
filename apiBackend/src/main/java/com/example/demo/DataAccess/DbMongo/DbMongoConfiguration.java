@@ -48,23 +48,29 @@ public class DbMongoConfiguration implements IDbMongoConfiguration{
     @PostConstruct
     private void Initialize() throws FileNotFoundException {
         try {
+            String connectionString = System.getenv("connectionString");
+//            String path = System.getProperty("user.dir") + "\\appsettings.json";
+//
+//            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+//            Gson gson = new Gson();
+//            HashMap<String, String> json = gson.fromJson(bufferedReader, HashMap.class);
+//
+//            String aux = json.get("connectionString");
+//            String db = json.get("db");
+//
+//            aux = aux.replaceFirst("udb", json.get("db"));
+//            aux = aux.replaceFirst("ucluster", json.get("cluster"));
+//            aux = aux.replaceFirst("uroot", json.get("user"));
+//            aux = aux.replaceFirst("upass", json.get("pass"));
 
-            String path = System.getProperty("user.dir") + "\\appsettings.json";
+            String[] paths = connectionString.split("/");
 
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
-            Gson gson = new Gson();
-            HashMap<String, String> json = gson.fromJson(bufferedReader, HashMap.class);
+            setConnectionString(connectionString);
+            setDbName(paths[paths.length - 1]);
 
-            String aux = json.get("connectionString");
-            String db = json.get("db");
+            System.out.println(connectionString);
+            System.out.println(paths[paths.length - 1]);
 
-            aux = aux.replaceFirst("udb", db);
-            aux = aux.replaceFirst("ucluster", json.get("cluster"));
-            aux = aux.replaceFirst("uroot", json.get("user"));
-            aux = aux.replaceFirst("upass", json.get("pass"));
-
-            setConnectionString(aux);
-            setDbName(db);
 
         } catch (Exception e) {
             e.printStackTrace();
