@@ -9,7 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="" />
+    <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/Requirement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/Requirement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Domain/RequirementDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Domain/RequirementDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,6 +108,7 @@
       <envs>
         <env name="baseUrl" value="http://localhost:8080/api/" />
         <env name="baseUrlHeroku" value="https://ajsw-api-backend.herokuapp.com/api/" />
+        <env name="baseUrlNgrok" value="http://793b-186-39-18-179.ngrok.io/api/" />
       </envs>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -165,6 +171,7 @@
       <workItem from="1636592214311" duration="1000" />
       <workItem from="1636669607768" duration="754000" />
       <workItem from="1636678663840" duration="950000" />
+      <workItem from="1636683860174" duration="1419000" />
     </task>
     <servers />
   </component>
