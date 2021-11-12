@@ -9,9 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/HttpClientAsynchronous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/HttpClientAsynchronous.java" afterDir="false" />
+    <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="el workspace.xml de mierda">
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/ClientRestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/controllers/TypeJobController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/HttpClientAsynchronous.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/apifrontend/services/NotAuthorizationHeaderException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/swagger.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +174,16 @@
       <workItem from="1636491819232" duration="12189000" />
       <workItem from="1636592214311" duration="1000" />
       <workItem from="1636669820333" duration="1658000" />
+      <workItem from="1636681832716" duration="402000" />
     </task>
+    <task id="LOCAL-00001" summary="el workspace.xml de mierda">
+      <created>1636682028781</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636682028781</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +200,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="el workspace.xml de mierda" />
+    <option name="LAST_COMMIT_MESSAGE" value="el workspace.xml de mierda" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
