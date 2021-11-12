@@ -1,3 +1,6 @@
+/apiFrontend/target
+/apiFrontend/.idea/workspace.xml
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -40,3 +43,4 @@ build/
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+.idea
