@@ -44,20 +44,26 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
         requirementDto.setDate(requirement.getDate());
         requirementDto.setDescription(requirement.getDescription());
         requirementDto.setZone(requirement.getZone());
+        requirementDto.setAddress(requirement.getAddress());
         requirementDto.setDeleted(requirement.isDeleted());
         return requirementDto;
     }
 
-    public RequirementDto getRequirementById(ObjectId id){
-        var requirement = super.get(id);
+    public RequirementDto getRequirementById(String id){
+        var requirement = super.get(new ObjectId(id));
         return getRequirementDto(requirement);
     }
 
     public RequirementDto saveNewRequirement(RequirementDto requirementDto){
         ModelMapper modelMapper = new ModelMapper();
+
         Requirement requirement = modelMapper.map(requirementDto, Requirement.class);
+        requirement.set_idRequestPerson(new ObjectId(requirementDto.get_idRequestPerson()));
+        requirement.set_idRequirementStatus(new ObjectId(requirementDto.get_idRequirementStatus()));
+        requirement.set_idTypeJob( new ObjectId(requirementDto.get_idTypeJob()));
+
         var requirementSave = this.getRepository().save(requirement);
-        return getRequirementDto(requirement);
+        return getRequirementDto(requirementSave);
     }
 
     public List<RequirementDto> getAllRequirements(){
@@ -99,6 +105,7 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
             requirementDto.setDate(requirement.getDate());
             requirementDto.setDescription(requirement.getDescription());
             requirementDto.setZone(requirement.getZone());
+            requirementDto.setAddress(requirement.getAddress());
             requirementDto.setDeleted(requirement.isDeleted());
             return requirementDto;
         }else{
@@ -116,6 +123,7 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
         requirement.setDate(model.getDate());
         requirement.setDescription(model.getDescription());
         requirement.setZone(model.getZone());
+        requirement.setAddress(model.getAddress());
         requirement.setDeleted(model.isDeleted());
 
         if (!model.isDeleted()){
@@ -133,6 +141,7 @@ public class RequirementService extends GenericService<Requirement, ObjectId> im
         requirementDto.setDate(model.getDate());
         requirementDto.setDescription(model.getDescription());
         requirementDto.setZone(model.getZone());
+        requirementDto.setAddress(model.getAddress());
         requirementDto.setDeleted(model.isDeleted());
 
         if (!model.isDeleted()){

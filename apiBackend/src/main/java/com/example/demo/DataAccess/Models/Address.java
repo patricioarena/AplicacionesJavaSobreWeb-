@@ -36,6 +36,6 @@ public class Address {
         this.city = city;
         this.provState = provState;
         this.country = country;
-        this.coordinates =coordinates;
+        this.coordinates = coordinates;
     }
 }

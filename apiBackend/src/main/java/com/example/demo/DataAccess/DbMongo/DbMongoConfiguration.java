@@ -49,28 +49,10 @@ public class DbMongoConfiguration implements IDbMongoConfiguration{
     private void Initialize() throws FileNotFoundException {
         try {
             String connectionString = System.getenv("connectionString");
-//            String path = System.getProperty("user.dir") + "\\appsettings.json";
-//
-//            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
-//            Gson gson = new Gson();
-//            HashMap<String, String> json = gson.fromJson(bufferedReader, HashMap.class);
-//
-//            String aux = json.get("connectionString");
-//            String db = json.get("db");
-//
-//            aux = aux.replaceFirst("udb", json.get("db"));
-//            aux = aux.replaceFirst("ucluster", json.get("cluster"));
-//            aux = aux.replaceFirst("uroot", json.get("user"));
-//            aux = aux.replaceFirst("upass", json.get("pass"));
-
             String[] paths = connectionString.split("/");
 
             setConnectionString(connectionString);
             setDbName(paths[paths.length - 1]);
-
-            System.out.println(connectionString);
-            System.out.println(paths[paths.length - 1]);
-
 
         } catch (Exception e) {
             e.printStackTrace();

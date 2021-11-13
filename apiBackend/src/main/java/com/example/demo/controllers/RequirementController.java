@@ -32,7 +32,7 @@ public class RequirementController {
     }
 
     @GetMapping(value = "/find/{id}")
-    public ResponseEntity<Datawrapper<RequirementDto>> find(@PathVariable ObjectId id) {
+    public ResponseEntity<Datawrapper<RequirementDto>> find(@PathVariable String id) {
         RequirementDto requirement = _requirementService.getRequirementById(id);
         Datawrapper<RequirementDto> response = new Datawrapper<>(requirement);
         return new ResponseEntity<>(response, HttpStatus.OK);

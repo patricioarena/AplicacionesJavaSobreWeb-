@@ -28,7 +28,7 @@ public class RequirementStatusController {
     }
 
     @GetMapping(value = "/find/{id}")
-    public ResponseEntity<RequirementStatusDto> find(@PathVariable ObjectId id) {
+    public ResponseEntity<RequirementStatusDto> find(@PathVariable String id) {
         RequirementStatusDto rStatus = _requirementStatusService.getRequirementStatusById(id);
         return new ResponseEntity<>(rStatus, HttpStatus.OK);
     }

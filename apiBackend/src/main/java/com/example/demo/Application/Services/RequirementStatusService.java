@@ -2,12 +2,15 @@ package com.example.demo.Application.Services;
 
 import com.example.demo.Application.IServices.IRequirementStatusService;
 import com.example.demo.DataAccess.Database;
+import com.example.demo.DataAccess.Models.Offer;
 import com.example.demo.DataAccess.Models.RequirementStatus;
 import com.example.demo.DataAccess.Repository.CommonResourcesRepository;
 import com.example.demo.DataAccess.Repository.RequirementStatusRepository;
+import com.example.demo.Domain.OfferDto;
 import com.example.demo.Domain.RequirementStatusDto;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -29,11 +32,12 @@ public class RequirementStatusService extends GenericService<RequirementStatus, 
         this.commonResourcesRepository = commonResourcesRepository;
     }
 
-    public RequirementStatusDto getRequirementStatusById(ObjectId id){
-        var rStatus = super.get(id);
+    public RequirementStatusDto getRequirementStatusById(String id){
+        var rStatus = this.getRepository().findById(new ObjectId(id));
+        var status = rStatus.get();
         RequirementStatusDto statusDto = new RequirementStatusDto();
-        statusDto.set_id(rStatus.getId().toString());
-        statusDto.setStatus(rStatus.getStatus());
+        statusDto.set_id(status.getId().toString());
+        statusDto.setStatus(status.getStatus());
         return statusDto;
     }
 

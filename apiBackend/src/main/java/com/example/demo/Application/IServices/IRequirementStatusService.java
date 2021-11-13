@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IRequirementStatusService extends IGenericService<RequirementStatus, ObjectId>{
 
-    RequirementStatusDto getRequirementStatusById(ObjectId id);
+    RequirementStatusDto getRequirementStatusById(String id);
     RequirementStatusDto saveNewRequirementStatus(RequirementStatus requirementStatus);
     List<RequirementStatusDto> getAllRequirementStatus();
 }
