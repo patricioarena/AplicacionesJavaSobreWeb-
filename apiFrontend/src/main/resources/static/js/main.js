@@ -1,47 +1,53 @@
 $(document).ready(function () {
 
-    $(document).on('click', '#closeTopButton', function (event) {
+    $(document).on('click', '.closeTopButton', function (event) {
         event.preventDefault();
-        $('#editModal').removeClass('open');
+        var id = event.target.id.replace("closeTopButton","");
+        $('#editModal'+id).removeClass('open');
     })
 
-    $(document).on('click', '#btnCloseForm', function (event) {
+    $(document).on('click', '.btnCloseForm', function (event) {
         event.preventDefault();
-        $('#editModal').removeClass('open');
+        var id = event.target.id.replace("btnCloseForm","");
+        $('#editModal'+id).removeClass('open');
     })
 
-
-    $('.table #editButton').on('click',function(event){
+    $('.table #editButton').on('click',function(event) {
 		event.preventDefault();
+
         var href = $(this).attr('href');
 
-        console.log(href)
-
         $.get(href, function (user, status) {
-            console.log(user);
-            $('#editModal').addClass('open');
 
-            $('#editId').val(user._id);
-            $('#editIdRole').val(user._idRole);
-            $('#editFirstname').val(user.name);
-            $('#editLastname').val(user.lastName);
-            $('#editBirthDate').val(user.birthDate);
-            $('#editTypeDoc').val(user.typeDoc);
-            $('#editNumberDoc').val(user.numberDoc);
-            $('#editGender').val(user.gender);
-            $('#editEmail').val(user.email);
-            $('#editTelephoneNumber').val(user.telephoneNumber);
-            $('#editReputation').val(user.reputation);
-            $('#editStreet').val(user.address.street);
-            $('#editNumber').val(user.address.number);
-            $('#editZipCode').val(user.address.zipCode);
-            $('#editCity').val(user.address.city);
-            $('#editProvState').val(user.address.provState);
-            $('#editCountry').val(user.address.country);
-            $('#editDeleted').val(user.deleted);
+            var dateFormated = moment(user.birthDate).format('YYYY-MM-DD');
 
-            // $('#editAddress').empty();
-            // $('#editAddress').append(user.address);
+            $(`#editModal${user._id}`)
+                .addClass('open')
+                .keyup(function(event) {
+                if (event.key === "Escape") {
+                    $(`#editModal${user._id}`).removeClass('open');
+                }
+            });
+
+            $(`#editId${user._id}`).val(user._id);
+            $(`#editIdRole${user._id}`).val(user._idRole);
+            $(`#editFirstname${user._id}`).val(user.name);
+            $(`#editLastname${user._id}`).val(user.lastName);
+            $(`#editBirthDate${user._id}`).val(dateFormated);
+            $(`#editTypeDoc${user._id}`).val(user.typeDoc);
+            $(`#editNumberDoc${user._id}`).val(user.numberDoc);
+            $(`#editGender${user._id}`).val(user.gender);
+            $(`#editEmail${user._id}`).val(user.email);
+            $(`#editTelephoneNumber${user._id}`).val(user.telephoneNumber);
+            $(`#editReputation${user._id}`).val(user.reputation);
+            $(`#editStreet${user._id}`).val(user.address.street);
+            $(`#editNumber${user._id}`).val(user.address.number);
+            $(`#editZipCode${user._id}`).val(user.address.zipCode);
+            $(`#editCity${user._id}`).val(user.address.city);
+            $(`#editProvState${user._id}`).val(user.address.provState);
+            $(`#editCountry${user._id}`).val(user.address.country);
+            $(`#editDeleted${user._id}`).val(user.deleted);
+
         })
 	});
 
