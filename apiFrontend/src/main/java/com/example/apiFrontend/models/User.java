@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
 
+import java.util.Date;
+
 @Data
 @Getter
 @Setter
@@ -16,7 +18,7 @@ public class User {
     private String roleLabel;
     private String name;
     private String lastName;
-    private String birthDate;
+    private Date birthDate;
     private String typeDoc;
     private int numberDoc;
     private String gender;

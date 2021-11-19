@@ -7,6 +7,9 @@ import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
+
 @Data
 @Getter
 @Setter
@@ -18,7 +21,7 @@ public class User {
     private ObjectId _idRole;
     private String name;
     private String lastName;
-    private String birthDate;
+    private Date birthDate;
     private String typeDoc;
     private int numberDoc;
     private String gender;
@@ -29,7 +32,7 @@ public class User {
     private boolean deleted;
 
 
-    public User(ObjectId _idRole, String name, String lastName, String birthDate, String typeDoc,
+    public User(ObjectId _idRole, String name, String lastName, Date birthDate, String typeDoc,
                 int numberDoc, String gender, String email, String telephoneNumber, float reputation,
                 Address address, boolean deleted){
         this._idRole = _idRole;

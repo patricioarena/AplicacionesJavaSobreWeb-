@@ -19,6 +19,7 @@ public class Requirement {
     private ObjectId _idTypeJob;
     private ObjectId _idRequirementStatus;
     private Date date;
+    private Address address;
     private String description;
     private String zone;
     private boolean deleted;
@@ -26,13 +27,14 @@ public class Requirement {
     public Requirement() {
     }
 
-    public Requirement(ObjectId _idRequestPerson, ObjectId _idTypeJob, ObjectId _idRequirementStatus, Date date, String description, String zone, boolean deleted) {
+    public Requirement(ObjectId _idRequestPerson, ObjectId _idTypeJob, ObjectId _idRequirementStatus, Date date, Address address, String description, String zone, boolean deleted) {
         super();
 
         this._idRequestPerson = _idRequestPerson;
         this._idTypeJob = _idTypeJob;
         this._idRequirementStatus = _idRequirementStatus;
         this.date = date;
+        this.address = address;
         this.description = description;
         this.zone = zone;
         this.deleted = deleted;

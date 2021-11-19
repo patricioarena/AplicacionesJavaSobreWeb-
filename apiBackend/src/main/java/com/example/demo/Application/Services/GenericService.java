@@ -41,3 +41,4 @@ public abstract class GenericService<T, ID extends Serializable> implements IGen
 
     public abstract CrudRepository<T, ID> getRepository();
 }
+
