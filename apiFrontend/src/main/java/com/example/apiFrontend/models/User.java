@@ -24,6 +24,7 @@ public class User {
     private int numberDoc;
     private String gender;
     private String email;
+    private String password;
     private String telephoneNumber;
     private double reputation;
     private Address address;

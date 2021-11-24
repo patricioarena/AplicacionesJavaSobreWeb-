@@ -27,6 +27,7 @@ public class User {
     private int numberDoc;
     private String gender;
     private String email;
+    private String password;
     private String telephoneNumber;
     private double reputation;
     private Address address;
@@ -34,7 +35,7 @@ public class User {
 
 
     public User(ObjectId _idRole, String name, String lastName, Date birthDate, String typeDoc,
-                int numberDoc, String gender, String email, String telephoneNumber, float reputation,
+                int numberDoc, String gender, String email, String password, String telephoneNumber, float reputation,
                 Address address, boolean deleted){
         this.roles = roles;
         this.name = name;
@@ -44,6 +45,7 @@ public class User {
         this.numberDoc = numberDoc;
         this.gender = gender;
         this.email = email;
+        this.password = password;
         this.telephoneNumber = telephoneNumber;
         this.reputation = reputation;
         this.address = address;
