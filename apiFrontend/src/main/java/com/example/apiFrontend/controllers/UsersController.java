@@ -5,6 +5,7 @@ import com.example.apiFrontend.models.Role;
 import com.example.apiFrontend.models.User;
 import com.example.apiFrontend.models.UserForm;
 import com.example.apiFrontend.services.HttpClientAsynchronous;
+import com.example.apiFrontend.services.RoleService;
 import com.example.apiFrontend.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.reflect.TypeToken;
@@ -30,11 +31,13 @@ public class UsersController {
 
     private final UserService userService;
     private final HttpClientAsynchronous httpClientAsynchronous;
+    private final RoleService roleService;
 
     @Autowired
-    public UsersController(HttpClientAsynchronous httpClientAsynchronous , UserService userService){
+    public UsersController(HttpClientAsynchronous httpClientAsynchronous , UserService userService, RoleService roleService){
         this.httpClientAsynchronous = httpClientAsynchronous;
         this.userService = userService;
+        this.roleService = roleService;
     }
 
 
@@ -46,20 +49,9 @@ public class UsersController {
     @GetMapping("users/getAll")
     public String userList(Model model) throws Exception {
         try {
-            String urlUsers = "user/getAll";
 
-            JSONObject resposeUser = this.httpClientAsynchronous.GET(urlUsers);
-            String responseString = resposeUser.get("data").toString();
-
-            String urlRole = "role/getAll";
-            JSONObject responseRole = this.httpClientAsynchronous.GET(urlRole);
-            String responseStringRole = responseRole.get("data").toString();
-
-            Type listType = new TypeToken<ArrayList<User>>() {}.getType();
-            ArrayList<User> users = new Gson().fromJson(responseString, listType);
-
-            Type listTypeRole = new TypeToken<ArrayList<Role>>() {}.getType();
-            ArrayList<Role> roles = new Gson().fromJson(responseStringRole, listTypeRole);
+            ArrayList<User> users = this.userService.getAllUsers();
+            ArrayList<Role> roles = this.roleService.getRoles();
 
             ArrayList<User> usersWithRoleName = new ArrayList<>();
             for (User aUser : users) {
@@ -72,9 +64,6 @@ public class UsersController {
                 }
             }
 
-//            System.out.println(usersWithRoleName);
-
-//            System.out.println(users);
             model.addAttribute("titulo","Lista de Usuarios");
             model.addAttribute("users", usersWithRoleName);
 
