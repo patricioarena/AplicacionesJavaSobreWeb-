@@ -10,12 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/CommonsUtilities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Repository/CommonResourcesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Repository/CommonResourcesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Domain/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Domain/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/signin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/UserForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/UserForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/TypeJobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/TypeJobService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/requirements.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/requirements.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../clientApp" beforeDir="false" afterPath="$PROJECT_DIR$/../clientApp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +38,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
         <option value="Class" />
       </list>
     </option>
@@ -76,6 +87,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -186,7 +198,9 @@
       <workItem from="1637276184896" duration="14259000" />
       <workItem from="1637294123290" duration="5037000" />
       <workItem from="1637677330185" duration="6889000" />
-      <workItem from="1637711961025" duration="5499000" />
+      <workItem from="1637711961025" duration="10335000" />
+      <workItem from="1637753654394" duration="1427000" />
+      <workItem from="1637756658228" duration="14930000" />
     </task>
     <servers />
   </component>
@@ -204,6 +218,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/apiFrontend$ApifrontendApplication.ic" NAME="ApifrontendApplication Coverage Results" MODIFIED="1637201561417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

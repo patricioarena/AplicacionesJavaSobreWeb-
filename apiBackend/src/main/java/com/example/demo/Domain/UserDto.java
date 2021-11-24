@@ -7,6 +7,7 @@ import lombok.NonNull;
 import lombok.Setter;
 import org.bson.types.ObjectId;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 @Data
@@ -14,7 +15,7 @@ import java.util.Date;
 @Setter
 public class UserDto {
     private String _id;
-    private String _idRole;
+    private ArrayList<String> roles;
     private String name;
     private String lastName;
     private Date birthDate;

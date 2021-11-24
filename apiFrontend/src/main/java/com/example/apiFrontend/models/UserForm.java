@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +15,7 @@ import java.util.Map;
 @Setter
 public class UserForm {
     private String id;
-    private String idRole;
+    private ArrayList<String> roles;
     private String name;
     private String lastName;
     private String birthDate;

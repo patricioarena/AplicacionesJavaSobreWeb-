@@ -8,6 +8,7 @@ import com.example.demo.DataAccess.Repository.IUserRepository;
 import com.example.demo.DataAccess.Repository.CommonResourcesRepository;
 import com.example.demo.Domain.UserDto;
 import com.google.gson.Gson;
+import jdk.jshell.execution.Util;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.modelmapper.ModelMapper;
@@ -58,50 +59,19 @@ public class UserService extends GenericService<User, ObjectId> implements IUser
     @Override
     public UserDto saveNewUser(UserDto userDto) {
         ModelMapper modelMapper = new ModelMapper();
-        ObjectId roleId = null;
+        ArrayList<ObjectId> roles = new ArrayList<>();
 
-        if (userDto.get_idRole() != null) {
-            roleId = new ObjectId(userDto.get_idRole());
+        if (userDto.getRoles() != null) {
+            userDto.getRoles().forEach(role -> roles.add(new ObjectId(role)));
         } else {
-            roleId = new ObjectId();
+            roles.add(new ObjectId());
         }
 
-        UserDto userDtoReturn = null;
+        User user = modelMapper.map(userDto, User.class);
+        user.setRoles(roles);
+        var temp4 = this.getRepository().save(user);
+        UserDto userDtoReturn = modelMapper.map(temp4, UserDto.class);
 
-        switch (roleId.toString()) {
-            case DefaultRoles.adminPerson:
-
-                AdminPerson adminPerson = modelMapper.map(userDto, AdminPerson.class);
-                adminPerson.set_idRole(roleId);
-                var temp1 = this.getRepository().save(adminPerson);
-                userDtoReturn = modelMapper.map(temp1, UserDto.class);
-                break;
-
-            case DefaultRoles.requestPerson:    // requestPerson
-
-                RequestPerson requestPerson = modelMapper.map(userDto, RequestPerson.class);
-                requestPerson.set_idRole(roleId);
-                var temp2 = this.getRepository().save(requestPerson);
-                userDtoReturn = modelMapper.map(temp2, UserDto.class);
-                break;
-
-            case DefaultRoles.offerPerson:    // offerPerson
-
-                OfferPerson offerPerson = modelMapper.map(userDto, OfferPerson.class);
-                offerPerson.set_idRole(roleId);
-                var temp3 = this.getRepository().save(offerPerson);
-                userDtoReturn = modelMapper.map(temp3, UserDto.class);
-                break;
-
-            default:
-
-                User user = modelMapper.map(userDto, User.class);
-                user.set_idRole(null);
-                var temp4 = this.getRepository().save(user);
-                userDtoReturn = modelMapper.map(temp4, UserDto.class);
-                break;
-
-        }
         return userDtoReturn;
     }
 
