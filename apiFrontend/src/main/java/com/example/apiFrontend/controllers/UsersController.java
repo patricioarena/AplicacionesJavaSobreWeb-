@@ -1,9 +1,17 @@
 package com.example.apiFrontend.controllers;
 
+<<<<<<< HEAD
 import com.example.apiFrontend.models.*;
 import com.example.apiFrontend.services.HttpClientAsynchronous;
 import com.example.apiFrontend.services.RoleService;
 import com.example.apiFrontend.services.UserService;
+=======
+import com.example.apiFrontend.models.Address;
+import com.example.apiFrontend.models.Role;
+import com.example.apiFrontend.models.User;
+import com.example.apiFrontend.models.UserForm;
+import com.example.apiFrontend.services.*;
+>>>>>>> f8487575a29e4f18b2df69a516ef176cb9fd34ad
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -11,9 +19,12 @@ import org.json.simple.JSONObject;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.lang.reflect.Type;
@@ -29,68 +40,100 @@ public class UsersController {
     private final UserService userService;
     private final HttpClientAsynchronous httpClientAsynchronous;
     private final RoleService roleService;
+    private final CommonsUtilities commonsUtilities;
+
 
     @Autowired
-    public UsersController(HttpClientAsynchronous httpClientAsynchronous , UserService userService, RoleService roleService){
+    public UsersController(HttpClientAsynchronous httpClientAsynchronous, UserService userService, RoleService roleService, CommonsUtilities commonsUtilities) {
         this.httpClientAsynchronous = httpClientAsynchronous;
         this.userService = userService;
         this.roleService = roleService;
+        this.commonsUtilities = commonsUtilities;
     }
 
 
     @GetMapping("/base")
-    public String Test(){
+    public String Test() {
         return "base";
     }
 
     @GetMapping("users/getAll")
-    public String userList(Model model) throws Exception {
+    public ModelAndView userList() throws Exception {
+        ModelAndView mav = new ModelAndView("users");
         try {
 
             ArrayList<User> users = this.userService.getAllUsers();
             ArrayList<Role> roles = this.roleService.getRoles();
 
             ArrayList<User> usersWithRoleName = new ArrayList<>();
+
             for (User aUser : users) {
-                for (Role aRole : roles){
-                    if (aUser.get_idRole().equals(aRole.get_id())) {
-                        User aux = aUser;
-                        aux.setRoleLabel(aRole.getRoleName());
-                        usersWithRoleName.add(aux);
-                    }
+
+                ArrayList<String> aux = new ArrayList<>();
+
+                for (Role aRole : roles) {
+                    aUser.getRoles().forEach(role -> {
+                        if (role.equals(aRole.get_id())) {
+                            aux.add(aRole.getRoleName());
+                        }
+                    });
                 }
+
+                User auxUser = aUser;
+                auxUser.setRolesLabel(aux);
+                usersWithRoleName.add(auxUser);
             }
 
-            model.addAttribute("titulo","Lista de Usuarios");
-            model.addAttribute("users", usersWithRoleName);
+//            for (User aUser : users) {
+//                for (Role aRole : roles){
+//                    if (aUser.get_idRole().equals(aRole.get_id())) {
+//                        User aux = aUser;
+//                        aux.setRoleLabel(aRole.getRoleName());
+//                        usersWithRoleName.add(aux);
+//                    }
+//                }
+//            }
 
-            return "users";
+//            model.addAttribute("titulo", "Lista de Usuarios");
+//            model.addAttribute("users", usersWithRoleName);
+
+//            return "users";
+//            mav.addObject("title", "List of users");
+            mav.addObject("users", usersWithRoleName);
+            mav.addObject("countries", this.commonsUtilities.getCountries());
+
+            return mav;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "users";
+//        return "users";
+        return mav;
     }
 
     @RequestMapping("users/getOne")
     @ResponseBody
     public User getOne(String Id) throws Exception {
-        var temp = this.userService.findById(Id);
-        System.out.println(temp);
-        return temp;
+        try {
+            return this.userService.findById(Id);
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
     }
 
-    @RequestMapping(value="users/update/{id}/{idRole}", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String update(@PathVariable String id, @PathVariable String idRole, UserForm model) throws Exception{
+    @RequestMapping(value = "users/update/{id}", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(@PathVariable String id, UserForm model) throws Exception {
 
-        if(model.getId() == null) {
+        if (model.getId() == null) {
             return "redirect:/users/getAll";
         }
 
         ModelMapper modelMapper = new ModelMapper();
         Address adress = modelMapper.map(model, Address.class);
-        User user = modelMapper.map(model,User.class);
+        User user = modelMapper.map(model, User.class);
         user.set_id(id);
-        user.set_idRole(idRole);
+//        user.set_idRole(idRole);
         user.setAddress(adress);
 
         var temp = this.userService.update(user);

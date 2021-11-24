@@ -26,7 +26,7 @@ public class TypeJobService {
         String urlRole = "typeJob/getAll";
         JSONObject responseRole = this.httpClientAsynchronous.GET(urlRole);
         String responseStringRole = responseRole.get("data").toString();
-        Type listTypeRole = new TypeToken<ArrayList<Role>>() {}.getType();
+        Type listTypeRole = new TypeToken<ArrayList<TypeJob>>() {}.getType();
         this.jobs = new Gson().fromJson(responseStringRole, listTypeRole);
     }
 

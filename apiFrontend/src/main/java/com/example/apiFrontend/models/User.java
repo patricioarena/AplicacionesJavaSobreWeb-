@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 @Data
@@ -13,9 +14,9 @@ import java.util.Date;
 public class User {
 
     private String _id;
-    private String _idRole;
+    private ArrayList<String> roles;
     @Nullable
-    private String roleLabel;
+    private ArrayList<String> rolesLabel;
     private String name;
     private String lastName;
     private Date birthDate;
@@ -23,6 +24,7 @@ public class User {
     private int numberDoc;
     private String gender;
     private String email;
+    private String password;
     private String telephoneNumber;
     private double reputation;
     private Address address;
