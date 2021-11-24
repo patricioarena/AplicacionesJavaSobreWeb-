@@ -31,21 +31,64 @@
                 </div>
 
                 <div class="col-12">
-                    <label for="username" class="form-label">Username</label>
+                    <label for="birthDate" class="form-label">Birth Date</label>
                     <div class="input-group has-validation">
-                        <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" id="username" placeholder="Username" required="">
+                        <input type="date" class="form-control" id="birthDate" placeholder="Birth Date" required="">
                         <div class="invalid-feedback">
-                            Your username is required.
+                            Your birth date is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="typeDoc" class="form-label">Type Document</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="typeDoc" placeholder="Type Document" required="">
+                        <div class="invalid-feedback">
+                            Your type of document is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="numberDoc" class="form-label">Number Document</label>
+                    <div class="input-group has-validation">
+                        <input type="number" class="form-control" id="numberDoc" placeholder="Number Document" required="">
+                        <div class="invalid-feedback">
+                            Your number document is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="gender" class="form-label">Gender</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="gender" placeholder="Gender" required="">
+                        <div class="invalid-feedback">
+                            Your gender is required.
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12">
                     <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
+                    <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="telephoneNumber" class="form-label">Telephone Number</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text">☏</span>
+                        <input type="telephoneNumber" class="form-control" id="telephoneNumber" placeholder="">
+                        <div class="invalid-feedback">
+                            Please enter a valid telephone number for shipping updates.
+                        </div>
                     </div>
                 </div>
 
