@@ -3,10 +3,8 @@
     max-width: 420px;
     padding: 15px;
     margin: auto;
-    top: 20%;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
+
+    transform: translateY(10%);
 }
 
 .form-label-group {
