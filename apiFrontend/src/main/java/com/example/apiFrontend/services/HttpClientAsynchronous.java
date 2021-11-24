@@ -30,7 +30,7 @@ public class HttpClientAsynchronous {
     private String baseUrl;
 
     public HttpClientAsynchronous() {
-        this.baseUrl = System.getenv("baseUrl");
+        this.baseUrl = System.getenv("baseUrlNgrok");
     }
 
     private static final HttpClient httpClient = HttpClient.newBuilder()

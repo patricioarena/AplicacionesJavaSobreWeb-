@@ -1,9 +1,6 @@
 package com.example.apiFrontend.controllers;
 
-import com.example.apiFrontend.models.Address;
-import com.example.apiFrontend.models.Role;
-import com.example.apiFrontend.models.User;
-import com.example.apiFrontend.models.UserForm;
+import com.example.apiFrontend.models.*;
 import com.example.apiFrontend.services.HttpClientAsynchronous;
 import com.example.apiFrontend.services.RoleService;
 import com.example.apiFrontend.services.UserService;
@@ -99,5 +96,17 @@ public class UsersController {
         var temp = this.userService.update(user);
         System.out.println(temp);
         return "redirect:/users/getAll";
+    }
+
+    @GetMapping("users/register")
+    public String registerForm(Model model) {
+        model.addAttribute("register", new UserForm());
+        return "register";
+    }
+
+    @PostMapping("users/register/create")
+    public String registerSubmit(@ModelAttribute UserForm userForm, Model model) {
+        model.addAttribute("register", userForm);
+        return "result";
     }
 }

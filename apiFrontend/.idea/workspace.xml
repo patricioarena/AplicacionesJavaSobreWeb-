@@ -10,25 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementStatusRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/TypeJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/TypeJobService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/requirements.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementStatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementStatusController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/ClientRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/ClientRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/TypeJobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/TypeJobRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/Requirement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/Requirement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clientApp" beforeDir="false" afterPath="$PROJECT_DIR$/../clientApp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/HttpClientAsynchronous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/HttpClientAsynchronous.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +82,6 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -107,6 +92,7 @@
       <recent name="C:\Users\patri\Desktop\apiFrontend\src\main\java\com\example\apiFrontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\maxi\Desktop\AplicacionesJavaSobreWeb-\apiFrontend\src\main\resources\templates" />
       <recent name="C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\resources\static\js" />
       <recent name="C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\resources\static" />
       <recent name="C:\Users\maxi\Desktop\AplicacionesJavaSobreWeb-\apiFrontend\src\main\resources\static" />
@@ -127,7 +113,7 @@
       <envs>
         <env name="baseUrl" value="http://localhost:8080/api/" />
         <env name="baseUrlHeroku" value="https://ajsw-api-backend.herokuapp.com/api/" />
-        <env name="baseUrlNgrok" value="http://793b-186-39-18-179.ngrok.io/api/" />
+        <env name="baseUrlNgrok" value="http://6fda-186-39-118-174.ngrok.io/api/" />
       </envs>
       <method v="2">
         <option name="Make" enabled="true" />
