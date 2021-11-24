@@ -85,7 +85,7 @@ public class UsersController {
     @RequestMapping(value="users/update/{id}/{idRole}", method = {RequestMethod.PUT, RequestMethod.GET})
     public String update(@PathVariable String id, @PathVariable String idRole, UserForm model) throws Exception{
 
-        if(model.getId() == null){
+        if(model.getId() == null) {
             return "redirect:/users/getAll";
         }
 
