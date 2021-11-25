@@ -10,13 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/AdminPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/AdminPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/OfferPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/OfferPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/RequestPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/RequestPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Domain/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Domain/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/UserFormRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/requirements.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/requirements.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -117,7 +122,7 @@
       <envs>
         <env name="baseUrl" value="http://localhost:8080/api/" />
         <env name="baseUrlHeroku" value="https://ajsw-api-backend.herokuapp.com/api/" />
-        <env name="baseUrlNgrok" value="http://6fda-186-39-118-174.ngrok.io/api/" />
+        <env name="baseUrlNgrok" value="http://c15c-186-39-118-174.ngrok.io/api/" />
       </envs>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -208,6 +213,25 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java</url>
+          <line>147</line>
+          <properties class="com.example.apiFrontend.controllers.UsersController" method="registerSubmit">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java</url>
+          <line>146</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

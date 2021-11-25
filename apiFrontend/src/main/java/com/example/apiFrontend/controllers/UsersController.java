@@ -1,17 +1,14 @@
 package com.example.apiFrontend.controllers;
 
-<<<<<<< HEAD
 import com.example.apiFrontend.models.*;
 import com.example.apiFrontend.services.HttpClientAsynchronous;
 import com.example.apiFrontend.services.RoleService;
 import com.example.apiFrontend.services.UserService;
-=======
 import com.example.apiFrontend.models.Address;
 import com.example.apiFrontend.models.Role;
 import com.example.apiFrontend.models.User;
 import com.example.apiFrontend.models.UserForm;
 import com.example.apiFrontend.services.*;
->>>>>>> f8487575a29e4f18b2df69a516ef176cb9fd34ad
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -143,13 +140,27 @@ public class UsersController {
 
     @GetMapping("users/register")
     public String registerForm(Model model) {
-        model.addAttribute("register", new UserForm());
+        model.addAttribute("register", new UserFormRegister());
         return "register";
     }
 
     @PostMapping("users/register/create")
-    public String registerSubmit(@ModelAttribute UserForm userForm, Model model) {
-        model.addAttribute("register", userForm);
-        return "result";
+    public ModelAndView registerSubmit(@ModelAttribute UserFormRegister userFormRegister, Model model) throws Exception {
+
+        if(!userFormRegister.getEmail().equals(userFormRegister.getConfirmEmail())){
+            ModelAndView mavRedirect = new ModelAndView("register");
+            mavRedirect.addObject("userFormRegister", userFormRegister);
+            return mavRedirect;
+        }
+        if(!userFormRegister.getPassword().equals(userFormRegister.getConfirmPassword())){
+            ModelAndView mavRedirect = new ModelAndView("register");
+            mavRedirect.addObject("userFormRegister", userFormRegister);
+            return mavRedirect;
+        }
+
+        User user = this.userService.create(userFormRegister);
+        ModelAndView mav = new ModelAndView("register");
+        mav.addObject("user", user);
+        return mav;
     }
 }

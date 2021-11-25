@@ -29,8 +29,9 @@
                             <label th:for="editJobs" class="col-form-label">Job:</label>
                             <br />
                             <select th:id="editJobs" th:name="job" field="job" size="1" class="form-control">
-                                <option th:each="job : ${typesJobs}" th:value="${{job.get_id()}}"
-                                    th:text="${job.getJobName()}">
+                                <option th:each="job : ${typesJobs}" th:value="${{job.get_id() + job._id}}"
+                                    th:text="${job.getJobName()}"
+                                    th:selected="true">
                                 </option>
                             </select>
                         </div>
