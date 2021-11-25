@@ -10,19 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/RequirementForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementStatusService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/resultReqForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/Requirement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/Requirement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/RequirementStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/RequirementStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/UserForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/UserForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/requirements.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/requirements.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/resultReqForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/resultReqForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../clientApp" beforeDir="false" afterPath="$PROJECT_DIR$/../clientApp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -200,7 +189,7 @@
       <workItem from="1637711961025" duration="10335000" />
       <workItem from="1637753654394" duration="1427000" />
       <workItem from="1637756658228" duration="26453000" />
-      <workItem from="1637840789629" duration="8435000" />
+      <workItem from="1637840789629" duration="10294000" />
     </task>
     <servers />
   </component>
