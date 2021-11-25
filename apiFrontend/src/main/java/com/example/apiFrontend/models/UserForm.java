@@ -18,7 +18,8 @@ public class UserForm {
     private ArrayList<String> roles;
     private String name;
     private String lastName;
-    private String birthDate;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private Date birthDate;
     private String typeDoc;
     private int numberDoc;
     private String gender;
