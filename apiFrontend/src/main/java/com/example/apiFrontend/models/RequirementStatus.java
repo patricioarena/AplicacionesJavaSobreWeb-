@@ -9,16 +9,16 @@ import lombok.Setter;
 @Setter
 public class RequirementStatus {
 
-    private String id;
+    private String _id;
     private String status;
 
     public RequirementStatus() {
     }
 
-    public RequirementStatus(String id, String status) {
+    public RequirementStatus(String _id, String status) {
         super();
 
-        this.id = id;
+        this._id = _id;
         this.status = status;
     }
 }

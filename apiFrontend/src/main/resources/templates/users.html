@@ -80,9 +80,6 @@
                                         </div>
 
                                         <div class="form-group col-sm-3" th:object="${user}">
-                                            <!--                                            <label th:for="editIdRole + ${user._id}" class="col-form-label">Rol:</label>-->
-                                            <!--                                            <input type="text" class="form-control" th:id="editIdRole + ${user._id}" th:name="idRole" disabled>-->
-                                            <!--                                            <input type="hidden" th:field="*{_id}" />-->
                                             <label th:for="editIdRole + ${user._id}">Roles:</label>
                                             <br/>
                                             <select th:id="editIdRole + ${user._id}" th:name="roles" field="roles"
