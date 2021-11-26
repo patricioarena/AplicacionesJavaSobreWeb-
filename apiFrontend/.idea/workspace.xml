@@ -11,6 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/signin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/resultReqForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/resultReqForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../clientApp" beforeDir="false" afterPath="$PROJECT_DIR$/../clientApp" afterDir="false" />
     </list>
@@ -189,7 +193,9 @@
       <workItem from="1637711961025" duration="10335000" />
       <workItem from="1637753654394" duration="1427000" />
       <workItem from="1637756658228" duration="26453000" />
-      <workItem from="1637840789629" duration="10294000" />
+      <workItem from="1637840789629" duration="20531000" />
+      <workItem from="1637890694140" duration="636000" />
+      <workItem from="1637891345509" duration="5653000" />
     </task>
     <servers />
   </component>
@@ -207,6 +213,13 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="mav" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -49,4 +49,16 @@ public class RequirementService {
 
         return userUpdate;
     }
+
+
+    public Requirement findById(String id) throws Exception {
+
+        String urlUserFind = "requirement/find/"+id;
+        JSONObject resposeUser = this.httpClientAsynchronous.GET(urlUserFind);
+        String responseString = resposeUser.get("data").toString();
+
+        Type listType = new TypeToken<Requirement>() {}.getType(); //TypeToken se utiliza para indicarle a Gson el tipo especifico al cual lo tiene que convertir
+        return new Gson().fromJson(responseString, listType);
+
+    }
 }

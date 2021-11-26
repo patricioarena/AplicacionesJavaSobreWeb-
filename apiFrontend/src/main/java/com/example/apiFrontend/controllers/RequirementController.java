@@ -1,12 +1,11 @@
 package com.example.apiFrontend.controllers;
 
-import com.example.apiFrontend.models.Greeting;
 import com.example.apiFrontend.models.Requirement;
 import com.example.apiFrontend.models.RequirementForm;
+import com.example.apiFrontend.models.TypeJob;
 import com.example.apiFrontend.services.CommonsUtilities;
 import com.example.apiFrontend.services.RequirementService;
 import com.example.apiFrontend.services.TypeJobService;
-import com.example.apiFrontend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
+
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
 @ApiIgnore
 @Controller
@@ -42,15 +44,45 @@ public class RequirementController {
     }
 
     @PostMapping("/requirement/new")
-    public String requirementFormSubmit(@ModelAttribute RequirementForm reqForm, Model model) throws Exception {
+    public ModelAndView requirementFormSubmit(@ModelAttribute RequirementForm reqForm, Model model) throws Exception {
+
         Requirement temp = this.reqService.create(reqForm);
-        model.addAttribute("requirement", temp);
-        return "resultReqForm";
+
+        ModelAndView mav = new ModelAndView("resultReqForm");
+        ArrayList<TypeJob> typesJobs = this.typeJobService.getTypesJobs();
+        AtomicReference<String> jobName = new AtomicReference<>("");
+
+        typesJobs.forEach((typeJob) -> {
+            if (typeJob.get_id().equals(temp.get_idTypeJob())) {
+                jobName.set(typeJob.getJobName());
+            }
+        });
+
+        mav.addObject("requirement", temp);
+        mav.addObject("jobName", jobName);
+        return mav;
     }
 
+    // Metodo para maquetar
     @GetMapping("/requirement/resultReqForm")
-    public String resultReqForm(Model model) throws Exception {
-        return "resultReqForm";
+    public ModelAndView resultReqForm() throws Exception {
+
+        Requirement temp = this.reqService.findById("619c5c4ee58f0b5c34920e6f");
+
+        ModelAndView mav = new ModelAndView("resultReqForm");
+        ArrayList<TypeJob> typesJobs = this.typeJobService.getTypesJobs();
+
+        AtomicReference<String> jobName = new AtomicReference<>("");
+        typesJobs.forEach((typeJob) -> {
+             if (typeJob.get_id().equals(temp.get_idTypeJob())) {
+                 jobName.set(typeJob.getJobName());
+             }
+        });
+
+        mav.addObject("requirement", temp);
+        mav.addObject("jobName", jobName);
+        return mav;
+
     }
 
 }

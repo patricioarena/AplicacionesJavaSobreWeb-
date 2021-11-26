@@ -1,3 +1,11 @@
 .myClass {
     height:5em;
 }
+
+blockquote {
+    background-color: #fff;
+    border-left: 0.7rem solid #007bff;
+}
+blockquote > p {
+    margin-top: 2%;
+}
