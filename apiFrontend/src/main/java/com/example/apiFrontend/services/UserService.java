@@ -69,8 +69,25 @@ public class UserService {
         ModelMapper modelMapper = new ModelMapper();
         User user = modelMapper.map(userFormRegister, User.class);
 
-        user.setAddress(new Address());
-        ArrayList<Role> roles = roleService.getRoles();
+        Address address = new Address();
+        address.setStreet(null);
+        address.setNumber(null);
+        address.setZipCode(null);
+        address.setCity(null);
+        address.setProvState(null);
+        address.setCountry(null);
+
+        user.setAddress(address);
+        ArrayList<Role> roles = this.roleService.getRoles();
+        ArrayList<String> rolesId = new ArrayList<>();
+
+        for (Role aRole : roles){
+            if (!aRole.get_id().equals("6171ffa57831007cb5105356")){
+                rolesId.add(aRole.get_id());
+            }
+        }
+
+        user.setRoles(rolesId);
 
         String urlUserCreate = "user/save";
         JSONObject responseUser = this.httpClientAsynchronous.POST(urlUserCreate,user);

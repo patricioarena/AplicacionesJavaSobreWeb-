@@ -15,8 +15,6 @@ public class User {
 
     private String _id;
     private ArrayList<String> roles;
-    @Nullable
-    private ArrayList<String> rolesLabel;
     private String name;
     private String lastName;
     private Date birthDate;

@@ -19,7 +19,6 @@
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col" hidden>IdRole</th>
                     <th scope="col">Role</th>
                     <th scope="col">Name</th>
                     <th scope="col">Lastname</th>
@@ -37,8 +36,7 @@
                 <tbody>
                 <tr th:each="user:${users}">
                     <th th:text="${user._id}"></th>
-                    <td th:text="${user.roles}" hidden></td>
-                    <td th:text="${user.rolesLabel}"></td>
+                    <td th:text="${user.roles}"></td>
                     <td th:text="${user.name}"></td>
                     <td th:text="${user.lastName}"></td>
                     <td th:text="${#dates.format(user.birthDate,'dd-MM-yyyy')}"></td>

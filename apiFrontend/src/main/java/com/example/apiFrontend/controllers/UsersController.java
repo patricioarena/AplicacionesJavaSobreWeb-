@@ -77,7 +77,7 @@ public class UsersController {
                 }
 
                 User auxUser = aUser;
-                auxUser.setRolesLabel(aux);
+                auxUser.setRoles(aux);
                 usersWithRoleName.add(auxUser);
             }
 
@@ -159,8 +159,13 @@ public class UsersController {
         }
 
         User user = this.userService.create(userFormRegister);
-        ModelAndView mav = new ModelAndView("register");
+        ModelAndView mav = new ModelAndView("resultRegisterForm");
         mav.addObject("user", user);
         return mav;
+    }
+
+    @GetMapping("/users/resultRegisterForm")
+    public String resultRegisterForm(Model model) throws Exception{
+        return "resultRegisterForm";
     }
 }

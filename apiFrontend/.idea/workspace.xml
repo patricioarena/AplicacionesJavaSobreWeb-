@@ -10,18 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/RequirementForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementStatusService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/resultReqForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/resultRegisterForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/Requirement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/Requirement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/RequirementStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/RequirementStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/UserForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/UserForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/requirements.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/requirements.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,10 +26,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -87,7 +81,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../apiBackend" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -129,7 +123,7 @@
       <envs>
         <env name="baseUrl" value="http://localhost:8080/api/" />
         <env name="baseUrlHeroku" value="https://ajsw-api-backend.herokuapp.com/api/" />
-        <env name="baseUrlNgrok" value="http://c15c-186-39-118-174.ngrok.io/api/" />
+        <env name="baseUrlNgrok" value="http://fc43-186-39-60-81.ngrok.io/api/" />
       </envs>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -225,18 +219,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java</url>
-          <line>147</line>
-          <properties class="com.example.apiFrontend.controllers.UsersController" method="registerSubmit">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java</url>
-          <line>146</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
