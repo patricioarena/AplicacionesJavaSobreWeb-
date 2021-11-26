@@ -1,26 +1,140 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
 <head th:replace="plantillas/base :: head"></head>
 
 <body class="text-center">
-<header th:replace="plantillas/base :: header"></header>
+    <header th:replace="plantillas/base :: header"></header>
 
-<h1>Form ReQ</h1>
+    <main class="main">
+
+        <div class="container">
+            <div class="col-md-7 col-lg-8">
+                <br>
+                <br>
+                <h4 class="mb-3">Create publication</h4>
+                <hr class="my-4">
+                <form class="needs-validation" novalidate="" action="#" th:action="@{/requirement/new}"
+                    th:object="${requirementForm}" method="post">
+                    <div class="row g-3">
+
+                        <div class="col-sm-3" style="display:none">
+                            <label for="idTypeJobAux1" class="form-label"> _idTypeJobHide </label>
+                            <input id="idTypeJobAux1" name="" type="text" th:field="*{idTypeJob}" value="" required=""/>
+                        </div>
+
+                        <div class="form-group col-sm-3" th:object="${typesJobs}" >
+                            <label for="idTypeJob" class="col-form-label">Job:</label>
+                            <select class="form-control" size="1" id="idTypeJob" name=""
+                                    onchange="document.getElementById('idTypeJobAux1').setAttribute('value', event.target.value)" >
+                                <option>Choose...</option>
+                                <option th:each="job :${typesJobs}"
+                                        th:value="${{job.get_id()}}"
+                                        th:text="${job.getJobName()}"></option>
+                            </select>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="date" class="form-label">Date to be carried out </label>
+                            <input type="date" class="form-control" th:field="*{date}" id="date" name="">
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="street" class="form-label">Street</label>
+                            <input type="text" class="form-control" th:field="*{address.street}" id="street" name="" placeholder="" value=""
+                                required="">
+                            <div class="invalid-feedback">
+                                Valid street is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="number" class="form-label">Number</label>
+                            <input type="text" class="form-control" th:field="*{address.number}" id="number" name="" placeholder="" value=""
+                                required="">
+                            <div class="invalid-feedback">
+                                Valid last number is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="zipCode" class="form-label">zipCode</label>
+                            <input type="text" class="form-control" th:field="*{address.zipCode}" id="zipCode" name="" placeholder="" value=""
+                                required="">
+                            <div class="invalid-feedback">
+                                Valid zipCode is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" th:field="*{address.city}" id="city" name="" placeholder="" value=""
+                                required="">
+                            <div class="invalid-feedback">
+                                Valid last city is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="state" class="form-label">State</label>
+                            <input type="text" class="form-control" th:field="*{address.provState}" id="state" name="" placeholder="" value=""
+                                required="">
+                            <div class="invalid-feedback">
+                                Valid state is required.
+                            </div>
+                        </div>
 
 
-<form action="#" th:action="@{/requirement/new}" th:object="${greeting}" method="post">
-    <p>Id: <input type="text" th:field="*{id}" /></p>
-    <p>Message: <input type="text" th:field="*{content}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
+<!--                        <div class="col-sm-3">-->
+<!--                            <label for="country" class="form-label">Country</label>-->
+<!--                            <input type="text" class="form-control" th:field="*{address.country}" id="country" name="" placeholder="" value=""-->
+<!--                                   required="">-->
+<!--                            <div class="invalid-feedback">-->
+<!--                                Valid country is required.-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                        <div class="col-sm-3" style="display:none">
+                            <label for="idCountriesAux1" class="form-label"> Pais/Country </label>
+                            <input id="idCountriesAux1" name="" type="text" th:field="*{address.country}" value="" required=""/>
+                        </div>
+
+                        <div class="form-group col-sm-3" th:object="${countries}">
+                            <label th:for="editCountry" class="col-form-label">Country:</label>
+                            <br />
+                            <select th:id="editCountry" th:name="country" field="country" size="1" class="form-control"
+                                onchange="document.getElementById('idCountriesAux1').setAttribute('value', event.target.value)" >
+                                <option>Choose...</option>
+                                <option th:each="country : ${countries}"
+                                        th:value="${{country}}"
+                                        th:text="${country}">
+                                </option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-sm-12">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea type="text" class="form-control myClass" th:field="*{description}" id="description" name="" placeholder=""
+                                value="" required=""></textarea>
+                            <div class="invalid-feedback">
+                                Valid last description is required.
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+                        <button class="w-100 btn btn-primary btn-lg" type="submit" value="Submit">Publish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
 
 
 
 
-
-
-<footer th:replace="plantillas/base :: footer"></footer>
+    <footer th:replace="plantillas/base :: footer"></footer>
 
 </body>
 

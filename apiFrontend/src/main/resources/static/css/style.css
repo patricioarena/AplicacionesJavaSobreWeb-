@@ -4,16 +4,17 @@
     --deleted: #dc3545;
 }
 
+body, html {
+    height: 100%;
+}
+
 .main {
-    background-color: #f5f5f5;
+    background-color: #f5f5f5 !important;
     min-height: 100%;
     width: 100%;
     float: none;
-    position: fixed;
     box-shadow: none;
     overflow: visible;
-
-
 }
 
 .btn-group {

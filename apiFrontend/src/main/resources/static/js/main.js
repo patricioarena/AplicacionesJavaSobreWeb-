@@ -30,7 +30,7 @@ $(document).ready(function () {
             });
 
             $(`#editId${user._id}`).val(user._id);
-            $(`#editIdRole${user._id}`).val(user._idRole);
+            $(`#editIdRole${user._id}`).val(user.roles);
             $(`#editFirstname${user._id}`).val(user.name);
             $(`#editLastname${user._id}`).val(user.lastName);
             $(`#editBirthDate${user._id}`).val(dateFormated);
