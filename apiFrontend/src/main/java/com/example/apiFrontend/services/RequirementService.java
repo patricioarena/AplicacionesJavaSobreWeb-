@@ -1,9 +1,7 @@
 package com.example.apiFrontend.services;
 
-import com.example.apiFrontend.models.Address;
 import com.example.apiFrontend.models.Requirement;
-import com.example.apiFrontend.models.RequirementForm;
-import com.example.apiFrontend.models.User;
+import com.example.apiFrontend.models.forms.RequirementForm;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import lombok.Getter;
@@ -41,8 +39,8 @@ public class RequirementService {
         requirement.set_idTypeJob(model.getIdTypeJob());
 
         String url= "requirement/save";
-        JSONObject responseUser = this.httpClientAsynchronous.POST(url, requirement);
-        String responseString = responseUser.get("data").toString();
+        JSONObject responseJson = this.httpClientAsynchronous.POST(url, requirement);
+        String responseString = responseJson.get("data").toString();
 
         Type listType = new TypeToken<Requirement>() {}.getType();
         Requirement userUpdate = new Gson().fromJson(responseString, listType);
@@ -51,14 +49,33 @@ public class RequirementService {
     }
 
 
-    public Requirement findById(String id) throws Exception {
+    public Requirement findByIdRequirement(String id) throws Exception {
 
-        String urlUserFind = "requirement/find/"+id;
-        JSONObject resposeUser = this.httpClientAsynchronous.GET(urlUserFind);
-        String responseString = resposeUser.get("data").toString();
+        String url = "requirement/find/"+id;
+        JSONObject responseJson= this.httpClientAsynchronous.GET(url);
+        String responseString = responseJson.get("data").toString();
 
         Type listType = new TypeToken<Requirement>() {}.getType(); //TypeToken se utiliza para indicarle a Gson el tipo especifico al cual lo tiene que convertir
         return new Gson().fromJson(responseString, listType);
 
+    }
+
+    public ArrayList<Requirement> findByIdRequestPerson(String id) throws Exception {
+
+        String url = "requirement/getAll/"+id;
+        JSONObject responseJson = this.httpClientAsynchronous.GET(url);
+        String responseString = responseJson.get("data").toString();
+
+        Type listType = new TypeToken<ArrayList<Requirement>>() {}.getType();
+        return new Gson().fromJson(responseString, listType);
+    }
+
+    public ArrayList<Requirement> getAllRequirement() throws Exception {
+        String url = "requirement/getAll";
+        JSONObject responseJson = this.httpClientAsynchronous.GET(url);
+        String responseString = responseJson.get("data").toString();
+
+        Type listType = new TypeToken<ArrayList<Requirement>>() {}.getType();
+        return new Gson().fromJson(responseString, listType);
     }
 }

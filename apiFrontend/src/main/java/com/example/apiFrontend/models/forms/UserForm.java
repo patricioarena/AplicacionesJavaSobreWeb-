@@ -1,4 +1,4 @@
-package com.example.apiFrontend.models;
+package com.example.apiFrontend.models.forms;
 
 import lombok.Data;
 import lombok.Getter;

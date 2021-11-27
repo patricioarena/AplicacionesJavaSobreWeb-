@@ -3,28 +3,16 @@ package com.example.apiFrontend.controllers;
 import com.example.apiFrontend.models.Address;
 import com.example.apiFrontend.models.Role;
 import com.example.apiFrontend.models.User;
-import com.example.apiFrontend.models.UserForm;
+import com.example.apiFrontend.models.forms.UserForm;
 import com.example.apiFrontend.services.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
-import org.json.simple.JSONObject;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @ApiIgnore
 @Controller
@@ -77,21 +65,6 @@ public class UsersController {
                 usersWithRoleName.add(auxUser);
             }
 
-//            for (User aUser : users) {
-//                for (Role aRole : roles){
-//                    if (aUser.get_idRole().equals(aRole.get_id())) {
-//                        User aux = aUser;
-//                        aux.setRoleLabel(aRole.getRoleName());
-//                        usersWithRoleName.add(aux);
-//                    }
-//                }
-//            }
-
-//            model.addAttribute("titulo", "Lista de Usuarios");
-//            model.addAttribute("users", usersWithRoleName);
-
-//            return "users";
-//            mav.addObject("title", "List of users");
             mav.addObject("users", usersWithRoleName);
             mav.addObject("countries", this.commonsUtilities.getCountries());
 

@@ -31,6 +31,13 @@ public class RequirementController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/getAll/{idRequestPerson}")
+    public ResponseEntity<Datawrapper<List<RequirementDto>>> getAllRequirementsByRequestPerson(@PathVariable String idRequestPerson) {
+        List<RequirementDto> listRequirement = _requirementService.getAllRequirementsByRequestPerson(idRequestPerson);
+        Datawrapper<List<RequirementDto>> response = new Datawrapper<>(listRequirement);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
     @GetMapping(value = "/find/{id}")
     public ResponseEntity<Datawrapper<RequirementDto>> find(@PathVariable String id) {
         RequirementDto requirement = _requirementService.getRequirementById(id);
