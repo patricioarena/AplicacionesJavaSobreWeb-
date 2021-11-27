@@ -3,6 +3,7 @@ package com.example.apiFrontend.services;
 import com.example.apiFrontend.models.Role;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import lombok.AccessLevel;
 import lombok.Getter;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,8 @@ import java.util.ArrayList;
 public class RoleService {
 
     HttpClientAsynchronous httpClientAsynchronous;
-    ArrayList<Role> roles = null;
+    @Getter(AccessLevel.NONE)
+    private ArrayList<Role> roles = null;
 
     @Autowired
     public RoleService(HttpClientAsynchronous httpClientAsynchronous) throws Exception {

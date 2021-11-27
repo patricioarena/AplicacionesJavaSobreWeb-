@@ -1,20 +1,23 @@
-package com.example.apiFrontend.models;
+package com.example.apiFrontend.models.views;
 
+import com.example.apiFrontend.models.Address;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 
 import java.util.Date;
 
 @Data
 @Getter
 @Setter
-public class RequirementForm {
+public class RequirementView {
+
+    @Nullable
+    private String id;
     private String idRequestPerson;
-    private String idTypeJob;
-    private String idRequirementStatus;
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private String typeJobName;
+    private String requirementStatusName;
     private Date date;
     private Address address;
     private String description;

@@ -10,13 +10,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/resultRegisterForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/views/RequirementView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/ribbon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/allRequirement.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/allRequirementForOneId.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/IServices/IRequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/IServices/IRequirementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/RequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/RequirementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Repository/CommonResourcesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Repository/CommonResourcesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/RequirementForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/forms/RequirementForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/UserForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/forms/UserForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementStatusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementStatusService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/TypeJobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/TypeJobService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clientApp" beforeDir="false" afterPath="$PROJECT_DIR$/../clientApp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +40,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="Class" />
-        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -108,6 +120,7 @@
       <recent name="C:\Users\maxi\Desktop\AplicacionesJavaSobreWeb-\apiFrontend\src\main\resources\templates\plantillas" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.apiFrontend.models.views" />
       <recent name="com.example.apiFrontend.services" />
       <recent name="com.example.apiFrontend.models" />
       <recent name="com.example.apiFrontend.controllers" />
@@ -197,7 +210,10 @@
       <workItem from="1637711961025" duration="10335000" />
       <workItem from="1637753654394" duration="1427000" />
       <workItem from="1637756658228" duration="26453000" />
-      <workItem from="1637840789629" duration="10294000" />
+      <workItem from="1637840789629" duration="20531000" />
+      <workItem from="1637890694140" duration="636000" />
+      <workItem from="1637891345509" duration="5653000" />
+      <workItem from="1637968202860" duration="21463000" />
     </task>
     <servers />
   </component>
@@ -217,6 +233,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
+<<<<<<< HEAD
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="mav" />
+      </configuration>
+    </watches-manager>
+=======
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
@@ -226,6 +249,7 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+>>>>>>> 9daf0ca7c3103d64aca73371816f0ef36dada600
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

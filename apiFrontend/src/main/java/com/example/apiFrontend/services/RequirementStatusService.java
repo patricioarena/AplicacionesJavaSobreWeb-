@@ -1,14 +1,11 @@
 package com.example.apiFrontend.services;
 
-import com.example.apiFrontend.models.Requirement;
-import com.example.apiFrontend.models.RequirementForm;
 import com.example.apiFrontend.models.RequirementStatus;
-import com.example.apiFrontend.models.Role;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import lombok.AccessLevel;
 import lombok.Getter;
 import org.json.simple.JSONObject;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +17,8 @@ import java.util.ArrayList;
 public class RequirementStatusService {
 
     HttpClientAsynchronous httpClientAsynchronous;
-    ArrayList<RequirementStatus> allStatus = null;
+    @Getter(AccessLevel.NONE)
+    private ArrayList<RequirementStatus> allStatus = null;
 
     @Autowired
     public RequirementStatusService(HttpClientAsynchronous httpClientAsynchronous) throws Exception {

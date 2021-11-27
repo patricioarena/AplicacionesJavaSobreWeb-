@@ -6,11 +6,6 @@
 <body class="text-center">
 <header th:replace="plantillas/base :: header"></header>
 
-
-<!--<p th:text="'Id: ' + ${requirement.get_id()}" />-->
-<!--<p th:text="'Create at: ' + ${requirement.getDate()}" />-->
-
-
 <!--<a href="/requirement">Create another publication</a>-->
 
 <main class="main">
@@ -19,17 +14,30 @@
         <div class="col-md-7 col-lg-8">
             <br>
             <br>
-            <h4 class="mb-3">Created successfully!!</h4>
+            <h4 class="mb-3" th:text="'My requirements!! ('+  ${listRequirement.size()} +')'" >My requirements!!</h4>
+            <span th:text="'My id: ' + ${listRequirement[0].getIdRequestPerson()}"></span>
             <hr class="my-4">
         </div>
 
-        <div class="col-md-7 col-lg-8">
+        <div class="col-md-7 col-lg-8" th:each="requirement:${listRequirement}" style="margin-bottom: 50px;">
             <div class="card">
+
+                <th:block th:switch="${requirement.getRequirementStatusName()}">
+                    <div th:case="'Open'">
+                        <div class="ribbon-corner status-open">Open</div>
+                    </div>
+                    <div th:case="'Close'">
+                        <div class="ribbon-corner status-close">Close</div>
+                    </div>
+                    <div th:case="'Canceled'">
+                        <div class="ribbon-corner status-canceled">Canceled</div>
+                    </div>
+                </th:block>
+
                 <div class="card-header">
                     <h5 class="card-title">
                         <i class="fas fa-briefcase"></i>
-                        &nbsp;&nbsp;
-                        <a th:text="${jobName.get()}"></a>
+                        <a th:text="${requirement.getTypeJobName()}"></a>
                     </h5>
                 </div>
                 <div class="card-body">
@@ -41,7 +49,7 @@
 
                             <hr class="my-4">
 
-                            <div class="card-body" th:if="${true}">
+                            <div class="card-body" th:if="${false}">
 
                                 <div class="row" style="text-align: left;">
                                     <dt class="col">Fecha a realizar:</dt>
@@ -57,7 +65,7 @@
                                 </div>
                             </div>
 
-                            <div class="card-body" th:if="${false}">
+                            <div class="card-body" th:if="${true}">
 
                                 <div class="row" style="text-align: left;">
                                     <dt class="col">Fecha a realizar:</dt>

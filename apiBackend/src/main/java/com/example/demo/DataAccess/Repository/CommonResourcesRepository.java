@@ -39,6 +39,16 @@ public class CommonResourcesRepository<T> {
         return iterableDocs;
     }
 
+    public Iterable<Document> getAllBySomeId(String collectionName, String paramName, String paramValue) {
+        if (paramName.contains("id")){
+            BasicDBObject searchQuery = new BasicDBObject(paramName, new ObjectId(paramValue));
+            var iterableDocs = getDocumentMongoCollection(collectionName).find(searchQuery);
+            return iterableDocs;
+        }
+        String output = String.format("Not supported for param: %s", paramName);
+        throw new java.lang.UnsupportedOperationException();
+    }
+
     public Integer deleted(String id, String collectionName) {
         BasicDBObject updateFields = new BasicDBObject();
         updateFields.append("deleted", true);

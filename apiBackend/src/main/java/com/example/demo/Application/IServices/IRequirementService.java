@@ -14,4 +14,5 @@ public interface IRequirementService extends IGenericService<Requirement, Object
     List<RequirementDto> getAllRequirements();
     RequirementDto deleted(String id);
     RequirementDto modifyRequirement(RequirementDto model);
+    List<RequirementDto> getAllRequirementsByRequestPerson(String idRequestPerson);
 }

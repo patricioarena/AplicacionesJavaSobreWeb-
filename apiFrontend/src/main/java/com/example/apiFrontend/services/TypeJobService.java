@@ -4,6 +4,7 @@ import com.example.apiFrontend.models.Role;
 import com.example.apiFrontend.models.TypeJob;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import lombok.AccessLevel;
 import lombok.Getter;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,8 @@ import java.util.ArrayList;
 @Service
 public class TypeJobService {
     HttpClientAsynchronous httpClientAsynchronous;
-    ArrayList<TypeJob> jobs = null;
+    @Getter(AccessLevel.NONE)
+    private ArrayList<TypeJob> jobs = null;
 
     @Autowired
     public TypeJobService(HttpClientAsynchronous httpClientAsynchronous) throws Exception {
