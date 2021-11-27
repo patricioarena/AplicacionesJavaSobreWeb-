@@ -39,7 +39,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Class" />
         <option value="CSS File" />
@@ -81,7 +80,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -90,7 +93,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../apiBackend" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -100,7 +103,6 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
@@ -111,6 +113,7 @@
       <recent name="C:\Users\patri\Desktop\apiFrontend\src\main\java\com\example\apiFrontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\maxi\Desktop\AplicacionesJavaSobreWeb-\apiFrontend\src\main\resources\templates" />
       <recent name="C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\resources\static\js" />
       <recent name="C:\Users\patri\source\repos\IdeaProjects\demo\apiFrontend\src\main\resources\static" />
       <recent name="C:\Users\maxi\Desktop\AplicacionesJavaSobreWeb-\apiFrontend\src\main\resources\static" />
@@ -133,7 +136,7 @@
       <envs>
         <env name="baseUrl" value="http://localhost:8080/api/" />
         <env name="baseUrlHeroku" value="https://ajsw-api-backend.herokuapp.com/api/" />
-        <env name="baseUrlNgrok" value="http://793b-186-39-18-179.ngrok.io/api/" />
+        <env name="baseUrlNgrok" value="http://fc43-186-39-60-81.ngrok.io/api/" />
       </envs>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -230,17 +233,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
+<<<<<<< HEAD
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="mav" />
       </configuration>
     </watches-manager>
+=======
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/UserService.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+>>>>>>> 9daf0ca7c3103d64aca73371816f0ef36dada600
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/apiFrontend$ApifrontendApplication.ic" NAME="ApifrontendApplication Coverage Results" MODIFIED="1637842508018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/apiFrontend$ApifrontendApplication.ic" NAME="ApifrontendApplication Coverage Results" MODIFIED="1637201561417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

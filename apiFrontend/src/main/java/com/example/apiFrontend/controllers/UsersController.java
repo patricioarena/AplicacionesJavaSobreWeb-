@@ -1,5 +1,9 @@
 package com.example.apiFrontend.controllers;
 
+import com.example.apiFrontend.models.*;
+import com.example.apiFrontend.services.HttpClientAsynchronous;
+import com.example.apiFrontend.services.RoleService;
+import com.example.apiFrontend.services.UserService;
 import com.example.apiFrontend.models.Address;
 import com.example.apiFrontend.models.Role;
 import com.example.apiFrontend.models.User;
@@ -61,7 +65,7 @@ public class UsersController {
                 }
 
                 User auxUser = aUser;
-                auxUser.setRolesLabel(aux);
+                auxUser.setRoles(aux);
                 usersWithRoleName.add(auxUser);
             }
 
@@ -105,5 +109,36 @@ public class UsersController {
         var temp = this.userService.update(user);
         System.out.println(temp);
         return "redirect:/users/getAll";
+    }
+
+    @GetMapping("users/register")
+    public String registerForm(Model model) {
+        model.addAttribute("register", new UserFormRegister());
+        return "register";
+    }
+
+    @PostMapping("users/register/create")
+    public ModelAndView registerSubmit(@ModelAttribute UserFormRegister userFormRegister, Model model) throws Exception {
+
+        if(!userFormRegister.getEmail().equals(userFormRegister.getConfirmEmail())){
+            ModelAndView mavRedirect = new ModelAndView("register");
+            mavRedirect.addObject("userFormRegister", userFormRegister);
+            return mavRedirect;
+        }
+        if(!userFormRegister.getPassword().equals(userFormRegister.getConfirmPassword())){
+            ModelAndView mavRedirect = new ModelAndView("register");
+            mavRedirect.addObject("userFormRegister", userFormRegister);
+            return mavRedirect;
+        }
+
+        User user = this.userService.create(userFormRegister);
+        ModelAndView mav = new ModelAndView("resultRegisterForm");
+        mav.addObject("user", user);
+        return mav;
+    }
+
+    @GetMapping("/users/resultRegisterForm")
+    public String resultRegisterForm(Model model) throws Exception{
+        return "resultRegisterForm";
     }
 }
