@@ -233,13 +233,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
-<<<<<<< HEAD
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="mav" />
       </configuration>
     </watches-manager>
-=======
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
@@ -249,7 +247,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
->>>>>>> 9daf0ca7c3103d64aca73371816f0ef36dada600
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
