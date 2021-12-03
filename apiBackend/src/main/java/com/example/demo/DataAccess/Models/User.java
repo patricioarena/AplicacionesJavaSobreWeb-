@@ -7,6 +7,10 @@ import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.Date;
+
+
 @Data
 @Getter
 @Setter
@@ -15,24 +19,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     private ObjectId _id;
-    private ObjectId _idRole;
+    private ArrayList<ObjectId> roles;
     private String name;
     private String lastName;
-    private String birthDate;
+    private Date birthDate;
     private String typeDoc;
     private int numberDoc;
     private String gender;
     private String email;
+    private String password;
     private String telephoneNumber;
     private double reputation;
     private Address address;
     private boolean deleted;
 
 
-    public User(ObjectId _idRole, String name, String lastName, String birthDate, String typeDoc,
-                int numberDoc, String gender, String email, String telephoneNumber, float reputation,
+    public User(ObjectId _idRole, String name, String lastName, Date birthDate, String typeDoc,
+                int numberDoc, String gender, String email, String password, String telephoneNumber, float reputation,
                 Address address, boolean deleted){
-        this._idRole = _idRole;
+        this.roles = roles;
         this.name = name;
         this.lastName = lastName;
         this.birthDate = birthDate;
@@ -40,6 +45,7 @@ public class User {
         this.numberDoc = numberDoc;
         this.gender = gender;
         this.email = email;
+        this.password = password;
         this.telephoneNumber = telephoneNumber;
         this.reputation = reputation;
         this.address = address;

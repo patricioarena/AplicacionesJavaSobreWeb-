@@ -7,19 +7,23 @@ import lombok.NonNull;
 import lombok.Setter;
 import org.bson.types.ObjectId;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 @Data
 @Getter
 @Setter
 public class UserDto {
     private String _id;
-    private String _idRole;
+    private ArrayList<String> roles;
     private String name;
     private String lastName;
-    private String birthDate;
+    private Date birthDate;
     private String typeDoc;
     private int numberDoc;
     private String gender;
     private String email;
+    private String password;
     private String telephoneNumber;
     private double reputation;
     private Address address;

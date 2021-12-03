@@ -12,6 +12,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Map;
 
+@ApiIgnore
 @RestController
 @RequestMapping(name = "", value = "api/ClientRest", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ClientRestController {

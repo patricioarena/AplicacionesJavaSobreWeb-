@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -37,6 +39,16 @@ public class CommonResourcesRepository<T> {
         return iterableDocs;
     }
 
+    public Iterable<Document> getAllBySomeId(String collectionName, String paramName, String paramValue) {
+        if (paramName.contains("id")){
+            BasicDBObject searchQuery = new BasicDBObject(paramName, new ObjectId(paramValue));
+            var iterableDocs = getDocumentMongoCollection(collectionName).find(searchQuery);
+            return iterableDocs;
+        }
+        String output = String.format("Not supported for param: %s", paramName);
+        throw new java.lang.UnsupportedOperationException();
+    }
+
     public Integer deleted(String id, String collectionName) {
         BasicDBObject updateFields = new BasicDBObject();
         updateFields.append("deleted", true);
@@ -60,12 +72,16 @@ public class CommonResourcesRepository<T> {
         String json = gson.toJson(dto);
         BasicDBObject updateFields = BasicDBObject.parse(json);
 
-        ObjectId idRole = null;
-        if (updateFields.containsKey("_idRole")){
-            String idRoleString = updateFields.getString("_idRole");
-            idRole = new ObjectId(idRoleString);
-            updateFields.removeField("_idRole");
-            updateFields.append("_idRole",idRole);
+        ArrayList<ObjectId> roles = new ArrayList<>();
+
+        if (updateFields.containsKey("roles")) {
+            var s1 = updateFields.getString("roles");
+            var s2 = s1.replaceAll("^\\[|]$", "");
+            var arrString = s2.replaceAll(", ", ",");
+            List<String> myList = Arrays.asList(arrString.split(","));
+            myList.forEach(role -> roles.add(new ObjectId(role)));
+            updateFields.removeField("roles");
+            updateFields.append("roles", roles);
         }
 
         String _id = updateFields.getString("_id");

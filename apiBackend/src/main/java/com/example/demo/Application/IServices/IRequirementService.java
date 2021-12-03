@@ -8,10 +8,11 @@ import java.util.List;
 
 public interface IRequirementService extends IGenericService<Requirement, ObjectId>{
 
-    RequirementDto getRequirementById(ObjectId id);
+    RequirementDto getRequirementById(String id);
 //    RequirementDto saveNewRequirement(Requirement requirement);
     RequirementDto saveNewRequirement(RequirementDto requirementDto);
     List<RequirementDto> getAllRequirements();
     RequirementDto deleted(String id);
     RequirementDto modifyRequirement(RequirementDto model);
+    List<RequirementDto> getAllRequirementsByRequestPerson(String idRequestPerson);
 }

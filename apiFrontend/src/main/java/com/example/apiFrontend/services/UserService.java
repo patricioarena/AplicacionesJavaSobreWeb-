@@ -1,10 +1,14 @@
 package com.example.apiFrontend.services;
 
+import com.example.apiFrontend.models.Address;
 import com.example.apiFrontend.models.Role;
 import com.example.apiFrontend.models.User;
+import com.example.apiFrontend.models.UserFormRegister;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import lombok.Getter;
 import org.json.simple.JSONObject;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,22 +16,28 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Optional;
 
+@Getter
 @Service
 public class UserService {
 
     HttpClientAsynchronous httpClientAsynchronous;
-    ArrayList<Role> roles = null;
+    RoleService roleService;
 
     @Autowired
-    public UserService(HttpClientAsynchronous httpClientAsynchronous) throws Exception {
+    public UserService(HttpClientAsynchronous httpClientAsynchronous, RoleService roleService) throws Exception {
         this.httpClientAsynchronous = httpClientAsynchronous;
+        this.roleService = roleService;
+    }
 
-        String urlRole = "role/getAll";
-        JSONObject responseRole = this.httpClientAsynchronous.GET(urlRole);
-        String responseStringRole = responseRole.get("data").toString();
-        Type listTypeRole = new TypeToken<ArrayList<Role>>() {}.getType();
-        this.roles = new Gson().fromJson(responseStringRole, listTypeRole);
+    public ArrayList<User> getAllUsers() throws Exception {
 
+        String urlUsers = "user/getAll";
+        JSONObject resposeUser = this.httpClientAsynchronous.GET(urlUsers);
+        String responseString = resposeUser.get("data").toString();
+        Type listType = new TypeToken<ArrayList<User>>() {}.getType();
+        ArrayList<User> users = new Gson().fromJson(responseString, listType);
+
+        return users;
     }
 
     public User findById(String id) throws Exception {
@@ -48,10 +58,44 @@ public class UserService {
         JSONObject responseUser = this.httpClientAsynchronous.PUT(urlUserUpdate, user);
         String responseString = responseUser.get("data").toString();
 
-        Type listType = new TypeToken<User>(){
-        }.getType();
+        Type listType = new TypeToken<User>() {}.getType();
         User userUpdate = new Gson().fromJson(responseString, listType);
 
         return userUpdate;
+    }
+
+    public User create(UserFormRegister userFormRegister) throws Exception {
+
+        ModelMapper modelMapper = new ModelMapper();
+        User user = modelMapper.map(userFormRegister, User.class);
+
+        Address address = new Address();
+        address.setStreet(null);
+        address.setNumber(null);
+        address.setZipCode(null);
+        address.setCity(null);
+        address.setProvState(null);
+        address.setCountry(null);
+
+        user.setAddress(address);
+        ArrayList<Role> roles = this.roleService.getRoles();
+        ArrayList<String> rolesId = new ArrayList<>();
+
+        for (Role aRole : roles){
+            if (!aRole.get_id().equals("6171ffa57831007cb5105356")){
+                rolesId.add(aRole.get_id());
+            }
+        }
+
+        user.setRoles(rolesId);
+
+        String urlUserCreate = "user/save";
+        JSONObject responseUser = this.httpClientAsynchronous.POST(urlUserCreate,user);
+        String responseString = responseUser.get("data").toString();
+
+        Type listType = new TypeToken<User>() {}.getType();
+        User userCreate = new Gson().fromJson(responseString, listType);
+
+        return userCreate;
     }
 }

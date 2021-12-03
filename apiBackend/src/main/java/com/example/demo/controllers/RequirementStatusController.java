@@ -2,6 +2,8 @@ package com.example.demo.controllers;
 
 import com.example.demo.Application.IServices.IRequirementStatusService;
 import com.example.demo.DataAccess.Models.RequirementStatus;
+import com.example.demo.Domain.Datawrapper;
+import com.example.demo.Domain.RequirementDto;
 import com.example.demo.Domain.RequirementStatusDto;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
@@ -22,21 +24,24 @@ public class RequirementStatusController {
     }
 
     @GetMapping(value = "/getAll")
-    public ResponseEntity<List<RequirementStatusDto>> getAll() {
+    public ResponseEntity<Datawrapper<List<RequirementStatusDto>>>  getAll() {
         List<RequirementStatusDto> listRequirementStatus = _requirementStatusService.getAllRequirementStatus();
-        return new ResponseEntity<>(listRequirementStatus, HttpStatus.OK);
+        Datawrapper<List<RequirementStatusDto>> response = new Datawrapper<>(listRequirementStatus);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = "/find/{id}")
-    public ResponseEntity<RequirementStatusDto> find(@PathVariable ObjectId id) {
+    public ResponseEntity<Datawrapper<RequirementStatusDto>>find(@PathVariable String id) {
         RequirementStatusDto rStatus = _requirementStatusService.getRequirementStatusById(id);
-        return new ResponseEntity<>(rStatus, HttpStatus.OK);
+        Datawrapper<RequirementStatusDto> response = new Datawrapper<>(rStatus);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<RequirementStatusDto> save(@RequestBody RequirementStatus requirementStatus) {
+    public ResponseEntity<Datawrapper<RequirementStatusDto>> save(@RequestBody RequirementStatus requirementStatus) {
         RequirementStatusDto rStatus = _requirementStatusService.saveNewRequirementStatus(requirementStatus);
-        return new ResponseEntity<>(rStatus, HttpStatus.OK);
+        Datawrapper<RequirementStatusDto> response = new Datawrapper<>(rStatus);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }
