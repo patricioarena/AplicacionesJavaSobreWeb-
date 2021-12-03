@@ -10,25 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe6d87fc-f5f2-4a43-8b3b-2160e0704d9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/views/RequirementView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/ribbon.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/allRequirement.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/allRequirementForOneId.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/IServices/IRequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/IServices/IRequirementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/RequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/Application/Services/RequirementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Repository/CommonResourcesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/Repository/CommonResourcesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/controllers/RequirementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/DefaultRoles.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiBackend/src/main/java/com/example/demo/DataAccess/DefaultRoles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/RequirementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/controllers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/RequirementForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/forms/RequirementForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/UserForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/models/forms/UserForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementStatusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RequirementStatusService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/TypeJobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/TypeJobService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/requirement.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plantillas/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/HttpClientAsynchronous.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/apiFrontend/services/HttpClientAsynchronous.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../clientApp" beforeDir="false" afterPath="$PROJECT_DIR$/../clientApp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,6 +198,12 @@
       <workItem from="1637890694140" duration="636000" />
       <workItem from="1637891345509" duration="5653000" />
       <workItem from="1637968202860" duration="21463000" />
+      <workItem from="1638220081458" duration="4091000" />
+      <workItem from="1638234224123" duration="12000" />
+      <workItem from="1638400843733" duration="3425000" />
+      <workItem from="1638486664702" duration="230000" />
+      <workItem from="1638493759749" duration="83000" />
+      <workItem from="1638494802157" duration="76000" />
     </task>
     <servers />
   </component>
@@ -233,11 +223,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="mav" />
-      </configuration>
-    </watches-manager>
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
@@ -247,6 +232,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="mav" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
