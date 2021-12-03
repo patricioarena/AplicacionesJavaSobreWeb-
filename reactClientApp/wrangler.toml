@@ -1,0 +1,8 @@
+type = "webpack"
+name = "my-reactpoc"
+account_id = "1ca4730070812fe53c01b1a9057234bf"
+workers_dev = true
+
+[site]
+bucket = "./build" # <-- Add your build directory name here!
+entry-point = "workers-site"
