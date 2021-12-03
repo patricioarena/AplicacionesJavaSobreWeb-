@@ -13,7 +13,7 @@ const SignInWithGoogle = () => {
   useEffect(() => {
     window.gapi.load('auth2', () => {
       window.gapi.auth2.init({
-        client_id: '436064921337-pdu1pag3mte2vqhkpchimks3np46vp94.apps.googleusercontent.com',
+        client_id: '',
         scope: 'profile email',
       }).then(() => {
         auth.current = window.gapi.auth2.getAuthInstance();
