@@ -1,6 +1,3 @@
-/apiFrontend/target
-/apiFrontend/.idea/workspace.xml
-
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -35,12 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 
-# Default ignored files
-/shelf/
-/workspace.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
-.idea
+serviceAccountKey.json
+appsettings.json
+/appsettings.json
